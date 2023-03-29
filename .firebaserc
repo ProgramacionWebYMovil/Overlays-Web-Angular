@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "streamingoverlays-3f50d": {
+      "hosting": {
+        "Overlays-Web-Angular": [
+          "streamingoverlays-3f50d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "streamingoverlays-3f50d"
+  }
+}
