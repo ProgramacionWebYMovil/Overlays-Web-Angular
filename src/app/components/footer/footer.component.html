@@ -4,55 +4,52 @@
         <a href="/html/intro.html"><img id="logo-footer" src="assets/logotypes/logo.png" alt="Logo image"></a>
         <nav id="nav_footer">
             <ul id="exploreSection" class="ul-footer">
-                <li class="title"><h3>{{pepe.title_explore}}</h3></li>
-            </ul>
-        </nav>
-    </section>
-                <!--<li class="li-footer"><a href="/html/intro.html">{{text_explore1}}</a></li>
-                <li class="li-footer"><a href="/html/overlays.html">{{text_explore2}}</a></li>
-                <li class="li-footer"><a href="/html/howToUse.html">{{text_explore3}}</a></li>
-                <li class="li-footer"><a href="/html/prices.html">{{text_explore4}}</a></li>
+                <li class="title"><h3>{{pageContent.title_explore}}</h3></li>
+                <li class="li-footer"><a href="/html/intro.html">{{pageContent.text_home}}</a></li>
+                <li class="li-footer"><a href="/html/overlays.html">{{pageContent.text_overlays}}</a></li>
+                <li class="li-footer"><a href="/html/howToUse.html">{{pageContent.text_howToUse}}</a></li>
+                <li class="li-footer"><a href="/html/prices.html">{{pageContent.text_pricing}}</a></li>
             </ul>
         </nav>
 
         <ul id="followSection" class="ul-footer">
-            <li class="title"><h3>{{title_follow}}</h3></li>
+            <li class="title"><h3>{{pageContent.title_follow}}</h3></li>
             <li id ="instagram" class="li-footer">
                 <img src="assets/icons/instagram.png" class="social-icon" alt="Logo de instagram" />
-                <a class="socialLink-footer" href="">{{text_instagram}}</a>
+                <a class="socialLink-footer" href="">{{pageContent.text_instagram}}</a>
             </li>
             <li id ="youtube" class="li-footer">
                 <img src="assets/icons/youtube.png" class="social-icon" alt="Logo de youtube" />
-                <a class="socialLink-footer" href="">{{text_youtube}}</a>
+                <a class="socialLink-footer" href="">{{pageContent.text_youtube}}</a>
             </li>
             <li id ="tiktok" class="li-footer">
                 <img src="assets/icons/tik tok.png" class="social-icon" alt="Logo de tik tok" />
-                <a class="socialLink-footer" href="">{{text_tiktok}}</a>
+                <a class="socialLink-footer" href="">{{pageContent.text_tiktok}}</a>
             </li>
             <li id ="facebook" class="li-footer">
                 <img src="assets/icons/facebook.png" class="social-icon" alt="Logo de facebook" />
-                <a class="socialLink-footer" href="">{{text_facebook}}</a>
+                <a class="socialLink-footer" href="">{{pageContent.text_facebook}}</a>
             </li>
         </ul>
 
 
         <ul class="ul-footer" id="ul-contac_us">
-            <li class="title"><h3>{{title_form}}</h3></li>
+            <li class="title"><h3>{{pageContent.title_form}}</h3></li>
             <li>
                 <form id="form-footer" method="post" name="emailForm" action="/php/form-to-email.php" onsubmit="return false;">
                     <section id="message-form-footer">
                         <div>
                             <div class="nameEmail-form-footer">
-                                <label for="name">{{text_name}}</label>
+                                <label for="name">{{pageContent.text_name}}</label>
                                 <input type="text" name="name" />
                             </div>
                             <div class="nameEmail-form-footer">
-                                <label for="email">{{text_email}}</label>
+                                <label for="email">{{pageContent.text_email}}</label>
                                 <input type="email" name="email" />
                             </div>
                         </div>
                         <div id="message-form">
-                            <label for="message">{{text_message}}</label>
+                            <label for="message">{{pageContent.text_message}}</label>
                             <textarea id="textArea-form-footer" type="text" name="message"></textarea>
                             <button type="submit">Send</button>
                         </div>
@@ -61,7 +58,7 @@
                 </form>
             </li>
         </ul>
-    </section>-->
+    </section>
 
     <section id="copyright-footer">
         <a>Privacy Policy</a>
