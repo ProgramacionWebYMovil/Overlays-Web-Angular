@@ -17,16 +17,14 @@ export class FirestoreService {
   async getData(nameCollection : string, document:string){
 
     const ref = doc(this.firestore,nameCollection,document);
-    console.log(ref.id);
-
+    
     const docu = await getDoc(ref);
-    const data = docu.data()
-
+    const data = docu.data();
     return data;
 
   }
 
-  setData(nameCollection:string){
+  /*setData(nameCollection:string){
 
     const ref = collection(this.firestore,nameCollection);
 
@@ -38,6 +36,6 @@ export class FirestoreService {
     const hola = {abc:"hola"}
     //addDoc();
 
-  }
+  }*/
 
 }
