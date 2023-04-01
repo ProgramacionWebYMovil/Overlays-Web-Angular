@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirestoreService } from './services/firestore/firestore.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Overlays-Web-Angular';
+
+  constructor(private db:FirestoreService) {
+  }
+
+  aabd(){
+    
+  }
 }
