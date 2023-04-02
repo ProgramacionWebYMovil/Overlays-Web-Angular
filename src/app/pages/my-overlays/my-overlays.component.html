@@ -1,1 +1,30 @@
-<p>my-overlays works!</p>
+<main>
+    <h1 id="h1_title">My overlay library</h1>
+    <p id="messageNoOverlays">No hay overlays</p>
+    <section id="overlays">
+        <div *ngFor="let item of [0,1,2,3,4];let i=index">
+            <app-card-overlay></app-card-overlay>
+        </div>
+    </section>
+
+
+    <!--Avanzar página si la hay-->
+    <div id="pages">
+        <button id="previousPage">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M15.5 20.4L7.1 12l8.4-8.4L16.9 5l-7 7 7 7z"></path>
+            </svg>
+        </button>
+        <div id="pageText">
+            <p id="pageWord">Page&nbsp;</p>
+            <p id="actualPage"></p>
+            <p id="fromWord">&nbsp;of&nbsp;</p>
+            <p id="nPages"></p>
+        </div>
+        <button id="nextPage">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M8.5 20.4l8.4-8.4-8.4-8.4L7.1 5l7 7-7 7z"></path>
+            </svg>
+        </button>
+    </div>
+</main>
