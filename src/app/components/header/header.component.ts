@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Header } from 'src/app/interfaces/pagesContents.interface';
+import { checkLogged } from 'src/app/services/check-is-logged/check-is-logged.service';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
-import { PageContentService } from 'src/app/services/page-content/page-content.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class HeaderComponent {
 
   isLogged: boolean;
 
-  constructor(private tool:PageContentService,private db:FirestoreService){
+  constructor(private db:FirestoreService){
     this.loadContent();
     this.isLogged = checkLogged();
   }
@@ -27,10 +27,7 @@ export class HeaderComponent {
 
   private loadContent(){
     this.db.getData("PageContentEnglish","header").then(data =>{
-      const pepe2 =this.tool.setTextData(data!,this.pageContent);
-      this.pageContent = pepe2 as Header ;
-      console.log(this.pageContent);
-
+      this.pageContent = data as Header ;
     });
   }
 
@@ -39,9 +36,5 @@ export class HeaderComponent {
   }
 
 
-}
-function checkLogged(): boolean {
-  let logged = sessionStorage.getItem("logged")=="true" ? true :  false;
-  return logged;
 }
 

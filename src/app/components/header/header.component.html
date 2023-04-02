@@ -22,17 +22,17 @@
                 <img id="icono_usuario" src="assets/icons/user-yellow.png" alt="User Icon"/>
                 <div >
                   <ng-template *ngIf="isLogged else elseblock">
-                    <div id="logged">
-                        <a href="">{{pageContent.logged_option2}}</a>
-                        <a >{{pageContent.logged_option3}}</a>
-                    </div>
+
+                    <a href="">{{pageContent.logged_option2}}</a>
+                    <a >{{pageContent.logged_option3}}</a>
+
                   </ng-template>
 
                   <ng-template #elseblock>
-                      <div id="logged">
-                          <a href="/html/myOverlays.html">{{pageContent.logged_option0}}</a>
-                          <a >{{pageContent.logged_option1}}</a>
-                      </div>
+
+                    <a href="/html/myOverlays.html">{{pageContent.logged_option0}}</a>
+                    <a >{{pageContent.logged_option1}}</a>
+
                   </ng-template>
                 </div>
             </li>

@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "Overlays-Web-Angular",
-      "public": "/src",
+      "public": "dist/overlays-web-angular",
       "ignore": [
         "**/.*"
       ],

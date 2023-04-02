@@ -13,6 +13,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { PricesComponent } from './pages/prices/prices.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RouterModule } from '@angular/router';
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideDatabase(() => getDatabase())
+    provideDatabase(() => getDatabase()),
+    provideStorage(() => getStorage())
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
