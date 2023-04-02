@@ -23,9 +23,9 @@ export class FooterComponent {
 
   ngOnInit() {
     console.log();
-
+    
     let language = localStorage.getItem('language')!;
-
+    
     this.db.getData(language,"footer").then(data=> this.tool.setTextData(data!,this.pageContent));
 
   }
