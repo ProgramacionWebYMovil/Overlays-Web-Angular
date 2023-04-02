@@ -6,6 +6,9 @@
     --colorPrincipalOscuro:#04006B;
 }
 
-body{
-    margin:0;
+body {
+    background:var(--colorPrincipal);
+    font-family:Poppins;
+    overflow-x: hidden;
+    margin: 0;
 }

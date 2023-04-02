@@ -1,6 +1,10 @@
 #nav_header{
   background: linear-gradient(var(--colorPrincipalOscuro),var(--colorPrincipal));
   font-family: Poppins, serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
 }
 
 #menu-header {

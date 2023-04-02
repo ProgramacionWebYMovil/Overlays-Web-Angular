@@ -21,7 +21,10 @@ export class HeaderComponent {
 
   constructor(private db:FirestoreService){
     this.loadContent();
+    sessionStorage.setItem("logged","true");
     this.isLogged = checkLogged();
+    console.log(this.isLogged);
+
   }
 
 
