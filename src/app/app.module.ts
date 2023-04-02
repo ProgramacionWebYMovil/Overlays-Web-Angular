@@ -19,7 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
     FooterComponent,
     IndexComponent,
     PricesComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
