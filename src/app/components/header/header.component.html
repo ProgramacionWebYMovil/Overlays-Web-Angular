@@ -1,1 +1,42 @@
-<p>{{pepe.howToUse}}</p>
+<nav id="nav_header">
+  <section id="menu-header">
+      <h1 id="title"><img src="assets/logotypes/logo.png" alt="Imagen del Logo"/><a href="">{{pageContent.title}}</a></h1>
+
+      <button class="dropall"> <i>&#8801;</i>
+          <ul class="dropall_elements">
+            <li id="dropmenu">
+                <a id="dropmenu-top" href="/html/overlays.html">{{pageContent.dropmenu_title}}</a>
+                <div class="dropmenu_elements">
+                    <a id="football" href="">{{pageContent.dropmenu_football}}</a>
+                    <a id="basketball" href="">{{pageContent.dropmenu_basketball}}</a>
+                    <a id="padel" href="">{{pageContent.dropmenu_padel}}</a>
+                    <a id="tennis" href="">{{pageContent.dropmenu_tennis}}</a>
+                    <a id="others" href="">{{pageContent.dropmenu_others}}</a>
+                </div>
+            </li>
+
+            <li id="prices"><a href="/html/prices.html">{{pageContent.prices_title}}</a></li>
+            <li id="howToUse"><a href="/html/howToUse.html">{{pageContent.howToUse}}</a></li>
+
+            <li id="sessionOptions">
+                <img id="icono_usuario" src="assets/icons/user-yellow.png" alt="User Icon"/>
+                <div >
+                  <ng-template *ngIf="isLogged else elseblock">
+                    <div id="logged">
+                        <a href="">{{pageContent.logged_option2}}</a>
+                        <a >{{pageContent.logged_option3}}</a>
+                    </div>
+                  </ng-template>
+
+                  <ng-template #elseblock>
+                      <div id="logged">
+                          <a href="/html/myOverlays.html">{{pageContent.logged_option0}}</a>
+                          <a >{{pageContent.logged_option1}}</a>
+                      </div>
+                  </ng-template>
+                </div>
+            </li>
+        </ul>
+    </button>
+  </section>
+</nav>

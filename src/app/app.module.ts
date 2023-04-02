@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { IndexComponent } from './pages/index/index.component';
 import { PricesComponent } from './pages/prices/prices.component';
 import { HeaderComponent } from './components/header/header.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,10 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot([
+      {path: 'index', component: AppComponent},
+      {path: 'header', component: HeaderComponent},
+    ]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),

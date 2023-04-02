@@ -1,4 +1,5 @@
 export interface Header {
+  title?:string,
   dropmenu_basketball? :string,
   dropmenu_football?:string,
   dropmenu_others?:string,
@@ -6,7 +7,10 @@ export interface Header {
   dropmenu_tennis?:string,
   dropmenu_title?:string,
   howToUse?:string,
-  logged_options?:Array<string>,
+  logged_option0?:string,
+  logged_option1?:string,
+  logged_option2?:string,
+  logged_option3?:string,
   prices_title?:string,
 }
 

@@ -13,22 +13,35 @@ import { PageContentService } from 'src/app/services/page-content/page-content.s
 
 export class HeaderComponent {
 
-  pepe:Header = {
+  pageContent:Header = {
 
   };
 
+  isLogged: boolean;
+
   constructor(private tool:PageContentService,private db:FirestoreService){
-
-    this.db.getData("PageContentEnglish","header").then(data =>{
-      const pepe2 =this.tool.setTextData(data!,this.pepe);
-      this.pepe = pepe2 as Header ;
-      console.log(this.pepe);
-
-    });
-
-
+    this.loadContent();
+    this.isLogged = checkLogged();
   }
 
 
+  private loadContent(){
+    this.db.getData("PageContentEnglish","header").then(data =>{
+      const pepe2 =this.tool.setTextData(data!,this.pageContent);
+      this.pageContent = pepe2 as Header ;
+      console.log(this.pageContent);
+
+    });
+  }
+
+  logOut(){
+    sessionStorage.setItem("logged","false");
+  }
+
 
 }
+function checkLogged(): boolean {
+  let logged = sessionStorage.getItem("logged")=="true" ? true :  false;
+  return logged;
+}
+

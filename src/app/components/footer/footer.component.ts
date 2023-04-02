@@ -30,10 +30,4 @@ export class FooterComponent {
 
   }
 
-  private setTextData(data: object) {
-
-      for (let [key,value] of Object.entries(data)){
-        this.pageContent[key as keyof typeof this.pageContent]=value;
-      }
-  }
 }
