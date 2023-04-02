@@ -21,7 +21,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     FooterComponent,
     IndexComponent,
     PricesComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
