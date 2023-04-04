@@ -16,6 +16,7 @@ import { ROUTES, RouterModule } from '@angular/router';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MyOverlaysComponent } from './pages/my-overlays/my-overlays.component';
 import { CardOverlayComponent } from './components/card-overlay/card-overlay.component';
+import { OverlaysComponent } from './pages/overlays/overlays.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CardOverlayComponent } from './components/card-overlay/card-overlay.com
     HeaderComponent,
     MyOverlaysComponent,
     CardOverlayComponent,
+    OverlaysComponent,
   ],
   imports: [
     BrowserModule,
