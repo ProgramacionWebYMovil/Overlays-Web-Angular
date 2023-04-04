@@ -1,9 +1,11 @@
+<app-header></app-header>
+
 <main>
     <h1 id="h1_title">My overlay library</h1>
-    <p id="messageNoOverlays">No hay overlays</p>
+    <p *ngIf="!overlays || overlays.length==0" id="messageNoOverlays">No hay overlays</p>
     <section id="overlays">
-        <div *ngFor="let item of [0,1,2,3,4];let i=index">
-            <app-card-overlay></app-card-overlay>
+        <div *ngFor="let overlay of overlays; let i=index">
+            <app-card-overlay [overlay]="overlays[i]"></app-card-overlay>
         </div>
     </section>
 
@@ -28,3 +30,5 @@
         </button>
     </div>
 </main>
+
+<app-footer></app-footer>
