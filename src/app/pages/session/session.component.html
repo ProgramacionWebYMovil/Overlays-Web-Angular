@@ -1,0 +1,29 @@
+<h1 id="titleForm" style="text-align: center;"></h1>
+<form id="sessionForm" action="" method="post" autocomplete="off" >
+    <ul>
+        <li>
+            <label for="name"></label>
+            <input type="text" id="name" name="name" required pattern="[a-zA-Z ]{2,254}"  >
+        </li>
+        <li>
+            <label for="mail"></label>
+            <input type="email" id="mail" name="mail"  required>
+        </li>
+        <li>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\.!@#$%^&*_=+-]).{8,}" >
+        </li>
+        <li>
+            <label for="passwordRepeat"></label>
+            <input type="password" id="passwordRepeat" name="passwordRepeat" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\.!@#$%^&*_=+-]).{8,}" >
+        </li>
+        <li>
+            <input type="submit" id="submit" value="Sign up"  > 
+            <div id="changeSessionOptions">
+
+                    <input id="changeButton" type="button" value="log in"/> .
+
+            </div>
+        </li>
+    </ul>
+</form>
