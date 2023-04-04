@@ -12,8 +12,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { IndexComponent } from './pages/index/index.component';
 import { PricesComponent } from './pages/prices/prices.component';
 import { HeaderComponent } from './components/header/header.component';
-import { RouterModule } from '@angular/router';
+import { ROUTES, RouterModule } from '@angular/router';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { MyOverlaysComponent } from './pages/my-overlays/my-overlays.component';
+import { CardOverlayComponent } from './components/card-overlay/card-overlay.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,12 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     IndexComponent,
     PricesComponent,
     HeaderComponent,
+    MyOverlaysComponent,
+    CardOverlayComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      {path: 'index', component: AppComponent},
-      {path: 'header', component: HeaderComponent},
-    ]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),

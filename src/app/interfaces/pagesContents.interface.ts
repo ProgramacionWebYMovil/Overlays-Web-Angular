@@ -35,3 +35,28 @@ export interface Footer  {
   text_name?:string,
   text_message?:string
 }
+
+export interface Index {
+  section1_h1?:string,
+    section1_h2?:string,
+    section2_h2?:string,
+    section2_p?:string,
+    section3_h2?:string,
+    section3_h3_1?:string,
+    section3_p_1?:string,
+    section3_h3_2?:string,
+    section3_p_2?:string,
+    section3_h3_3?:string,
+    section3_p_3?:string,
+    section3_h3_4?:string,
+    section3_p_4?:string,
+    section4_h2?:string,
+    section4_h3_1?:string,
+    section4_p_1?:string,
+    section4_h3_2?:string,
+    section4_p_2?:string,
+    section4_h3_3?:string,
+    section4_p_3?:string,
+    section5_h2?:string,
+    section6_h2?:string,
+}
