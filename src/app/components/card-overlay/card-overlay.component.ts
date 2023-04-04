@@ -16,4 +16,11 @@ export class CardOverlayComponent {
     * para poder eliminar o mostrar el boton de usar*/
     window.location.pathname == "/myOverlays" ? this.buttonShow=false : this.buttonShow=true; 
   }
+
+  useButton(): void {
+    //SI NO ESTA EL USUARIO REGISTRADO, LO MANDA A REGISTRARSE
+    
+    //SI ESTA REGISTRADO, LO MANDA A EDIT OVERLAY
+
+  }
 }
