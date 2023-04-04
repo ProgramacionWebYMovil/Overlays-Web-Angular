@@ -21,19 +21,22 @@
             <li id="sessionOptions">
                 <img id="icono_usuario" src="assets/icons/user-yellow.png" alt="User Icon"/>
                 <div >
-                  <ng-template *ngIf="isLogged else elseblock">
 
+                  <ng-template>  *ngIf="isLogged else elseblock">
                     <a href="">{{pageContent.logged_option2}}</a>
-                    <a >{{pageContent.logged_option3}}</a>
+                    <a (click)="logOut()">{{pageContent.logged_option3}}</a>
 
                   </ng-template>
 
-                  <ng-template #elseblock>
 
-                    <a href="/html/myOverlays.html">{{pageContent.logged_option0}}</a>
+
+
+                  <div #elseblock >
+
+                    <a href="">{{pageContent.logged_option0}}</a>
                     <a >{{pageContent.logged_option1}}</a>
 
-                  </ng-template>
+                  </div>
                 </div>
             </li>
         </ul>
