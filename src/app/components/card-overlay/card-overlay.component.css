@@ -43,7 +43,7 @@
 .overlay_description {
     font-size: 0.9em;
     color: var(--colorSecundario);
-    margin: 0 auto 0 auto;
+    margin: 0 auto auto auto;
     /*Limitar a solo 3 lineas el texto*/
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -118,4 +118,5 @@
     border:none;
     border-radius:1em;
     font-family:Poppins;
+    margin-bottom: 0;
 }

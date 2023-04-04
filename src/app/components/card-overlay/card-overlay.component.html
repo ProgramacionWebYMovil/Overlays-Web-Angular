@@ -4,7 +4,7 @@
     </div>
     <h2 class="overlay_name">{{overlay.name}}</h2>
     <p class="overlay_description">{{overlay.description}}</p>
-    <div class="info-cardOverlay">
+    <div *ngIf="!buttonShow" class="info-cardOverlay">
         <div class="section_date">
             <img src="/images/icons/calendar.png" />
             <p class="overlay_date">{{overlay.date | date}}</p>
