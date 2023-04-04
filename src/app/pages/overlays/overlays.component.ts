@@ -22,7 +22,10 @@ export class OverlaysComponent {
           this.overlays = data as any[];
         });
     }else{
-      console.log("Hacerlo en ingles")
+      this.db.getData("demoOverlaysEnglish","all")
+        .then(data => {  
+          this.overlays = data as any[];
+        });
     }
           
   }
