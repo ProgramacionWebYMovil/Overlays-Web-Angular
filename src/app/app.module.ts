@@ -17,6 +17,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MyOverlaysComponent } from './pages/my-overlays/my-overlays.component';
 import { CardOverlayComponent } from './components/card-overlay/card-overlay.component';
 import { OverlaysComponent } from './pages/overlays/overlays.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,10 +30,12 @@ import { OverlaysComponent } from './pages/overlays/overlays.component';
     MyOverlaysComponent,
     CardOverlayComponent,
     OverlaysComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
