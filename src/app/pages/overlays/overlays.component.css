@@ -1,6 +1,7 @@
 @media screen and (min-width:1024px) {
     h1 {
         color: var(--colorTerciario);
+        margin-bottom: 1em;
     }
      
     
@@ -14,6 +15,7 @@
     
     #overlays {
         display: grid;
+        height: 600px;
         grid-template-columns: repeat(4,1fr);
         grid-template-rows: repeat(2,auto);
         grid-row-gap: 2em;

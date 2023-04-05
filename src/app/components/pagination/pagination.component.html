@@ -1,6 +1,6 @@
     <!--Avanzar página si la hay-->
     <div id="pages">
-        <button (click)="previousPage()" *ngIf="actualPage!=1" id="previousPage">
+        <button (click)="previousPage()" [hidden]="actualPage==1" id="previousPage">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M15.5 20.4L7.1 12l8.4-8.4L16.9 5l-7 7 7 7z"></path>
             </svg>
@@ -11,7 +11,7 @@
             <p id="fromWord">&nbsp;of&nbsp;</p>
             <p id="nPages">{{nPages}}</p>
         </div>
-        <button (click)="nextPage()" *ngIf="nPages!=1 && actualPage<nPages" id="nextPage">
+        <button (click)="nextPage()" [hidden]="nPages==1 || actualPage>=nPages" id="nextPage">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M8.5 20.4l8.4-8.4-8.4-8.4L7.1 5l7 7-7 7z"></path>
             </svg>

@@ -31,3 +31,7 @@
 #previousPage {
     display: none;
 }
+
+[hidden] {
+    visibility: hidden;
+}
