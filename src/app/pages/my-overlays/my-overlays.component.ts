@@ -23,4 +23,6 @@ export class MyOverlaysComponent {
     name:"pepe2",
     date:"Oct 5, 2023"
   }];
+
+  //console.log(array.sort((a, b) => new Date(a.fechas).getTime() > new Date(b.fechas).getTime()));
 }
