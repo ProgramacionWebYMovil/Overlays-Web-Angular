@@ -14,6 +14,8 @@ export class OverlaysComponent {
   //Los overlays que salen actualmente en la página
   actualOverlays!: any[];
 
+  //Variable para dar paso al binding de app-paginación
+  paginationReady:boolean=false;
 
   constructor(private db:FirestoreService){ }
 
@@ -27,6 +29,7 @@ export class OverlaysComponent {
     this.db.getData(colection,"all").then(data => {
       this.overlays = data as any[];
       this.fillOverlays(0,this.getCardsPerPage());
+      this.paginationReady = true;
     })
       
   }
@@ -39,7 +42,7 @@ export class OverlaysComponent {
     }
   }
 
-  //Dara fallo hasta que los overlays se carguen
+  
   getnumberOfPages():number {
     let nPages = this.overlays.length / this.getCardsPerPage();
     if(nPages % 1 != 0){
@@ -53,6 +56,7 @@ export class OverlaysComponent {
     return window.innerWidth>=1250 ?  8 : 4;
   }
 
+  //METODO LLAMADO POR APP-PAGINATION
   changePage(startEnd:{start:number,end:number}):void{
     this.fillOverlays(startEnd.start,startEnd.end);
     

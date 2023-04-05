@@ -16,7 +16,6 @@ export class PaginationComponent {
     let start = this.actualPage * this.cardsPerPage;
     let end = (this.actualPage * this.cardsPerPage) + this.cardsPerPage; 
     this.actualPage++;
-    console.log(this.actualPage);
     this.changePageEvent.emit({start,end});
     
   }
@@ -25,9 +24,7 @@ export class PaginationComponent {
     this.actualPage--;
     let start = (this.actualPage-1) * this.cardsPerPage;
     let end = ((this.actualPage-1) * this.cardsPerPage) + this.cardsPerPage; 
-    this.changePageEvent.emit({start,end});
-    console.log(start,end);
-    
+    this.changePageEvent.emit({start,end});    
   }
 
   @Output()

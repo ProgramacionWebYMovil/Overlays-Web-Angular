@@ -7,7 +7,7 @@
         </div>
     </section>
 
-    <app-pagination 
+    <app-pagination *ngIf="paginationReady"
         [nPages]="getnumberOfPages()"
         [cardsPerPage]="getCardsPerPage()"
         (changePageEvent)="changePage($event)">
