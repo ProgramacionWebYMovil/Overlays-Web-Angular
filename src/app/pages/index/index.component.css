@@ -1,5 +1,23 @@
+h1 {
+    font-family: Poppins-bold;
+    font-size: 2em;
+}
+
+h2 {
+    font-family: Poppins-bold;
+}
+
+h3 {
+    font-family: Poppins-medium;
+    font-size: 1.2em;
+}
+
+
 /* BIG STYLE */
 @media screen and (min-width:1024px) {
+
+    
+
     section{
         display:flex;
         flex-direction:column;

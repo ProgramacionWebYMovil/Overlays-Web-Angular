@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FirestoreService } from 'src/app/services/firestore/firestore.service';
+import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 
 @Component({
   selector: 'app-overlays',
@@ -17,20 +17,15 @@ export class OverlaysComponent {
   //Variable para dar paso al binding de app-paginación
   paginationReady:boolean=false;
 
-  constructor(private db:FirestoreService){ }
+  constructor(private loadContent:LoadContentService){ }
 
   ngOnInit(){
-    let language = localStorage.getItem('language');
-    let colection;
-    language == "PageContentSpanish" ? 
-      colection = "demoOverlaysSpanish":
-      colection = "demoOverlaysEnglish";
     
-    this.db.getData(colection,"all").then(data => {
-      this.overlays = data as any[];
+    this.loadContent.loadDemoOverlays().then(data => {
+      this.overlays = data;
       this.fillOverlays(0,this.getCardsPerPage());
       this.paginationReady = true;
-    })
+    });
       
   }
 

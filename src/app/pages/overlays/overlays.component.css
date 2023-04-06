@@ -1,3 +1,7 @@
+h1 {
+    font-family: Poppins-bold;
+}
+
 @media screen and (min-width:1024px) {
     h1 {
         color: var(--colorTerciario);
