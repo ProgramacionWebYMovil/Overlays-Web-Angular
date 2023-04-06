@@ -12,7 +12,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { IndexComponent } from './pages/index/index.component';
 import { PricesComponent } from './pages/prices/prices.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ROUTES, RouterModule } from '@angular/router';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MyOverlaysComponent } from './pages/my-overlays/my-overlays.component';
 import { CardOverlayComponent } from './components/card-overlay/card-overlay.component';
