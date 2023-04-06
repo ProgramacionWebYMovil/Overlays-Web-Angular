@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Header } from 'src/app/interfaces/pagesContents.interface';
 import { checkLogged } from 'src/app/services/check-is-logged/check-is-logged.service';
-import { FirestoreService } from 'src/app/services/firestore/firestore.service';
+import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 
 
 @Component({
@@ -19,19 +19,14 @@ export class HeaderComponent {
 
   isLogged: boolean;
 
-  constructor(private db:FirestoreService){
-    this.loadContent();
-    sessionStorage.setItem("logged","true");
+  constructor(private load:LoadContentService){
     this.isLogged = checkLogged();
-
   }
 
-
-  private loadContent(){
-    this.db.getData("PageContentEnglish","header").then(data =>{
-      this.pageContent = data as Header ;
-    });
+  ngOnInit(){
+    this.load.loadContent("header").then(data =>this.pageContent=data);
   }
+
 
   logOut(){
     sessionStorage.setItem("logged","false");
