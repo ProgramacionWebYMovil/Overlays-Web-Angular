@@ -1,3 +1,14 @@
+h3 {
+    font-family: Poppins-bold;
+}
+
+a, label, p {
+    font-family: Poppins-regular;
+}
+
+
+
+
 
 /* BIG STYLE */
 @media screen and (min-width:1024px){
@@ -6,6 +17,7 @@
         width: 100%;
         clear: both;
         margin: 0;
+        padding-top: 25px;
         background: linear-gradient(var(--colorPrincipalOscuro),var(--colorPrincipal));
         color: var(--colorSecundario);
         font-family: Poppins;

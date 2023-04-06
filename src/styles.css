@@ -6,9 +6,25 @@
     --colorPrincipalOscuro:#04006B;
 }
 
+@font-face {
+    font-family: Poppins-bold;
+    src: url('assets/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Poppins-regular;
+    src: url('assets/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Poppins-medium;
+    src: url('assets/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+}
+
 body {
     background:var(--colorPrincipal);
-    font-family:Poppins;
+    font-family: Poppins-regular;
     overflow-x: hidden;
     margin: 0;
 }
+

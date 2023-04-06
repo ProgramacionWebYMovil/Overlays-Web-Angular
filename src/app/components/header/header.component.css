@@ -1,3 +1,7 @@
+a {
+  font-family: Poppins-bold;
+}
+
 #nav_header {
   background: linear-gradient(var(--colorPrincipalOscuro),var(--colorPrincipal));
   font-family: Poppins, serif;
