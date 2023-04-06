@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { collection , doc  } from '@firebase/firestore';
 
-import { Firestore , collectionData, getDoc , addDoc } from '@angular/fire/firestore';
+import { Firestore , collectionData, getDoc , addDoc, getDocs } from '@angular/fire/firestore';
 
 
 @Injectable({
@@ -18,9 +18,27 @@ export class FirestoreService {
 
     const ref = doc(this.firestore,nameCollection,document);
     
-    const docu = await getDoc(ref);
-    const data = docu.data();
-    return data;
+    if(document=="all"){
+      //BLOQUE IF QUE HE INSERTADO PARA COGER TODOS LOS DOCUMENTOS
+      const querySnapshot = await getDocs(collection(this.firestore,nameCollection));
+      let docus = new Array(querySnapshot.size);
+      
+      let index = 0;
+      querySnapshot.forEach((doc) => {
+        docus[index] = doc.data();
+        index++;
+      })
+      console.log(docus[0].description);
+      
+      return docus;
+
+    }else{
+      //BLOQUE QUE HABIA ANTES PARA COGER UN DOCUMENTO
+      const docu = await getDoc(ref);
+
+      const data = docu.data();
+      return data;
+    }
 
   }
 

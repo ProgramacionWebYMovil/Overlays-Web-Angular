@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-overlay',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-overlay.component.css']
 })
 export class CardOverlayComponent {
-
+  //@Input() overlay_name!: string;
+  //@Input() overlay_description!: string;
+  //@Input() overlay_image!: string;
+  @Input() overlay:any;
+  buttonShow!: boolean;
+  ngOnInit(){
+    /*Compruebo que el padre es overlays o myOverlays
+    * para poder eliminar o mostrar el boton de usar*/
+    window.location.pathname == "/myOverlays" ? this.buttonShow=false : this.buttonShow=true; 
+  }
 }

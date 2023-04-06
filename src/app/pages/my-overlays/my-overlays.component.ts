@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { checkLogged } from 'src/app/services/check-is-logged/check-is-logged.service';
 
 @Component({
   selector: 'app-my-overlays',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class MyOverlaysComponent {
 
+  ngOnInit(){
+    //esto no puede ser asi
+    checkLogged()==true ? console.log("logueado") : console.log("no logueado");
+  }
+
+  overlays:any[] = [{
+    image:"pepe",
+    name:"pepe",
+    date:"1/1/2000"
+  },
+  {
+    image:"pepe2",
+    name:"pepe2",
+    date:"Oct 5, 2023"
+  }];
 }

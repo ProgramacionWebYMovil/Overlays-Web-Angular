@@ -1,32 +1,35 @@
-<div class="image_card">
-    <img src="/images/overlays_preview/football.png"/>
-</div>
-<h2 class="overlay_name"></h2>
-<p class="overlay_description">Descripción del marcador asdf asdf asdf asDescripciónipción del marcador asdf asdf asdf asd fsd asdf asdf asdf asdf as del marcador asdf asdf asdf asd fsd asdf asdf asdf asdf as</p>
-<div class="info-cardOverlay">
-    <div class="section_date">
-        <img src="/images/icons/calendar.png" />
-        <p class="overlay_date">Feb 23, 2023</p>
+<div class="cardOverlay">
+    <div class="image_card">
+        <img [src]='overlay.image'/>
     </div>
-
-    <div class="card_dropdown">
-        <button class="card_dropdown_button" type="button">
-            <img src="/images/icons/threeDots.png" />
-        </button>
-        <ul class="card_dropdown_content">
-            <li>
-                <button class="use_overlay">Aasdf</button>
-            </li>
-            <li>
-                <button class="edit_overlay">asdfas</button>
-            </li>
-            <li>
-                <button class="delete_overlay">asdfasdf</button>
-            </li>
-        </ul>
-            
+    <h2 class="overlay_name">{{overlay.name}}</h2>
+    <p class="overlay_description">{{overlay.description}}</p>
+    <div class="info-cardOverlay">
+        <div class="section_date">
+            <img src="/images/icons/calendar.png" />
+            <p class="overlay_date">{{overlay.date | date}}</p>
+        </div>
+    
+        <div class="card_dropdown">
+            <button class="card_dropdown_button" type="button">
+                <img src="/images/icons/threeDots.png" />
+            </button>
+            <ul class="card_dropdown_content">
+                <li>
+                    <button class="use_overlay">Aasdf</button>
+                </li>
+                <li>
+                    <button class="edit_overlay">asdfas</button>
+                </li>
+                <li>
+                    <button class="delete_overlay">asdfasdf</button>
+                </li>
+            </ul>
+                
+        </div>
+    
+    
     </div>
-
-
+    <button *ngIf="buttonShow" class="card_button">Usar</button>
 </div>
-<button class="card_button">Usar</button>
+

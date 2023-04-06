@@ -17,6 +17,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MyOverlaysComponent } from './pages/my-overlays/my-overlays.component';
 import { CardOverlayComponent } from './components/card-overlay/card-overlay.component';
 import { SessionComponent } from './pages/session/session.component';
+import { OverlaysComponent } from './pages/overlays/overlays.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SessionComponent } from './pages/session/session.component';
     MyOverlaysComponent,
     CardOverlayComponent,
     SessionComponent,
+    OverlaysComponent,
   ],
   imports: [
     BrowserModule,
