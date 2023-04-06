@@ -1,0 +1,37 @@
+#pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0 0 0;
+    color: var(--colorSecundario);
+}
+
+#pageText {
+    display: flex;
+}
+
+
+
+#pages svg {
+    display: flex;
+    fill: white;
+}
+
+#pages button {
+    width: 40px;
+    height: 40px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin: 0 1em 0 1em;
+}
+
+#previousPage {
+    display: none;
+}
+
+[hidden] {
+    visibility: hidden;
+}

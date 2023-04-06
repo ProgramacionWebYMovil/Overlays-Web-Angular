@@ -33,6 +33,7 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-bottom: 0.2em;
 }
 
 .info-cardOverlay img {
@@ -43,7 +44,7 @@
 .overlay_description {
     font-size: 0.9em;
     color: var(--colorSecundario);
-    margin: 0 auto 0 auto;
+    margin: 0 auto auto auto;
     /*Limitar a solo 3 lineas el texto*/
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -113,9 +114,10 @@
 
 .card_button{
     color:var(--colorPrincipal);
-    padding:1em;
+    padding:0.8em;
     background-color:var(--colorTerciario);
     border:none;
     border-radius:1em;
     font-family:Poppins;
+    margin-bottom: 0;
 }

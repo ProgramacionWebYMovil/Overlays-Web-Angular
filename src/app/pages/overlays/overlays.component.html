@@ -2,30 +2,16 @@
 <main>
     <h1 id="h1_title">Overlays</h1>
     <section id="overlays">
-        <div *ngFor="let overlay of overlays; let i=index">
-            <app-card-overlay [overlay]="overlays[i]"></app-card-overlay>
+        <div *ngFor="let overlay of actualOverlays; let i=index">
+            <app-card-overlay [overlay]="actualOverlays[i]"></app-card-overlay>
         </div>
     </section>
 
+    <app-pagination *ngIf="paginationReady"
+        [nPages]="getnumberOfPages()"
+        [cardsPerPage]="getCardsPerPage()"
+        (changePageEvent)="changePage($event)">
+    ></app-pagination>
 
-    <!--Avanzar página si la hay-->
-    <div id="pages">
-        <button id="previousPage">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M15.5 20.4L7.1 12l8.4-8.4L16.9 5l-7 7 7 7z"></path>
-            </svg>
-        </button>
-        <div id="pageText">
-            <p id="pageWord">Page&nbsp;</p>
-            <p id="actualPage"></p>
-            <p id="fromWord">&nbsp;of&nbsp;</p>
-            <p id="nPages"></p>
-        </div>
-        <button id="nextPage">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M8.5 20.4l8.4-8.4-8.4-8.4L7.1 5l7 7-7 7z"></path>
-            </svg>
-        </button>
-    </div>
 </main>
 <app-footer></app-footer>

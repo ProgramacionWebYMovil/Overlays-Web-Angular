@@ -23,7 +23,6 @@ export class HeaderComponent {
     this.loadContent();
     sessionStorage.setItem("logged","true");
     this.isLogged = checkLogged();
-    console.log(this.isLogged);
 
   }
 

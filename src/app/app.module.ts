@@ -18,6 +18,12 @@ import { MyOverlaysComponent } from './pages/my-overlays/my-overlays.component';
 import { CardOverlayComponent } from './components/card-overlay/card-overlay.component';
 import { SessionComponent } from './pages/session/session.component';
 import { OverlaysComponent } from './pages/overlays/overlays.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { FormsModule } from '@angular/forms';
+import { OverlayFootballComponent } from './components/overlays/overlay-football/overlay-football.component';
+import { OverlayTennisComponent } from './components/overlays/overlay-tennis/overlay-tennis.component';
+import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
+import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +36,16 @@ import { OverlaysComponent } from './pages/overlays/overlays.component';
     CardOverlayComponent,
     SessionComponent,
     OverlaysComponent,
+    PaginationComponent,
+    OverlayFootballComponent,
+    OverlayTennisComponent,
+    OverlayTimerComponent,
+    OverlayBasketballComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),

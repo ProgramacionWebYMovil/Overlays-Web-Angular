@@ -1,0 +1,34 @@
+<ul class="container-scoreboard">
+
+    <li class="team_box-scoreboard" id="box-team1">
+        <div class="team_name-scoreboard" id="name_team1" [ngStyle]="{
+            'color':colorTeam1,
+            'font-family':font,
+            'background-color':colorBoxTeam1
+        }">{{team1}}</div>
+        <div class="score-scoreboard" id="team1" [ngStyle]="{
+            'color':colorScore1,
+            'font-family':font,
+            'background-color':colorBoxScore1
+        }">{{score1}}</div>
+    </li>
+
+    <li id="space" [ngStyle]="{
+        'color':colorSpace,
+        'font-family':font,
+        'background-color':colorBoxSpace
+    }">-</li>
+
+    <li class="team_box-scoreboard" id="box-team2">
+        <div class="score-scoreboard" id="team2" [ngStyle]="{
+            'color':colorTeam2,
+            'font-family':font,
+            'background-color':colorBoxTeam2
+        }">{{score2}}</div>
+        <div class="team_name-scoreboard" id="name_team2" [ngStyle]="{
+            'color':colorScore2,
+            'font-family':font,
+            'background-color':colorBoxScore2
+        }">{{team2}}</div>
+    </li>
+</ul>
