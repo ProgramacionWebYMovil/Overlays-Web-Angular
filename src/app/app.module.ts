@@ -19,6 +19,10 @@ import { CardOverlayComponent } from './components/card-overlay/card-overlay.com
 import { OverlaysComponent } from './pages/overlays/overlays.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FormsModule } from '@angular/forms';
+import { OverlayFootballComponent } from './components/overlays/overlay-football/overlay-football.component';
+import { OverlayTennisComponent } from './components/overlays/overlay-tennis/overlay-tennis.component';
+import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
+import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { FormsModule } from '@angular/forms';
     CardOverlayComponent,
     OverlaysComponent,
     PaginationComponent,
+    OverlayFootballComponent,
+    OverlayTennisComponent,
+    OverlayTimerComponent,
+    OverlayBasketballComponent,
   ],
   imports: [
     BrowserModule,
