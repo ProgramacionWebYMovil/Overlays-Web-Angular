@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Index } from 'src/app/interfaces/pagesContents.interface';
-import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
-import { setTextData } from 'src/app/services/page-content/page-content.service';
 
 @Component({
   selector: 'app-index',
@@ -19,8 +16,7 @@ export class IndexComponent {
     this.loadContent.loadContent("index").then(data =>{
       this.pageContent = data;
     });
-    
-    
+
   }
 
 }

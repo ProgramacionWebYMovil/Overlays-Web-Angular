@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { MyOverlaysComponent } from './pages/my-overlays/my-overlays.component';
 import { IndexComponent } from './pages/index/index.component';
 import { OverlaysComponent } from './pages/overlays/overlays.component';
+import { SessionComponent } from './pages/session/session.component';
 
 const routes: Routes = [
   {path:'', component: IndexComponent},
   {path:'myOverlays', component: MyOverlaysComponent},
-  {path:'overlays',component:OverlaysComponent}
+  {path:'overlays',component:OverlaysComponent},
+  {path:"session/:option", component:SessionComponent}
 ];
 
 @NgModule({

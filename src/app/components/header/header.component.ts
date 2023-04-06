@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { checkLogged } from 'src/app/common/tools/check-is-logged.tool';
 import { Header } from 'src/app/interfaces/pagesContents.interface';
-import { checkLogged } from 'src/app/services/check-is-logged/check-is-logged.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 
 
@@ -20,7 +20,9 @@ export class HeaderComponent {
   isLogged: boolean;
 
   constructor(private load:LoadContentService){
+
     this.isLogged = checkLogged();
+
   }
 
   ngOnInit(){
@@ -30,6 +32,7 @@ export class HeaderComponent {
 
   logOut(){
     sessionStorage.setItem("logged","false");
+    window.location.reload();
   }
 
 

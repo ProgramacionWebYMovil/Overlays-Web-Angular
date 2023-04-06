@@ -60,3 +60,16 @@ export interface Index {
     section5_h2?:string,
     section6_h2?:string,
 }
+
+
+interface ListSession{
+  type:string,
+  label:string,
+  for:string
+
+}
+export interface Session{
+  title_login?:string,
+  title_signup?:string,
+  input_list?:Array<ListSession>
+}

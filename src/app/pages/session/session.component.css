@@ -1,0 +1,51 @@
+
+main{
+  grid-area: main;
+  justify-self: center;
+  align-self: center;
+  color:var(--colorSecundario);
+  display: grid;
+  align-items: center;
+  grid-template-rows: 4em minmax(max-content,1fr);
+  grid-template-areas:
+      "."
+      "form";
+}
+
+#sessionForm{
+  grid-area: form;
+  justify-self: center;
+  align-self: center;
+}
+
+#sessionForm ul{
+  list-style-type: none;
+  display: grid;
+  grid-template-rows: repeat(4,50px) 1fr;
+  grid-gap: 10px;
+  padding-left: 0;
+}
+
+#sessionForm ul li{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#sessionForm #submit{
+  align-self: center;
+  font-size: x-large;
+  background: var(--colorTerciario);
+  color: var(--colorPrincipal);
+  border: none;
+  border-radius: 7px;
+}
+
+#sessionForm #changeSessionOptions input{
+  background: none;
+  border: none;
+  font-size: 1em;
+  color:var(--colorTerciario);
+}
+
