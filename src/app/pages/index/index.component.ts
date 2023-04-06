@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Index } from 'src/app/interfaces/pagesContents.interface';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
+import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 import { setTextData } from 'src/app/services/page-content/page-content.service';
 
 @Component({
@@ -12,15 +13,13 @@ import { setTextData } from 'src/app/services/page-content/page-content.service'
 export class IndexComponent {
   pageContent:Index = {}
 
-  constructor (private db:FirestoreService){}
+  constructor (private loadContent:LoadContentService){}
 
   ngOnInit(){
-
-    let language = localStorage.getItem('language')!;
-
-    this.db.getData(language,"index").then(data=> {
-      this.pageContent=setTextData(data!,this.pageContent)
+    this.loadContent.loadContent("index").then(data =>{
+      this.pageContent = data;
     });
+    
     
   }
 
