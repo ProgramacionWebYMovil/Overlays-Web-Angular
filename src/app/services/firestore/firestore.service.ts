@@ -10,8 +10,7 @@ import { Firestore , collectionData, getDoc , addDoc, getDocs } from '@angular/f
 })
 export class FirestoreService {
 
-  constructor(private firestore: Firestore) {
-   }
+  constructor(private firestore: Firestore) {}
 
  // Devuelve la colección deseada
   async getData(nameCollection : string, document:string){
@@ -57,3 +56,4 @@ export class FirestoreService {
   }*/
 
 }
+
