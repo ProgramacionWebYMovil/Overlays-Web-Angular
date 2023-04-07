@@ -2,9 +2,8 @@
 <main>
 
   <h1 id="titleForm" style="text-align: center;">
-    <p *ngIf="sessionOption;else elseblock" >
-      {{pageContent.title_signup}}
-    </p>
+
+    <p *ngIf="sessionOption;else elseblock" >{{pageContent.title_signup}}</p>
 
     <ng-template #elseblock ><p>{{pageContent.title_login}}</p></ng-template>
 
@@ -22,7 +21,7 @@
           <input type="submit" id="submit" value={{pageContent.submit_signup}}  >
           <div id="changeSessionOptions">
             {{pageContent.change_login?.text}}<br>
-            <input (click)="sessionOption = !sessionOption" id="changeButton" type="button" value={{pageContent.change_login?.button}}/>
+            <input (click)="changeSessionOption()" id="changeButton" type="button" value={{pageContent.change_login?.button}}/>
           </div>
         </li>
       </ng-template>
@@ -39,13 +38,11 @@
           <input type="submit" id="submit" value={{pageContent.submit_login}}  >
           <div id="changeSessionOptions">
             {{pageContent.change_signup?.text}} <br>
-            <input (click)="sessionOption = !sessionOption" id="changeButton" type="button" value={{pageContent.change_signup?.button}}/>
+            <input (click)="changeSessionOption()" id="changeButton" type="button" value={{pageContent.change_signup?.button}}/>
           </div>
         </li>
       </ng-template>
 
     </ul>
-
-
   </form>
 </main>

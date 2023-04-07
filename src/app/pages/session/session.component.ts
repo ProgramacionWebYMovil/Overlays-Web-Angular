@@ -1,4 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Session } from 'src/app/interfaces/pagesContents.interface';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 
@@ -13,12 +14,18 @@ export class SessionComponent {
   sessionOption:boolean;
 
 
-  constructor(private load:LoadContentService) {
-    this.sessionOption =true;
+  constructor(private load:LoadContentService,private activeRoute:ActivatedRoute) {
+    this.sessionOption = this.checkSessionOption();
+  }
+  checkSessionOption() {
+    return this.activeRoute.snapshot.params['sessionOption'] == "login" ? false:true;
   }
 
   ngOnInit(){
     this.load.loadContent("session").then(data=> this.pageContent=data);
   }
 
+  changeSessionOption(){
+    this.sessionOption = !this.sessionOption;
+  }
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'', component: IndexComponent},
   {path:'myOverlays', component: MyOverlaysComponent},
   {path:'overlays',component:OverlaysComponent},
-  {path:"session/:option", component:SessionComponent}
+  {path:"session/:sessionOption", component:SessionComponent}
 ];
 
 @NgModule({
