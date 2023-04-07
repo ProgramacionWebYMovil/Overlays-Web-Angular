@@ -10,10 +10,13 @@ main{
   grid-template-areas:
       "."
       "form";
+  background-color: var(--colorPrincipalOscuro);
 }
 
 #sessionForm{
   grid-area: form;
+  display: flex;
+  flex-direction: column;
   justify-self: center;
   align-self: center;
 }
@@ -31,6 +34,7 @@ main{
   flex-direction: column;
   text-align: center;
   font-size: 1.5em;
+  align-items: center;
 }
 
 #sessionForm #submit{
@@ -47,5 +51,33 @@ main{
   border: none;
   font-size: 1em;
   color:var(--colorTerciario);
+
+}
+
+input {
+  border:none;
+  border-radius:0.2em;
+  max-width: 50vw;
+  min-width: 30vw;
+}
+
+button{
+  max-width: max-content;
+}
+
+/* button {
+  display: flex;
+  place-content: center;
+  background-color: var(--colorTerciario);
+  color:var(--colorPrincipalOscuro);
+  border:none;
+  border-radius:0.2em;
+  font-family: Poppins-medium;
+} */
+
+label {
+  display:flex;
+  font-family: Poppins-regular;
+  font-size:0.8em;
 }
 

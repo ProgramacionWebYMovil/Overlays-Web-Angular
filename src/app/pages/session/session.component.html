@@ -22,7 +22,7 @@
           <input type="submit" id="submit" value={{pageContent.submit_signup}}  >
           <div id="changeSessionOptions">
             {{pageContent.change_login?.text}}<br>
-            <input (click)="sessionOption = !sessionOption" id="changeButton" type="button" value={{pageContent.change_login?.button}}/> .
+            <input (click)="sessionOption = !sessionOption" id="changeButton" type="button" value={{pageContent.change_login?.button}}/>
           </div>
         </li>
       </ng-template>
@@ -39,7 +39,7 @@
           <input type="submit" id="submit" value={{pageContent.submit_login}}  >
           <div id="changeSessionOptions">
             {{pageContent.change_signup?.text}} <br>
-            <input (click)="sessionOption = !sessionOption" id="changeButton" type="button" value={{pageContent.change_signup?.button}}/> .
+            <input (click)="sessionOption = !sessionOption" id="changeButton" type="button" value={{pageContent.change_signup?.button}}/>
           </div>
         </li>
       </ng-template>
@@ -48,37 +48,4 @@
 
 
   </form>
-
-
-
-
-
-  <!-- <form id="sessionForm" action="" method="post" autocomplete="off" >
-      <ul>
-          <li>
-              <label for="name"></label>
-              <input type="text" id="name" name="name" required pattern="[a-zA-Z ]{2,254}"  >
-          </li>
-          <li>
-              <label for="mail"></label>
-              <input type="email" id="mail" name="mail"  required>
-          </li>
-          <li>
-              <label for="password"></label>
-              <input type="password" id="password" name="password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\.!@#$%^&*_=+-]).{8,}" >
-          </li>
-          <li>
-              <label for="passwordRepeat"></label>
-              <input type="password" id="passwordRepeat" name="passwordRepeat" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\.!@#$%^&*_=+-]).{8,}" >
-          </li>
-          <li>
-              <input type="submit" id="submit" value="Sign up"  >
-              <div id="changeSessionOptions">
-
-                  <input id="changeButton" type="button" value="log in"/> .
-
-              </div>
-          </li>
-      </ul>
-  </form> -->
 </main>
