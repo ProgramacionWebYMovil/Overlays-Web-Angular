@@ -23,6 +23,7 @@ import { OverlayFootballComponent } from './components/overlays/overlay-football
 import { OverlayTennisComponent } from './components/overlays/overlay-tennis/overlay-tennis.component';
 import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
 import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { OverlayBasketballComponent } from './components/overlays/overlay-basket
     OverlayTennisComponent,
     OverlayTimerComponent,
     OverlayBasketballComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

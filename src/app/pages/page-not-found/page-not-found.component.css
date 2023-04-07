@@ -1,0 +1,32 @@
+ main{
+  display: flex;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
+div{
+  display: grid;
+  grid-template-rows: 0.5fr 1fr;
+  grid-template-areas: "code"
+                       "text";
+  font-size: 2em;
+  color:var(--colorTerciario);
+}
+
+img{
+  width: 1em;
+  height: 1em;
+}
+
+h1{
+  grid-area: code;
+  font-size: 2em;
+  justify-self: center;
+  text-align: center;
+}
+
+h2{
+  grid-area: text;
+  text-align: center;
+}
+
