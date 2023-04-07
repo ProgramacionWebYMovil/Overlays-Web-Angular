@@ -37,17 +37,7 @@ main{
   align-items: center;
 }
 
-#sessionForm #submit{
-  align-self: center;
-  font-size: x-large;
-  background: var(--colorTerciario);
-  color: var(--colorPrincipal);
-  border: none;
-  border-radius: 7px;
-  max-width: max-content;
-}
-
-#sessionForm #changeSessionOptions input{
+#changeSessionOptions input{
   background: none;
   border: none;
   font-size: 1em;
@@ -71,6 +61,14 @@ input {
   border: none;
   border-radius: 7px;
   max-width: max-content;
+}
+
+form:valid #submit:hover{
+  background: greenyellow;
+}
+
+form:invalid #submit:hover{
+  background: red;
 }
 
 /* button {
