@@ -62,14 +62,26 @@ export interface Index {
 }
 
 
+
+// SESSION INTERFACES
 interface ListSession{
   type:string,
   label:string,
   for:string
 
 }
+
+interface OnChange{
+  button:string,
+  text:string
+}
+
 export interface Session{
   title_login?:string,
   title_signup?:string,
-  input_list?:Array<ListSession>
+  input_list?:Array<ListSession>,
+  submit_login?:string,
+  submit_signup?:string,
+  change_login?:OnChange,
+  change_signup?:OnChange
 }

@@ -18,6 +18,13 @@
           <label for={{item.for}}>{{item.label}}</label>
           <input type={{item.type}} id={{item.for}} name={{item.for}}>
         </li>
+        <li>
+          <input type="submit" id="submit" value={{pageContent.submit_signup}}  >
+          <div id="changeSessionOptions">
+            {{pageContent.change_login?.text}}<br>
+            <input (click)="sessionOption = !sessionOption" id="changeButton" type="button" value={{pageContent.change_login?.button}}/> .
+          </div>
+        </li>
       </ng-template>
 
       <ng-template [ngIf]="!sessionOption" >
@@ -27,11 +34,18 @@
             <input type={{item.type}} id={{item.for}} name={{item.for}}>
           </ng-template>
         </li>
+
+        <li>
+          <input type="submit" id="submit" value={{pageContent.submit_login}}  >
+          <div id="changeSessionOptions">
+            {{pageContent.change_signup?.text}} <br>
+            <input (click)="sessionOption = !sessionOption" id="changeButton" type="button" value={{pageContent.change_signup?.button}}/> .
+          </div>
+        </li>
       </ng-template>
 
     </ul>
 
-    <button (click)="sessionOption = !sessionOption"></button>
 
   </form>
 
