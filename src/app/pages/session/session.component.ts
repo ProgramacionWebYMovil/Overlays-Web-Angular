@@ -28,4 +28,9 @@ export class SessionComponent {
   changeSessionOption(){
     this.sessionOption = !this.sessionOption;
   }
+
+  submit(){
+    sessionStorage.setItem("logged","true");
+    window.location.href = "";
+  }
 }
