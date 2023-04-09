@@ -23,6 +23,11 @@ import { OverlayFootballComponent } from './components/overlays/overlay-football
 import { OverlayTennisComponent } from './components/overlays/overlay-tennis/overlay-tennis.component';
 import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
 import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +45,7 @@ import { OverlayBasketballComponent } from './components/overlays/overlay-basket
     OverlayTennisComponent,
     OverlayTimerComponent,
     OverlayBasketballComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,12 @@ import { OverlayBasketballComponent } from './components/overlays/overlay-basket
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    MatButtonModule,
+    MatMenuModule,
+    RouterModule.forRoot([
+      { path: 'prices', component: PricesComponent }
+    ])
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

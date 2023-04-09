@@ -1,1 +1,69 @@
-<p>prices works!</p>
+<app-header></app-header>
+<main>
+  <h1 id="h1_title">Overlays</h1>
+  <h2 id="titulo2">Choose the best choice for yourself</h2>
+  <div id="plans">
+
+    <section class="plan">
+      <ul class="plan_list">
+        <li><h2 id="plan1_title">Free</h2><hr /></li>
+        <li><h3 id="plan1_money"><span style="font-size: 1.5em">$0</span>/month</h3></li>
+        <li><button id="plan1_moreInfo" class="button-moreInfo" (click)="isFreeOpen = !isFreeOpen">More info</button></li>
+        <ng-container *ngIf="isFreeOpen">
+          <li>
+            <div class="features">
+              <p id="plan1_icon1"class="tick-cross"><span style="color: green;">&#10003;</span></p>
+              <p id="plan1_feature1">Use all our overlays</p>
+            </div>
+          </li>
+          <li>
+            <div class="features">
+              <p id="plan1_icon2" class="tick-cross">&#10060;</p>
+              <p id="plan1_feature2">Use a single overlay<br />of each type</p>
+            </div>
+          </li>
+          <li>
+            <div class="features">
+              <p id="plan1_icon3" class="tick-cross">&#10060;</p>
+              <p id="plan1_feature3">You can´t customize<br /> our overlays</p>
+            </div>
+          </li>
+        </ng-container>
+      </ul>
+    </section>
+
+    <section class="plan">
+      <ul class="plan_list">
+        <li><h2 id="plan2_title">Premium</h2><hr /></li>
+        <li><h3 id="plan2_money"><span style="font-size: 1.5em">$4.99</span>/month</h3></li>
+        <li><button id="plan2_moreInfo" class="button-moreInfo" (click)="isPremiumOpen = !isPremiumOpen">More info</button></li>
+        <ng-container *ngIf="isPremiumOpen">
+          <li>
+            <div class="features">
+              <p id="plan2_icon1" class="tick-cross"><span style="color: green;">&#10003;</span></p>
+              <p id="plan2_feature1">Use all our overlays</p>
+            </div>
+          </li>
+          <li>
+            <div class="features">
+              <p id="plan2_icon2" class="tick-cross"><span style="color: green;">&#10003;</span></p>
+              <p id="plan2_feature2">Use each type of overlay<br />more than once</p>
+            </div>
+          </li>
+          <li>
+            <div class="features">
+              <p id="plan2_icon3" class="tick-cross"><span style="color: green;">&#10003;</span></p>
+              <p id="plan2_feature3">Customize the overlays<br />as you wish</p>
+            </div>
+          </li>
+        </ng-container>
+      </ul>
+      <div class="container">
+        <button id="button-purchase" (click)="irAPagina()">Purchase</button>
+      </div>
+    </section>
+
+  </div>
+</main>
+<app-footer></app-footer>
+
