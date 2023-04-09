@@ -1,0 +1,23 @@
+<app-header></app-header>
+<main>
+    <form>
+      <label for="cardholder-name">Nombre del titular de la tarjeta:</label>
+      <input type="text" id="cardholder-name" name="cardholder-name" required>
+
+      <label for="card-number">Número de tarjeta:</label>
+      <input type="text" id="card-number" name="card-number" [(ngModel)]="cardNumber" required maxlength="19" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="formatCardNumber()">
+
+      <label for="card-expiry">Fecha de expiración:</label>
+      <input type="month" id="card-expiry" name="card-expiry" required>
+
+      <label for="card-cvc">CVC:</label>
+      <input type="text" id="card-cvc" name="card-cvc" required maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+
+      <div id="check_text">
+        <input type="checkbox" id="card-check" name="card-check" required>
+        <label for="card-check">Lorem ipsum</label>
+      </div>
+
+      <button type="submit">Pagar</button>
+    </form>
+</main>
