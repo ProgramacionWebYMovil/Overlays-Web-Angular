@@ -21,19 +21,19 @@ main {
   place-self: center;
 }
 
-#title-howToUse {
+#title_howToUse {
   color: var(--colorTerciario);
   text-align: center;
   font-size: 2em;
 }
 
-#introduction-howToUse {
+#introduction_howToUse {
   color: var(--colorSecundario);
   text-align: center;
   font-size: 1.5em;
 }
 
-.container-howToUse {
+.container_howToUse {
   list-style: none;
   margin: auto;
   display: grid;
@@ -41,7 +41,7 @@ main {
   padding: 0 1em 0 1em;
 }
 
-.box-howToUse {
+.box_howToUse {
   background: var(--colorPrincipalOscuro);
   border: 2px solid var(--colorTerciario);
   border-radius: 20px;
@@ -51,13 +51,13 @@ main {
   margin-right: auto;
 }
 
-.type-howToUse {
+.type_howToUse {
   color: var(--colorTerciario);
   text-align: center;
   font-size: 2em;
 }
 
-.description-howToUse {
+.description_howToUse {
   color: var(--colorSecundario);
   text-align: center;
   margin: 0.3em;
@@ -78,25 +78,25 @@ main {
     display: grid;
   }
 
-  #title-howToUse {
+  #title_howToUse {
     color: var(--colorTerciario);
     text-align: center;
     font-size: 2em;
   }
 
-  #introduction-howToUse {
+  #introduction_howToUse {
     color: var(--colorSecundario);
     text-align: center;
     font-size: 1.5em;
   }
 
-  .container-howToUse {
+  .container_howToUse {
     list-style: none;
     margin: auto;
     padding: 0 1em 0 1em;
   }
 
-  .box-howToUse {
+  .box_howToUse {
     background: var(--colorPrincipalOscuro);
     border: 2px solid var(--colorTerciario);
     width: auto;
@@ -105,14 +105,14 @@ main {
     margin-bottom: 20px;
   }
 
-  .type-howToUse {
+  .type_howToUse {
     color: var(--colorTerciario);
     text-align: center;
     font-size: 2em;
     margin: 1em;
   }
 
-  .description-howToUse {
+  .description_howToUse {
     color: var(--colorSecundario);
     text-align: center;
     margin: 0.3em;

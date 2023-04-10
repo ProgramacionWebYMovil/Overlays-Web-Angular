@@ -45,7 +45,7 @@ h1 {color:var(--colorTerciario);}
   align-items: center;
 }
 
-.tick-cross {
+.tick_cross {
   font-size: 1.5em;
   margin-right: 1em;
   float: left;

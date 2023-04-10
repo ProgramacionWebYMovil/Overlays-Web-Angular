@@ -1,23 +1,25 @@
 <app-header></app-header>
 <main>
     <form>
-      <label for="cardholder-name">Nombre del titular de la tarjeta:</label>
-      <input type="text" id="cardholder-name" name="cardholder-name" required>
+      <h1 id="h1_payment">{{pageContent.h1_payment}}</h1>
 
-      <label for="card-number">Número de tarjeta:</label>
-      <input type="text" id="card-number" name="card-number" [(ngModel)]="cardNumber" required maxlength="19" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="formatCardNumber()">
+      <label for="cardholder_name">{{pageContent.cardholder_name}}</label>
+      <input type="text" id="cardholder_name" name="cardholder_name" required>
 
-      <label for="card-expiry">Fecha de expiración:</label>
-      <input type="month" id="card-expiry" name="card-expiry" required>
+      <label for="card_number">{{pageContent.card_number}}</label>
+      <input type="text" id="card_number" name="card_number" [(ngModel)]="cardNumber" required maxlength="19" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="formatCardNumber()">
 
-      <label for="card-cvc">CVC:</label>
-      <input type="text" id="card-cvc" name="card-cvc" required maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+      <label for="card_expiry">{{pageContent.card_expiry}}</label>
+      <input type="month" id="card_expiry" name="card_expiry" required>
+
+      <label for="card_cvc">{{pageContent.card_cvc}}</label>
+      <input type="text" id="card_cvc" name="card_cvc" required maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 
       <div id="check_text">
-        <input type="checkbox" id="card-check" name="card-check" required>
-        <label for="card-check">Lorem ipsum</label>
+        <input type="checkbox" id="card_check" name="card_check" required>
+        <label for="card_check">{{pageContent.card_check}}</label>
       </div>
 
-      <button type="submit">Pagar</button>
+      <button type="submit" id="pay">{{pageContent.pay}}</button>
     </form>
 </main>

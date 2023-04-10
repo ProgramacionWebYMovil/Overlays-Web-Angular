@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { LoadContentService } from 'src/app/services/load-content/load-content.service';
+import { Payment } from "../../interfaces/pagesContents.interface";
 
 @Component({
   selector: 'app-payment',
@@ -8,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class PaymentComponent {
   cardNumber: string = '';
+  pageContent:Payment = {}
+
+  constructor(private load:LoadContentService) {}
+
+  ngOnInit(){
+    this.load.loadContent("payment").then(data=> this.pageContent=data);
+  }
 
   formatCardNumber() {
     // Eliminar los espacios en blanco del número de tarjeta

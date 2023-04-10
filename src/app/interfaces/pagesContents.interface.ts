@@ -97,3 +97,22 @@ export interface Prices{
   plan2_feature3?:string,
   button_purchase?:string
 }
+
+export interface Payment {
+  h1_payment?:string,
+  cardholder_name?:string,
+  card_number?:string,
+  card_expiry?:string,
+  card_cvc?:string,
+  card_check?:string,
+  pay?:string
+}
+
+export interface Howtouse {
+  title_howToUse?:string,
+  introduction_howToUse?:string,
+  type1?:string,
+  description1?:string,
+  type2?:string,
+  description2?:string
+}
