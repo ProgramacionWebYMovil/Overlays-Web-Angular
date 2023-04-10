@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { RouterModule } from '@angular/router';
+import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { RouterModule } from '@angular/router';
     OverlayTimerComponent,
     OverlayBasketballComponent,
     PaymentComponent,
+    HowtouseComponent,
   ],
   imports: [
     BrowserModule,

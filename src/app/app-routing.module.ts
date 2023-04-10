@@ -6,6 +6,7 @@ import { OverlaysComponent } from './pages/overlays/overlays.component';
 import { SessionComponent } from './pages/session/session.component';
 import { PricesComponent } from './pages/prices/prices.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 
 const routes: Routes = [
   {path:'', component: IndexComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'overlays',component:OverlaysComponent},
   {path:"session/:option", component:SessionComponent},
   {path:'prices',component:PricesComponent},
-  {path:'payment',component:PaymentComponent}
+  {path:'payment',component:PaymentComponent},
+  {path:'howToUse',component:HowtouseComponent}
 ];
 
 @NgModule({
