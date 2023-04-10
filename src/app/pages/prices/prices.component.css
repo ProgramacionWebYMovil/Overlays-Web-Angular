@@ -73,11 +73,11 @@ h1 {color:var(--colorTerciario);}
 
 hr {border-color:var(--colorTerciario);}
 
-#button-purchase:hover{
+#button_purchase:hover{
   background-color: #5FAD43;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
-#button-purchase a{
+#button_purchase a{
   font-family: Poppins, serif;
   color: #1b1b1b;
 }
