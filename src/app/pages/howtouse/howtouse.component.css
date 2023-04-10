@@ -1,0 +1,120 @@
+:root {
+  --colorPrincipal: #032A88;
+  --colorSecundario: #FFFFFF;
+  --colorTerciario: #FFBB00;
+  --colorPrincipalOscuro: #04006B;
+}
+
+main {
+  background: var(--colorPrincipal);
+  margin: 0;
+  display: grid;
+  grid-template: 'header''body''footer';
+  overflow-x: hidden;
+  font-family: Poppins, serif
+}
+
+#howToUse {
+  display: grid;
+  grid-template: 'title' 'introduction' 'container';
+  justify-items: center;
+  place-self: center;
+}
+
+#title-howToUse {
+  color: var(--colorTerciario);
+  text-align: center;
+  font-size: 2em;
+}
+
+#introduction-howToUse {
+  color: var(--colorSecundario);
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.container-howToUse {
+  list-style: none;
+  margin: auto;
+  display: grid;
+  grid-auto-columns: auto;
+  padding: 0 1em 0 1em;
+}
+
+.box-howToUse {
+  background: var(--colorPrincipalOscuro);
+  border: 2px solid var(--colorTerciario);
+  border-radius: 20px;
+  width: 750px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.type-howToUse {
+  color: var(--colorTerciario);
+  text-align: center;
+  font-size: 2em;
+}
+
+.description-howToUse {
+  color: var(--colorSecundario);
+  text-align: center;
+  margin: 0.3em;
+}
+
+@media screen and (max-width:767px){
+  main {
+    background: var(--colorPrincipal);
+    margin: auto;
+    display: grid;
+    grid-template-rows: minmax(max-content,78px) 1fr;
+    grid-template-columns: 1fr minmax(max-content,1fr) 1fr;
+    overflow-x: hidden;
+    font-family: Poppins, serif
+  }
+
+  #howToUse{
+    display: grid;
+  }
+
+  #title-howToUse {
+    color: var(--colorTerciario);
+    text-align: center;
+    font-size: 2em;
+  }
+
+  #introduction-howToUse {
+    color: var(--colorSecundario);
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .container-howToUse {
+    list-style: none;
+    margin: auto;
+    padding: 0 1em 0 1em;
+  }
+
+  .box-howToUse {
+    background: var(--colorPrincipalOscuro);
+    border: 2px solid var(--colorTerciario);
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .type-howToUse {
+    color: var(--colorTerciario);
+    text-align: center;
+    font-size: 2em;
+    margin: 1em;
+  }
+
+  .description-howToUse {
+    color: var(--colorSecundario);
+    text-align: center;
+    margin: 0.3em;
+  }
+}
