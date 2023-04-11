@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'myOverlays', component: MyOverlaysComponent},
   {path:'overlays',component:OverlaysComponent},
   {path:"session/:sessionOption", component:SessionComponent},
-  { path: '**', pathMatch: 'full',component: PageNotFoundComponent }
+  { path: '**', pathMatch: 'full',component: PageNotFoundComponent },
   {path:"session/:option", component:SessionComponent},
   {path:'prices',component:PricesComponent},
   {path:'payment',component:PaymentComponent},
