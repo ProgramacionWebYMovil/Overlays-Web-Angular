@@ -15,7 +15,10 @@ main {
 
 #plans {display: flex;}
 
-h1 {color:var(--colorTerciario);}
+h1 {
+  color:var(--colorTerciario);
+  font-family: Poppins-bold;
+}
 
 #titulo2 {color:var(--colorSecundario)}
 
@@ -41,8 +44,10 @@ h1 {color:var(--colorTerciario);}
 }
 
 .features {
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: baseline;
+  display: flex;
+  text-align: center;
 }
 
 .tick_cross {

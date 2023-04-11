@@ -24,12 +24,14 @@ main {
   color: var(--colorTerciario);
   text-align: center;
   font-size: 2em;
+  font-family: Poppins-bold;
 }
 
 #introduction_howToUse {
   color: var(--colorSecundario);
   text-align: center;
   font-size: 1.5em;
+  margin-bottom: 1em;
 }
 
 .container_howToUse {
@@ -54,12 +56,13 @@ main {
   color: var(--colorTerciario);
   text-align: center;
   font-size: 2em;
+  margin-top: 0.3em;
 }
 
 .description_howToUse {
   color: var(--colorSecundario);
   text-align: center;
-  margin: 0.3em;
+  margin: 0.5em 0.3em 0.5em 0.3em;
 }
 
 @media screen and (max-width:767px){
@@ -113,6 +116,6 @@ main {
   .description_howToUse {
     color: var(--colorSecundario);
     text-align: center;
-    margin: 0.3em;
+    margin: 0.5em 0.3em 0.5em 0.3em;
   }
 }
