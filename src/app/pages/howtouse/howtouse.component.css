@@ -11,7 +11,6 @@ main {
   display: grid;
   grid-template: 'header''body''footer';
   overflow-x: hidden;
-  font-family: Poppins, serif
 }
 
 #howToUse {
@@ -71,7 +70,6 @@ main {
     grid-template-rows: minmax(max-content,78px) 1fr;
     grid-template-columns: 1fr minmax(max-content,1fr) 1fr;
     overflow-x: hidden;
-    font-family: Poppins, serif
   }
 
   #howToUse{
