@@ -25,6 +25,12 @@ import { OverlayTimerComponent } from './components/overlays/overlay-timer/overl
 import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { RouterModule } from '@angular/router';
+import { HowtouseComponent } from './pages/howtouse/howtouse.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +49,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OverlayTimerComponent,
     OverlayBasketballComponent,
     PageNotFoundComponent,
+    PaymentComponent,
+    HowtouseComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
     provideStorage(() => getStorage()),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatMenuModule,
+    RouterModule.forRoot([
+      { path: 'prices', component: PricesComponent }
+    ])
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
