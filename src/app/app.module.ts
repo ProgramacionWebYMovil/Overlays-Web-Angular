@@ -24,6 +24,7 @@ import { OverlayTennisComponent } from './components/overlays/overlay-tennis/ove
 import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
 import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    BrowserAnimationsModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
