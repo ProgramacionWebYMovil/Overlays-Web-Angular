@@ -1,1 +1,69 @@
-<p>prices works!</p>
+<app-header></app-header>
+<main>
+  <h1 id="h1_title">{{pageContent.h1_title}}</h1>
+  <h2 id="titulo2">{{pageContent.titulo2}}</h2>
+  <div id="plans">
+
+    <section class="plan">
+      <ul class="plan_list">
+        <li><h2 id="plan1_title">{{pageContent.plan1_title}}</h2><hr /></li>
+        <li><h3 id="plan1_money"><span style='font-size: 1.5em'>{{pageContent.plan1_money}}</span></h3></li>
+        <li><button id="plan1_moreInfo" class="button-moreInfo" (click)="isFreeOpen = !isFreeOpen">{{pageContent.plan1_moreInfo}}</button></li>
+        <ng-container *ngIf="isFreeOpen">
+          <li>
+            <div class="features">
+              <p id="plan1_icon1" class="tick-cross"><span style="color: green;">&#10003;</span></p>
+              <p id="plan1_feature1">{{pageContent.plan1_feature1}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="features">
+              <p id="plan1_icon2" class="tick-cross">&#10060;</p>
+              <p id="plan1_feature2">{{pageContent.plan1_feature2}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="features">
+              <p id="plan1_icon3" class="tick-cross">&#10060;</p>
+              <p id="plan1_feature3">{{pageContent.plan1_feature3}}</p>
+            </div>
+          </li>
+        </ng-container>
+      </ul>
+    </section>
+
+    <section class="plan">
+      <ul class="plan_list">
+        <li><h2 id="plan2_title">{{pageContent.plan2_title}}</h2><hr /></li>
+        <li><h3 id="plan2_money"><span style='font-size: 1.5em'>{{pageContent.plan2_money}}</span></h3></li>
+        <li><button id="plan2_moreInfo" class="button-moreInfo" (click)="isPremiumOpen = !isPremiumOpen">{{pageContent.plan2_moreInfo}}</button></li>
+        <ng-container *ngIf="isPremiumOpen">
+          <li>
+            <div class="features">
+              <p id="plan2_icon1" class="tick-cross"><span style="color: green;">&#10003;</span></p>
+              <p id="plan2_feature1">{{pageContent.plan2_feature1}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="features">
+              <p id="plan2_icon2" class="tick-cross"><span style="color: green;">&#10003;</span></p>
+              <p id="plan2_feature2">{{pageContent.plan2_feature2}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="features">
+              <p id="plan2_icon3" class="tick-cross"><span style="color: green;">&#10003;</span></p>
+              <p id="plan2_feature3">{{pageContent.plan2_feature3}}</p>
+            </div>
+          </li>
+        </ng-container>
+      </ul>
+      <div class="container">
+        <button id="button_purchase" (click)="irAPagina()">{{pageContent.button_purchase}}</button>
+      </div>
+    </section>
+
+  </div>
+</main>
+<app-footer></app-footer>
+

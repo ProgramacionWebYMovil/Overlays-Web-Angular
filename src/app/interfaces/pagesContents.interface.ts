@@ -85,3 +85,46 @@ export interface Session{
   change_login?:OnChange,
   change_signup?:OnChange
 }
+
+export interface Prices{
+  h1_title?:string,
+  titulo2?:string,
+  plan1_title?:string,
+  plan1_money?:string,
+  plan1_moreInfo?:string,
+  plan1_icon1?:string,
+  plan1_feature1?:string,
+  plan1_icon2?:string,
+  plan1_feature2?:string,
+  plan1_icon3?:string,
+  plan1_feature3?:string,
+  plan2_title?:string,
+  plan2_money?:string,
+  plan2_moreInfo?:string,
+  plan2_icon1?:string,
+  plan2_feature1?:string,
+  plan2_icon2?:string,
+  plan2_feature2?:string,
+  plan2_icon3?:string,
+  plan2_feature3?:string,
+  button_purchase?:string
+}
+
+export interface Payment {
+  h1_payment?:string,
+  cardholder_name?:string,
+  card_number?:string,
+  card_expiry?:string,
+  card_cvc?:string,
+  card_check?:string,
+  pay?:string
+}
+
+export interface Howtouse {
+  title_howToUse?:string,
+  introduction_howToUse?:string,
+  type1?:string,
+  description1?:string,
+  type2?:string,
+  description2?:string
+}

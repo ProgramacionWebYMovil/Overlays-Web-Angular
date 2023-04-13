@@ -1,0 +1,121 @@
+:root {
+  --colorPrincipal: #032A88;
+  --colorSecundario: #FFFFFF;
+  --colorTerciario: #FFBB00;
+  --colorPrincipalOscuro: #04006B;
+}
+
+main {
+  background: var(--colorPrincipal);
+  margin: 0;
+  display: grid;
+  grid-template: 'header''body''footer';
+  overflow-x: hidden;
+}
+
+#howToUse {
+  display: grid;
+  grid-template: 'title' 'introduction' 'container';
+  justify-items: center;
+  place-self: center;
+}
+
+#title_howToUse {
+  color: var(--colorTerciario);
+  text-align: center;
+  font-size: 2em;
+  font-family: Poppins-bold;
+}
+
+#introduction_howToUse {
+  color: var(--colorSecundario);
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.container_howToUse {
+  list-style: none;
+  margin: auto;
+  display: grid;
+  grid-auto-columns: auto;
+  padding: 0 1em 0 1em;
+}
+
+.box_howToUse {
+  background: var(--colorPrincipalOscuro);
+  border: 2px solid var(--colorTerciario);
+  border-radius: 20px;
+  width: 750px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.type_howToUse {
+  color: var(--colorTerciario);
+  text-align: center;
+  font-size: 2em;
+  margin-top: 0.3em;
+}
+
+.description_howToUse {
+  color: var(--colorSecundario);
+  text-align: center;
+  margin: 0.5em 0.3em 0.5em 0.3em;
+}
+
+@media screen and (max-width:767px){
+  main {
+    background: var(--colorPrincipal);
+    margin: auto;
+    display: grid;
+    grid-template-rows: minmax(max-content,78px) 1fr;
+    grid-template-columns: 1fr minmax(max-content,1fr) 1fr;
+    overflow-x: hidden;
+  }
+
+  #howToUse{
+    display: grid;
+  }
+
+  #title_howToUse {
+    color: var(--colorTerciario);
+    text-align: center;
+    font-size: 2em;
+  }
+
+  #introduction_howToUse {
+    color: var(--colorSecundario);
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .container_howToUse {
+    list-style: none;
+    margin: auto;
+    padding: 0 1em 0 1em;
+  }
+
+  .box_howToUse {
+    background: var(--colorPrincipalOscuro);
+    border: 2px solid var(--colorTerciario);
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .type_howToUse {
+    color: var(--colorTerciario);
+    text-align: center;
+    font-size: 2em;
+    margin: 1em;
+  }
+
+  .description_howToUse {
+    color: var(--colorSecundario);
+    text-align: center;
+    margin: 0.5em 0.3em 0.5em 0.3em;
+  }
+}
