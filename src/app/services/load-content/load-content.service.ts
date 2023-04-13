@@ -29,7 +29,7 @@ export class LoadContentService {
 
     let language = localStorage.getItem('language');
     let colection;
-    language == "PageContentSpanish" ? 
+    language == "PageContentSpanish" ?
       colection = "demoOverlaysSpanish":
       colection = "demoOverlaysEnglish";
 

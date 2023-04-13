@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { checkLogged } from 'src/app/common/tools/check-is-logged.tool';
+import { User } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 import { Header } from 'src/app/interfaces/pagesContents.interface';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 
 
@@ -13,28 +15,24 @@ import { LoadContentService } from 'src/app/services/load-content/load-content.s
 
 export class HeaderComponent {
 
-  pageContent:Header = {
+  pageContent:Header;
 
-  };
+  isLoggedIn$: Observable<boolean>;
 
-  isLogged: boolean;
-
-  constructor(private load:LoadContentService){
-
-    this.isLogged = checkLogged();
-
+  constructor
+  (private load:LoadContentService
+  ,private auth:AuthenticationService){
+    this.isLoggedIn$ = this.auth.isLoggedInObservable();
+    this.pageContent={}
   }
 
   ngOnInit(){
     this.load.loadContent("header").then(data =>this.pageContent=data);
   }
 
-
-  logOut(){
-    sessionStorage.setItem("logged","false");
-    window.location.reload();
+  async logOut(){
+    await this.auth.logOut();
   }
-
 
 }
 

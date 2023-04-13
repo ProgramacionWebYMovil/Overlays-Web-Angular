@@ -10,7 +10,7 @@ export class MyOverlaysComponent {
 
   ngOnInit(){
     //esto no puede ser asi
-    console.log(checkLogged());
+    //console.log(checkLogged());
   }
 
   overlays:any[] = [{
