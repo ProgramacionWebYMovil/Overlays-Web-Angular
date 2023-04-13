@@ -1,6 +1,6 @@
 .cardOverlay{
     width:15em;
-    height:15em;
+    height:16em;
     background-color:var(--colorPrincipalOscuro);
     border-radius:1em;
     padding:1em;
@@ -21,19 +21,19 @@
 
 .image_card img {
     /*Para que se vea bien en chrome*/
-    width:232px;
-    height:72px;
+    width: 100%;
 }
 
 .overlay_name {
     color: var(--colorTerciario);
-    font-size: 1.1em;
+    font-size: 1.3em;
     /*Limitar a solo 1 lineas el texto*/
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 0.2em;
+    margin-bottom: 0em;
+    margin-top: 0.2em;
 }
 
 .info-cardOverlay img {
@@ -114,7 +114,7 @@
 
 .card_button{
     color:var(--colorPrincipal);
-    padding:0.8em;
+    padding:0.4em;
     background-color:var(--colorTerciario);
     border:none;
     border-radius:1em;
