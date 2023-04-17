@@ -34,5 +34,10 @@ export class HeaderComponent {
     await this.auth.logOut();
   }
 
+  changeLanguage(){
+    this.load.changeLanguage();
+    window.location.reload();
+  }
+
 }
 
