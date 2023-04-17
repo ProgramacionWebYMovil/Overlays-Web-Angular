@@ -1,7 +1,6 @@
 <nav id="nav_header">
   <section id="menu-header">
       <h1 id="title"><img src="assets/logotypes/logo.png" alt="Imagen del Logo"/><a href="">{{pageContent.title}}</a></h1>
-      <button (click)="changeLanguage()" >Cambiar idioma</button>
 
       <button class="dropall"> <i>&#8801;</i>
           <ul class="dropall_elements">
@@ -39,5 +38,6 @@
             </li>
         </ul>
     </button>
+    <button (click)="changeLanguage()" >{{pageContent.language}}</button>
   </section>
 </nav>
