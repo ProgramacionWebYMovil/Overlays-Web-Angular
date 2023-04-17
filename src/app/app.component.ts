@@ -8,19 +8,27 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'Overlays-Web-Angular';
 
+  constructor(){
+    //this.checkLanguage();
+  }
+
   ngOnInit(){
-    this.checkLanguage();
-    
+    this.checkLanguage()
   }
 
   /*METODO PARA COMPROBAR EL LENGUAJE DEL USUARIO
    * 1) Comprueba el idioma del usuario
    * 2) Lo guarda en el localStorage
-   */ 
+   */
   private checkLanguage(){
-    let language = window.navigator.language;
-    language.includes("en") ? localStorage.setItem("language","PageContentEnglish"):localStorage.setItem("language","PageContentSpanish");
+    if(!localStorage.getItem("language")){
+      let language = window.navigator.language;
+
+      language.includes("en") ?
+      localStorage.setItem("language","PageContentEnglish"):
+      localStorage.setItem("language","PageContentSpanish");
+    }
   }
 
-  
+
 }
