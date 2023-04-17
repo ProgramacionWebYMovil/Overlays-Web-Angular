@@ -8,13 +8,15 @@ import {
   signOut }from 'firebase/auth';
 
 import { Observable } from 'rxjs';
+import { FirestoreService } from '../firestore/firestore.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private auth:Auth) {}
+  constructor(private auth:Auth,
+              private firestore:FirestoreService) {}
 
   isLoggedInObservable(): Observable<boolean> {
     return new Observable((subscriber) => {
@@ -27,8 +29,8 @@ export class AuthenticationService {
   async registerUserEmail(email:string,password:string){
     await createUserWithEmailAndPassword(this.auth,email,password)
       .then(() => {
-        window.location.href ="";
-
+        console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
+        this.firestore.createSchemaUser(this.auth.currentUser as any);
       }).catch((error)=>{
         console.log(error);
 
@@ -43,7 +45,7 @@ export class AuthenticationService {
   async logInEmail(email:string,password:string){
     await signInWithEmailAndPassword(this.auth,email,password)
       .then(() => {
-        console.log("El usuario " + this.auth.currentUser?.uid + " se ha registrado");
+        console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
       }).catch((error)=>{
         console.log(error,"El usuario no ha podido iniciar sesión")
       })

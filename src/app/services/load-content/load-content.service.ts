@@ -6,6 +6,9 @@ import { FirestoreService } from '../firestore/firestore.service';
 })
 export class LoadContentService {
 
+  /* currentLanguage: number
+   * 0 = ingles
+   * 1 = español */
   private currentLanguage:number;
   private languages:string[];
 
@@ -16,6 +19,10 @@ export class LoadContentService {
     this.currentLanguage = localStorage.getItem("language") == "PageContentEnglish"? 0:1;
     console.log(this.currentLanguage);
 
+  }
+
+  getCurrentLanguage():number{
+    return this.currentLanguage;
   }
 
   changeLanguage(){

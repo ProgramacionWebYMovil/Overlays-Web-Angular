@@ -1,4 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Session } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
@@ -50,9 +51,10 @@ export class SessionComponent {
   }
 
   //HAY QUE AÑADIR LA POSIBILIDAD DE FALLO AL LOGUEARSE!!!
-  async submit(){
+  async submit(form:NgForm){
+    console.log(NgForm);
     (!this.sessionOption ? await this.authentication.logInEmail("jpereiro1@gmail.com","pepe12345678")
-    : await this.authentication.registerUserEmail("jpereiro1@gmail.com","pepe12345678"));
+    : await this.authentication.registerUserEmail("kenai@gmail.com","pepe12345678"));
     sessionStorage.setItem("logged","true");
     this.redirect();
   }
