@@ -43,9 +43,7 @@ export class AuthenticationService {
   async logInEmail(email:string,password:string){
     await signInWithEmailAndPassword(this.auth,email,password)
       .then(() => {
-        window.location.href = ""
-
-
+        console.log("El usuario " + this.auth.currentUser?.uid + " se ha registrado");
       }).catch((error)=>{
         console.log(error,"El usuario no ha podido iniciar sesión")
       })

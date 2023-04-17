@@ -37,17 +37,24 @@ export class SessionComponent {
   }
 
   checkSessionStatus(){
-    //console.log(this.authentication.getCurrentUid(),this.authentication.checkLogged(),);
-
     //if(this.authentication.checkLogged()) window.location.href = "";
   }
 
+  redirect(){
+    let param = this.activeRoute.snapshot.params['sessionOption'];
+    if(Number.isInteger((parseInt(param)))){
+      //REDIRIJO A EDIT OVERLAYS CON EL OVERLAY
+      
+
+    }
+  }
+
+  //HAY QUE AÑADIR LA POSIBILIDAD DE FALLO AL LOGUEARSE!!!
   async submit(){
     (!this.sessionOption ? await this.authentication.logInEmail("jpereiro1@gmail.com","pepe12345678")
     : await this.authentication.registerUserEmail("jpereiro1@gmail.com","pepe12345678"));
     sessionStorage.setItem("logged","true");
-    //window.location.href = "";
-    this.checkSessionStatus();
+    this.redirect();
   }
 
   logOut(){

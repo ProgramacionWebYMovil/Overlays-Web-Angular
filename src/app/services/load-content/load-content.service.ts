@@ -22,21 +22,4 @@ export class LoadContentService {
 
     return finalContent as any;
   }
-
-  async loadDemoOverlays(){
-
-    let finalContent;
-
-    let language = localStorage.getItem('language');
-    let colection;
-    language == "PageContentSpanish" ?
-      colection = "demoOverlaysSpanish":
-      colection = "demoOverlaysEnglish";
-
-    await this.db.getData(colection,"all").then( data => {
-      finalContent = data;
-    });
-
-    return finalContent as any;
-  }
 }
