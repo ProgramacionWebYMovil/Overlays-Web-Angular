@@ -19,6 +19,11 @@ export class HeaderComponent {
 
   isLoggedIn$: Observable<boolean>;
 
+  languages = [
+    { value: 'es', label: 'Español' },
+    { value: 'en', label: 'English' }
+  ];
+
   constructor
   (private load:LoadContentService
   ,private auth:AuthenticationService){
