@@ -9,13 +9,13 @@
 
   </h1>
 
-  <form id="sessionForm" action="" method="post" autocomplete="off" (ngSubmit)="submit()">
+  <form #form="ngForm" id="sessionForm" action="" method="post" autocomplete="off" (ngSubmit)="submit(form)">
     <ul >
 
       <ng-template [ngIf]="sessionOption" >
         <li *ngFor="let item of pageContent.input_list">
           <label for={{item.for}}>{{item.label}}</label>
-          <input type={{item.type}} id={{item.for}} name={{item.for}}>
+          <input ngModel type={{item.type}} id={{item.for}} name={{item.for}}>
         </li>
         <li>
           <input type="submit" id="submit" value={{pageContent.submit_signup}}  >
@@ -30,7 +30,7 @@
         <li *ngFor="let item of pageContent.input_list">
           <ng-template [ngIf]="item.for == 'mail' || item.for == 'password' " >
             <label for={{item.for}}>{{item.label}}</label>
-            <input type={{item.type}} id={{item.for}} name={{item.for}}>
+            <input ngModel type={{item.type}} id={{item.for}} name={{item.for}}>
           </ng-template>
         </li>
 

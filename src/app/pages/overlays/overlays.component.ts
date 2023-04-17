@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 import { OverlaysService } from 'src/app/services/overlays/overlays.service';
 
 @Component({
