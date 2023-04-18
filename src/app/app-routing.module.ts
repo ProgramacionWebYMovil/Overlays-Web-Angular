@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'myOverlays', component: MyOverlaysComponent},
   {path:'overlays',component:OverlaysComponent},
   {path:"session/:sessionOption", component:SessionComponent},
-  {path:"session/:option", component:SessionComponent},
+  {path:"session", component:SessionComponent},
   {path:'prices',component:PricesComponent},
   {path:'payment',component:PaymentComponent},
   {path:'howToUse',component:HowtouseComponent},

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { collection , doc  } from '@firebase/firestore';
 
 import { Firestore , collectionData, getDoc , addDoc, getDocs } from '@angular/fire/firestore';
+import { User } from 'firebase/auth';
 
 
 @Injectable({
@@ -54,6 +55,15 @@ export class FirestoreService {
     //addDoc();
 
   }*/
+
+  /*METODO PARA CREAR EL ESQUEMA DE UN USUARIO, SE LLAMA CUANDO UN USUARIO SE REGISTRA*/
+  createSchemaUser(user:User){
+    console.log(user);
+  }
+
+  deleteShemaUser(user:User){
+    console.log(user);
+  }
 
 }
 

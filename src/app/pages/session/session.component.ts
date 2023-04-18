@@ -1,4 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Session } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
@@ -37,17 +38,37 @@ export class SessionComponent {
   }
 
   checkSessionStatus(){
-    //console.log(this.authentication.getCurrentUid(),this.authentication.checkLogged(),);
-
     //if(this.authentication.checkLogged()) window.location.href = "";
   }
 
-  async submit(){
-    (!this.sessionOption ? await this.authentication.logInEmail("jpereiro1@gmail.com","pepe12345678")
-    : await this.authentication.registerUserEmail("jpereiro1@gmail.com","pepe12345678"));
+  redirect(){
+    let param = this.activeRoute.snapshot.params['sessionOption'];
+    if(Number.isInteger((parseInt(param)))){
+      //REDIRIJO A EDIT OVERLAYS CON EL OVERLAY
+      
+
+    }
+  }
+
+  //HAY QUE AÑADIR LA POSIBILIDAD DE FALLO AL LOGUEARSE!!!
+  async submit(form:NgForm){
+
+    //Obtengo todos los datos del formulario
+    let mail = form.controls['mail'].value;
+    let password = form.controls['password'].value;
+    let name;
+    let passwordConfirm;
+    if(this.sessionOption){
+      name = form.controls['name'].value;
+      passwordConfirm = form.controls['passwordConfirm'].value;
+    }
+    
+    //HAY QUE HACER LA VALIDACIÓN DE LOS DATOS
+
+    (!this.sessionOption ? await this.authentication.logInEmail(mail,password)
+    : await this.authentication.registerUserEmail(name,mail,password));
     sessionStorage.setItem("logged","true");
-    //window.location.href = "";
-    this.checkSessionStatus();
+    this.redirect();
   }
 
   logOut(){

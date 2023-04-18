@@ -6,6 +6,9 @@ import { FirestoreService } from '../firestore/firestore.service';
 })
 export class LoadContentService {
 
+  /* currentLanguage: number
+   * 0 = ingles
+   * 1 = español */
   private currentLanguage:number;
   private languages:string[];
 
@@ -16,6 +19,10 @@ export class LoadContentService {
     this.currentLanguage = localStorage.getItem("language") == "PageContentEnglish"? 0:1;
     console.log(this.currentLanguage);
 
+  }
+
+  getCurrentLanguage():number{
+    return this.currentLanguage;
   }
 
   changeLanguage(){
@@ -30,23 +37,6 @@ export class LoadContentService {
     let finalContent;
 
     await this.db.getData(this.languages[this.currentLanguage],locationData).then(data =>{
-      finalContent = data;
-    });
-
-    return finalContent as any;
-  }
-
-  async loadDemoOverlays(){
-
-    let finalContent;
-
-    let language = localStorage.getItem('language');
-    let colection;
-    language == "PageContentSpanish" ?
-      colection = "demoOverlaysSpanish":
-      colection = "demoOverlaysEnglish";
-
-    await this.db.getData(colection,"all").then( data => {
       finalContent = data;
     });
 
