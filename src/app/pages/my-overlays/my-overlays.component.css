@@ -1,19 +1,20 @@
+
 @media screen and (min-width:1024px) {
     main {
-    
+
         display:flex;
         justify-content:center;
         flex-direction:column;
         margin:1em 3em 0 3em;
     }
-    
+
     body {
         background-color: var(--colorPrincipal);
         margin: 0;
         overflow-x: hidden;
         font-family: Poppins;
     }
-    
+
     #overlays {
         display: grid;
         grid-template-columns: repeat(4,1fr);
@@ -21,7 +22,7 @@
         grid-row-gap:2em;
         justify-items:center;
     }
-    
+
     #pages{
         display:flex;
         justify-content:center;
@@ -29,21 +30,21 @@
         margin:1em 0 0 0;
         color:var(--colorSecundario);
     }
-    
+
     #pageText{
         display:flex;
-    
+
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     svg{
         display:flex;
         fill:white;
     }
-    
+
     #pages button{
         width:40px;
         height:40px;
@@ -54,15 +55,15 @@
         border:none;
         margin:0 1em 0 1em;
     }
-    
+
     #previousPage {
         display:none;
     }
-    
+
     #messageNoOverlays{
         color:var(--colorSecundario);
     }
-    
+
     @media screen and (max-width:1250px){
         #overlays {
             display: grid;
@@ -76,20 +77,20 @@
 
 @media screen and (max-width:1023px) and (min-width:768px) {
     main {
-    
+
         display:flex;
         justify-content:center;
         flex-direction:column;
         margin:1em 3em 0 3em;
     }
-    
+
     body {
         background-color: var(--colorPrincipal);
         margin: 0;
         overflow-x: hidden;
         font-family: Poppins;
     }
-    
+
     #overlays {
         display: grid;
         grid-template-columns: repeat(2,1fr);
@@ -97,7 +98,7 @@
         grid-row-gap:2em;
         justify-items:center;
     }
-    
+
     #pages{
         display:flex;
         justify-content:center;
@@ -105,21 +106,21 @@
         margin:1em 0 0 0;
         color:var(--colorSecundario);
     }
-    
+
     #pageText{
         display:flex;
-    
+
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     svg{
         display:flex;
         fill:white;
     }
-    
+
     #pages button{
         width:40px;
         height:40px;
@@ -130,32 +131,32 @@
         border:none;
         margin:0 1em 0 1em;
     }
-    
+
     #previousPage {
         display:none;
     }
-    
-    #messageNoOverlays{
+
+    #messageNoOverlays a{
         color:var(--colorSecundario);
     }
 }
 
 @media screen and (max-width:767px) {
     main {
-    
+
         display:flex;
         justify-content:center;
         flex-direction:column;
         margin:1em 3em 0 3em;
     }
-    
+
     body {
         background-color: var(--colorPrincipal);
         margin: 0;
         overflow-x: hidden;
         font-family: Poppins;
     }
-    
+
     #overlays {
         display: grid;
         grid-template-columns: repeat(1,1fr);
@@ -163,7 +164,7 @@
         grid-row-gap:2em;
         justify-items:center;
     }
-    
+
     #pages{
         display:flex;
         justify-content:center;
@@ -171,21 +172,21 @@
         margin:1em 0 0 0;
         color:var(--colorSecundario);
     }
-    
+
     #pageText{
         display:flex;
-    
+
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     svg{
         display:flex;
         fill:white;
     }
-    
+
     #pages button{
         width:40px;
         height:40px;
@@ -196,12 +197,17 @@
         border:none;
         margin:0 1em 0 1em;
     }
-    
+
     #previousPage {
         display:none;
     }
-    
-    #messageNoOverlays{
+
+    #messageNoOverlays a{
         color:var(--colorSecundario);
     }
+}
+
+#messageNoOverlay{
+  color:white;
+  font-size: xx-large;
 }

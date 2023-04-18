@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { checkLogged } from 'src/app/common/tools/check-is-logged.tool';
+import { MyOverlays } from 'src/app/interfaces/pagesContents.interface';
+import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 
 @Component({
   selector: 'app-my-overlays',
@@ -8,21 +10,17 @@ import { checkLogged } from 'src/app/common/tools/check-is-logged.tool';
 })
 export class MyOverlaysComponent {
 
+  pageContent:MyOverlays = {};
+  constructor(private load: LoadContentService ) {
+    this.load.loadContent("myoverlays").then(data => this.pageContent = data);
+  }
+
   ngOnInit(){
     //esto no puede ser asi
     //console.log(checkLogged());
   }
 
-  overlays:any[] = [{
-    image:"pepe",
-    name:"pepe",
-    date:"1/1/2000"
-  },
-  {
-    image:"pepe2",
-    name:"pepe2",
-    date:"Oct 5, 2023"
-  }];
+  overlays:any[] = [];
 
   //console.log(array.sort((a, b) => new Date(a.fechas).getTime() > new Date(b.fechas).getTime()));
 }

@@ -128,3 +128,8 @@ export interface Howtouse {
   type2?:string,
   description2?:string
 }
+
+export interface MyOverlays{
+  title?:string,
+  messageNoOverlays?:string
+}
