@@ -8,6 +8,7 @@ a {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
  #title img{
@@ -38,6 +39,11 @@ nav a {
 #menu-header #icono_usuario {
   width: 2em;
   height: 2em;
+}
+
+#title {
+  margin-left: 1em;
+  margin-top: 0.5em;
 }
 
 #title a{
@@ -151,12 +157,60 @@ nav a:hover {
   }
 }
 
-#change_lang_btt{
-  margin: 0 2em 0 0;
-  background-color: var(--colorTerciario);
+#change_lang_btt {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #ffbb00 0, #a47700 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  margin-right: 0.8em;
+}
+
+#change_lang_btt:focus {
+  box-shadow: #ffbb00 0 0 0 1.5px inset, rgba(66, 57, 35, 0.3) 0 2px 4px, rgba(66, 57, 35, 0.3) 0 7px 13px -3px, #ffbb00 0 -3px 0 inset;
+}
+
+#change_lang_btt:hover {
+  box-shadow: rgba(66, 57, 35, 0.3) 0 4px 8px, rgba(66, 57, 35, 0.3) 0 7px 13px -3px, #ffbb00 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#change_lang_btt:active {
+  box-shadow: #ffbb00 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 @media screen and (min-width:768px) and (max-width:1023px){
+  #title {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    margin-top: 0.5em;
+  }
+
   #menu-header {
     gap: 10%;
     flex-direction:row;
@@ -242,18 +296,22 @@ nav a:hover {
       margin-top: 0.5em;
   }
 
+  #change_lang_btt{
+    height: 2em;
+    width: 4.2em;
+  }
+
 }
 
 @media screen and (max-width:767px){
   #menu-header {
-    gap: 5%;
     flex-direction:row;
   }
 
   #title {
     display: flex;
     align-items: center;
-    margin-left:0.2em;
+    margin: 0.4em 0 0 0.2em;
 }
 
    #title img{
@@ -266,6 +324,8 @@ nav a:hover {
   #title a{
       font-size:0.8em;
       text-decoration: none;
+      line-height: 1em;
+      width: 6em;
   }
 
   #menu-header #icono_usuario {
@@ -363,6 +423,12 @@ nav a:hover {
 
   #sessionOptions img {
       margin-top: 0.5em;
+  }
+
+  #change_lang_btt{
+    height: 2em;
+    width: 4em;
+    font-size: 0.8em;
   }
 
 }
