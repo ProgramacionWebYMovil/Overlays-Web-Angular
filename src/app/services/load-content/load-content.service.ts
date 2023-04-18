@@ -38,6 +38,8 @@ export class LoadContentService {
 
     await this.db.getData(this.languages[this.currentLanguage],locationData).then(data =>{
       finalContent = data;
+      console.log(finalContent);
+      
     });
 
     return finalContent as any;

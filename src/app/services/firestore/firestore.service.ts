@@ -4,6 +4,8 @@ import { collection , doc  } from '@firebase/firestore';
 
 import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc } from '@angular/fire/firestore';
 import { User } from 'firebase/auth';
+import { child, get, getDatabase, ref } from 'firebase/database';
+import { async } from '@angular/core/testing';
 
 
 @Injectable({
@@ -16,7 +18,13 @@ export class FirestoreService {
  // Devuelve la colección deseada
   async getData(nameCollection : string, document:string){
 
-    const ref = doc(this.firestore,nameCollection,document);
+    const dbRef = ref(getDatabase());
+    const data = await get(child(dbRef, nameCollection+'/'+document)).then((snapshot)=> {
+      return snapshot.val();
+    });
+    return data;
+
+    /*const ref2 = doc(this.firestore,nameCollection,document);
     
     if(document=="all"){
       //BLOQUE IF QUE HE INSERTADO PARA COGER TODOS LOS DOCUMENTOS
@@ -34,11 +42,13 @@ export class FirestoreService {
 
     }else{
       //BLOQUE QUE HABIA ANTES PARA COGER UN DOCUMENTO
-      const docu = await getDoc(ref);
+      const docu = await getDoc(ref2);
 
       const data = docu.data();
+      console.log(data);
+      
       return data;
-    }
+    }*/
 
   }
 
@@ -64,6 +74,7 @@ export class FirestoreService {
       userEmail:user.email,
       userPhoto:user.photoURL
     });
+
 
 
   }
