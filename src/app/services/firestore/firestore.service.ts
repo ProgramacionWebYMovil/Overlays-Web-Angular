@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { collection , doc  } from '@firebase/firestore';
 
-import { Firestore , collectionData, getDoc , addDoc, getDocs } from '@angular/fire/firestore';
+import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc } from '@angular/fire/firestore';
 import { User } from 'firebase/auth';
 
 
@@ -57,8 +57,15 @@ export class FirestoreService {
   }*/
 
   /*METODO PARA CREAR EL ESQUEMA DE UN USUARIO, SE LLAMA CUANDO UN USUARIO SE REGISTRA*/
-  createSchemaUser(user:User){
-    console.log(user);
+  async createSchemaUser(user:User){
+    let uid = user.uid;
+    await setDoc(doc(this.firestore,"Users",uid!),{
+      userName:user.displayName,
+      userEmail:user.email,
+      userPhoto:user.photoURL
+    });
+
+
   }
 
   deleteShemaUser(user:User){
