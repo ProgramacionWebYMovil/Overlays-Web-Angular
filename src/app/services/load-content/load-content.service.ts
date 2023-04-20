@@ -31,7 +31,7 @@ export class LoadContentService {
   }
 
 
-
+  /*
   async loadContent(locationData:string){
 
     let finalContent;
@@ -41,5 +41,23 @@ export class LoadContentService {
     });
 
     return finalContent as any;
+  }*/
+  async loadContent(locationData:string){
+    const languageIndex = this.languages.findIndex(l => l === localStorage.getItem('language'));
+    const collectionName = `PageContent${languageIndex === 0 ? 'English' : 'Spanish'}`;
+
+    let finalContent;
+    await this.db.getData(collectionName,locationData).then(data =>{
+      finalContent = data;
+    });
+    return finalContent as any;
   }
+
+
+  setCurrentLanguage(languageIndex: number) {
+    this.currentLanguage = languageIndex;
+    localStorage.setItem('language', this.languages[this.currentLanguage]);
+  }
+
+
 }

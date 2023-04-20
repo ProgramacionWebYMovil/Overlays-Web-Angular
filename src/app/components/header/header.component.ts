@@ -24,6 +24,8 @@ export class HeaderComponent {
     { value: 'en', label: 'English' }
   ];
 
+  selectedLanguage: string = this.languages[0].value;
+
   constructor
   (private load:LoadContentService
   ,private auth:AuthenticationService){
@@ -32,17 +34,37 @@ export class HeaderComponent {
   }
 
   ngOnInit(){
-    this.load.loadContent("header").then(data =>this.pageContent=data);
+    this.load.loadContent('header').then(data => {
+      this.pageContent = data;
+    });
+    const selectedLanguage = localStorage.getItem('language');
+    if (selectedLanguage !== null) {
+      this.selectedLanguage = selectedLanguage;
+    }
   }
+
+
 
   async logOut(){
     await this.auth.logOut();
   }
 
+  /*
   changeLanguage(){
     this.load.changeLanguage();
     window.location.reload();
+  }*/
+  changeLanguage(){
+    if(this.selectedLanguage === 'es'){
+      this.load.setCurrentLanguage(1);
+    } else if(this.selectedLanguage === 'en'){
+      this.load.setCurrentLanguage(0);
+    }
+    window.location.reload();
   }
+
+
+
 
 }
 

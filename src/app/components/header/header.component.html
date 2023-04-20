@@ -37,6 +37,8 @@
               </li>
           </ul>
       </button>
-      <button id="change_lang_btt" (click)="changeLanguage()" >{{pageContent.language}}</button>
+    <select [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
+      <option *ngFor="let language of languages" [value]="language.value">{{language.label}}</option>
+    </select>
   </section>
 </nav>
