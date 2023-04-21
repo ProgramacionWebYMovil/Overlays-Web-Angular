@@ -40,8 +40,8 @@ export class AuthenticationService {
       });
   }
 
-  getCurrentUid(){
-    return this.auth.currentUser?.uid;
+  getCurrentUid() : string{
+    return this.auth.currentUser?.uid as string;
   }
 
   async logInEmail(email:string,password:string){

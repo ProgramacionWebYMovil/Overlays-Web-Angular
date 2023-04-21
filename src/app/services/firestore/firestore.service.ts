@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { collection , doc  } from '@firebase/firestore';
 
-import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc, updateDoc} from '@angular/fire/firestore';
+import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc, updateDoc, increment} from '@angular/fire/firestore';
 import { User } from 'firebase/auth';
 import { child, get, getDatabase, ref, DatabaseReference } from 'firebase/database';
-import { async } from '@angular/core/testing';
 import { Database } from '@angular/fire/database';
-import { Overlay } from '@angular/cdk/overlay';
+import { OverlayFootball } from 'src/app/interfaces/overlays.interface';
 
 
 @Injectable({
@@ -52,7 +51,7 @@ export class FirestoreService {
       userName:user.displayName,
       userEmail:user.email,
       userPhoto:user.photoURL,
-      overlayId:0
+      countOverlay:0
     });
     /*Advertencia: Si borras un documento, no se borrarán las subcolecciones que contiene.
     Cuando borras un documento que tiene subcolecciones, estas no se borran. Por ejemplo, 
@@ -65,15 +64,23 @@ export class FirestoreService {
     console.log(user);
   }
 
-  async createOverlay(currentUser:any){
-    const a = doc(this.firestore,currentUser,currentUser.uid,"Overlays","Overlay " + nextIdOverlay());
-    await setDoc(a,{
-      prueba:"pepe"
+  async createOverlay(overlay:any, userID:string){
+    const docRef = doc(this.firestore,"Users",userID,"Overlays","Overlay " + await this.nextIdOverlay(userID));
+    await setDoc(docRef,{
+      
     });
   }
 
-  nextIdOverlay(){
+  async nextIdOverlay(userID:string){
+    const docRef = doc(this.firestore,"Users",userID);
+    const docSnap = await getDoc(docRef).then((data)=> {
+      return data.data();
+    });
     
+    await updateDoc(docRef,{
+      countOverlay:increment(1)
+    });
+    return docSnap!['countOverlay'];
   }
 
 }
