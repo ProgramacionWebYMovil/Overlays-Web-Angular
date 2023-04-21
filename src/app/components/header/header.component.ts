@@ -24,7 +24,10 @@ export class HeaderComponent {
     { value: 'en', label: 'English' }
   ];
 
-  selectedLanguage: string = this.languages[0].value;
+  //selectedLanguage: string = this.languages[0].value;
+  //selectedLanguage: string | null = null;
+  selectedLanguage: string = '';
+
 
   constructor
   (private load:LoadContentService
