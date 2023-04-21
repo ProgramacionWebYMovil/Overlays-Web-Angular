@@ -7,7 +7,7 @@ import { OverlaysService } from 'src/app/services/overlays/overlays.service';
   styleUrls: ['./overlays.component.css']
 })
 export class OverlaysComponent {
-  
+
   //Todos los Overlays demo
   overlays!: any[];
 
@@ -17,18 +17,18 @@ export class OverlaysComponent {
 
   constructor(public loadContent:OverlaysService){ }
 
-  ngOnInit(){
-    
+  /*ngOnInit(){
+
     this.loadContent.loadDemoOverlays().then(data => {
       this.overlays = this.loadContent.fillOverlays(0,this.loadContent.getCardsPerPage());
       this.paginationReady = true;
     });
-      
-  }
 
+  }
+*/
   //METODO LLAMADO POR APP-PAGINATION
   changePage(startEnd:{start:number,end:number}):void{
-    this.loadContent.fillOverlays(startEnd.start,startEnd.end);  
+    this.loadContent.fillOverlays(startEnd.start,startEnd.end);
   }
 
 }

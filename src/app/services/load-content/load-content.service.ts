@@ -30,18 +30,6 @@ export class LoadContentService {
     localStorage.setItem("language",this.languages[this.currentLanguage]);
   }
 
-
-  /*
-  async loadContent(locationData:string){
-
-    let finalContent;
-
-    await this.db.getData(this.languages[this.currentLanguage],locationData).then(data =>{
-      finalContent = data;
-    });
-
-    return finalContent as any;
-  }*/
   async loadContent(locationData:string){
     const languageIndex = this.languages.findIndex(l => l === localStorage.getItem('language'));
     const collectionName = `PageContent${languageIndex === 0 ? 'English' : 'Spanish'}`;
@@ -52,7 +40,6 @@ export class LoadContentService {
     });
     return finalContent as any;
   }
-
 
   setCurrentLanguage(languageIndex: number) {
     this.currentLanguage = languageIndex;

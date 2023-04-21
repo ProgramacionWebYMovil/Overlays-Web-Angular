@@ -16,13 +16,13 @@ export class OverlaysService {
   constructor(private db: FirestoreService,
               private loadContent:LoadContentService) { }
 
-  async loadDemoOverlays(){
+ /* async loadDemoOverlays(){
     let colection = this.loadContent.getCurrentLanguage() === 1 ? "demoOverlaysSpanish" : "demoOverlaysEnglish";
 
     await this.db.getData(colection,"all").then( data => {
       this.overlays = data as any;
     });
-  }
+  }*/
 
   fillOverlays(start:number, end:number):any {
     if(this.overlays.length < end)  end = this.overlays.length;
@@ -38,7 +38,7 @@ export class OverlaysService {
     if(nPages % 1 != 0){
       nPages = Math.trunc(nPages);
       nPages++;
-    } 
+    }
     return nPages;
   }
 
