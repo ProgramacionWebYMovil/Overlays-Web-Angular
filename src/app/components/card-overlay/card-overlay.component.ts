@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 
 @Component({
   selector: 'app-card-overlay',
@@ -13,7 +14,8 @@ export class CardOverlayComponent {
   buttonShow!: boolean;
 
   constructor(private auth:AuthenticationService,
-              private route: Router){}
+              private route: Router,
+              private firestore: FirestoreService){}
 
   ngOnInit(){
     /*Compruebo que el padre es overlays o myOverlays
@@ -27,7 +29,10 @@ export class CardOverlayComponent {
       this.route.navigate(['session',this.overlay.overlayType]);
     }else{
       //SI ESTA REGISTRADO, LO MANDA A EDIT OVERLAY
-      console.log("Ya está registrado");
+
+      //this.route.navigate();
+      console.log(this.overlay.overlayType);
+      this.firestore.createOverlay(this.auth.getCurrentUid())
     }
     
 

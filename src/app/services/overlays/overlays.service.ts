@@ -19,8 +19,8 @@ export class OverlaysService {
   async loadDemoOverlays(){
     let colection = this.loadContent.getCurrentLanguage() === 1 ? "demoOverlaysSpanish" : "demoOverlaysEnglish";
 
-    await this.db.getData(colection,"all").then( data => {
-      this.overlays = data as any;
+    await this.db.getOverlaysDemo(colection).then( data => {
+      this.overlays = data as any;      
     });
   }
 

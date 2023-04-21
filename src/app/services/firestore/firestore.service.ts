@@ -2,85 +2,78 @@ import { Injectable } from '@angular/core';
 
 import { collection , doc  } from '@firebase/firestore';
 
-import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc } from '@angular/fire/firestore';
+import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc, updateDoc} from '@angular/fire/firestore';
 import { User } from 'firebase/auth';
-import { child, get, getDatabase, ref } from 'firebase/database';
+import { child, get, getDatabase, ref, DatabaseReference } from 'firebase/database';
 import { async } from '@angular/core/testing';
+import { Database } from '@angular/fire/database';
+import { Overlay } from '@angular/cdk/overlay';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirestoreService {
 
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore, private realTime:Database) { 
+  }
 
  // Devuelve la colección deseada
   async getData(nameCollection : string, document:string){
-
-    const dbRef = ref(getDatabase());
+    
+    const dbRef = ref(this.realTime);
     const data = await get(child(dbRef, nameCollection+'/'+document)).then((snapshot)=> {
       return snapshot.val();
     });
     return data;
-
-    /*const ref2 = doc(this.firestore,nameCollection,document);
-    
-    if(document=="all"){
-      //BLOQUE IF QUE HE INSERTADO PARA COGER TODOS LOS DOCUMENTOS
-      const querySnapshot = await getDocs(collection(this.firestore,nameCollection));
-      let docus = new Array(querySnapshot.size);
-      
-      let index = 0;
-      querySnapshot.forEach((doc) => {
-        docus[index] = doc.data();
-        index++;
-      })
-      console.log(docus[0].description);
-      
-      return docus;
-
-    }else{
-      //BLOQUE QUE HABIA ANTES PARA COGER UN DOCUMENTO
-      const docu = await getDoc(ref2);
-
-      const data = docu.data();
-      console.log(data);
-      
-      return data;
-    }*/
-
   }
 
-  /*setData(nameCollection:string){
+  async getOverlaysDemo(nameCollection:string){
+    const dbRef = ref(this.realTime);
+    const data = await get(child(dbRef,nameCollection)).then((snapshot => {
+      return snapshot.val();
+    }));
 
-    const ref = collection(this.firestore,nameCollection);
-
-    collectionData(ref).subscribe(data =>{
-      console.log(data);
-
-    })
-
-    const hola = {abc:"hola"}
-    //addDoc();
-
-  }*/
+    let overlays = [];
+    let index = 0;
+    for(var i in data){
+      overlays[index] = data[i];
+      index++;
+    }
+    return overlays;
+  }
 
   /*METODO PARA CREAR EL ESQUEMA DE UN USUARIO, SE LLAMA CUANDO UN USUARIO SE REGISTRA*/
   async createSchemaUser(user:User){
     let uid = user.uid;
-    await setDoc(doc(this.firestore,"Users",uid!),{
+    const ref = doc(this.firestore,"Users",uid);
+    await setDoc(ref,{
       userName:user.displayName,
       userEmail:user.email,
-      userPhoto:user.photoURL
+      userPhoto:user.photoURL,
+      overlayId:0
     });
-
-
-
+    /*Advertencia: Si borras un documento, no se borrarán las subcolecciones que contiene.
+    Cuando borras un documento que tiene subcolecciones, estas no se borran. Por ejemplo, 
+    puede haber un documento ubicado en coll/doc/subcoll/subdoc, aunque el documento coll/doc
+    ya no exista. Si deseas borrar los documentos de las subcolecciones cuando borras un documento
+    principal, debes hacerlo de forma manual, como se muestra en la sección Borra colecciones.*/
   }
 
   deleteShemaUser(user:User){
     console.log(user);
+  }
+
+  async createOverlay(currentUser:any){
+    const a = doc(this.firestore,currentUser,currentUser.uid,"Overlays","Overlay " + nextIdOverlay());
+    await setDoc(a,{
+      prueba:"pepe"
+    });
+  }
+
+  nextIdOverlay(){
+    
   }
 
 }

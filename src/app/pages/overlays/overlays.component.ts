@@ -19,7 +19,7 @@ export class OverlaysComponent {
 
   ngOnInit(){
     
-    this.loadContent.loadDemoOverlays().then(data => {
+    this.loadContent.loadDemoOverlays().then( data =>{  
       this.overlays = this.loadContent.fillOverlays(0,this.loadContent.getCardsPerPage());
       this.paginationReady = true;
     });

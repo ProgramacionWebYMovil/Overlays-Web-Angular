@@ -17,8 +17,6 @@ export class LoadContentService {
   constructor(private db:FirestoreService) {
     this.languages = ["PageContentEnglish","PageContentSpanish"];
     this.currentLanguage = localStorage.getItem("language") == "PageContentEnglish"? 0:1;
-    console.log(this.currentLanguage);
-
   }
 
   getCurrentLanguage():number{
@@ -37,9 +35,7 @@ export class LoadContentService {
     let finalContent;
 
     await this.db.getData(this.languages[this.currentLanguage],locationData).then(data =>{
-      finalContent = data;
-      console.log(finalContent);
-      
+      finalContent = data;      
     });
 
     return finalContent as any;
