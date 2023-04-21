@@ -32,6 +32,7 @@ import { RouterModule } from '@angular/router';
 import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

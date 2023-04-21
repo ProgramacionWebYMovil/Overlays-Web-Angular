@@ -157,51 +157,55 @@ nav a:hover {
   }
 }
 
-#change_lang_btt {
-  align-items: center;
-  appearance: none;
-  background-image: radial-gradient(100% 100% at 100% 0, #ffbb00 0, #a47700 100%);
-  border: 0;
-  border-radius: 6px;
-  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+select {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  appearance:none;
+  outline:0;
+  box-shadow:none;
+  border:0!important;
+  background: #5c6664;
+  background-image: none;
+  flex: 1;
+  padding: 0 .5em;
+  color:#fff;
+  cursor:pointer;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+}
+select::-ms-expand {
+  display: none;
+}
+.select {
   position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
-  margin-right: 0.8em;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #5c6664;
+  overflow: hidden;
+  border-radius: .25em;
+}
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #2b2e2e;
+  cursor:pointer;
+  pointer-events:none;
+  transition:.25s all ease;
+}
+.select:hover::after {
+  color: #23b499;
 }
 
-#change_lang_btt:focus {
-  box-shadow: #ffbb00 0 0 0 1.5px inset, rgba(66, 57, 35, 0.3) 0 2px 4px, rgba(66, 57, 35, 0.3) 0 7px 13px -3px, #ffbb00 0 -3px 0 inset;
+.fixed {
+  position: fixed;
 }
 
-#change_lang_btt:hover {
-  box-shadow: rgba(66, 57, 35, 0.3) 0 4px 8px, rgba(66, 57, 35, 0.3) 0 7px 13px -3px, #ffbb00 0 -3px 0 inset;
-  transform: translateY(-2px);
-}
-
-#change_lang_btt:active {
-  box-shadow: #ffbb00 0 3px 7px inset;
-  transform: translateY(2px);
-}
 
 @media screen and (min-width:768px) and (max-width:1023px){
   #title {
@@ -296,7 +300,7 @@ nav a:hover {
       margin-top: 0.5em;
   }
 
-  #change_lang_btt{
+  #change_lang_select{
     height: 2em;
     width: 4.2em;
   }
@@ -425,7 +429,7 @@ nav a:hover {
       margin-top: 0.5em;
   }
 
-  #change_lang_btt{
+  #change_lang_select{
     height: 2em;
     width: 4em;
     font-size: 0.8em;
