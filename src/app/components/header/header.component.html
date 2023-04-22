@@ -38,7 +38,7 @@
           </ul>
       </button>
       <select id="change_lang_select" name="languages" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
-        <option value="null" disabled selected>Select language</option>
+        <option value="null" disabled selected>Language</option>
         <option *ngFor="let language of languages" [value]="language.value">{{language.label}}</option>
       </select>
   </section>

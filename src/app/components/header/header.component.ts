@@ -19,8 +19,8 @@ export class HeaderComponent {
   isLoggedIn$: Observable<boolean>;
 
   languages = [
-    { value: 'es', label: 'Español' },
-    { value: 'en', label: 'English' }
+    { value: 'es', label: 'ES' },
+    { value: 'en', label: 'EN' }
   ];
 
   selectedLanguage: string = '';
