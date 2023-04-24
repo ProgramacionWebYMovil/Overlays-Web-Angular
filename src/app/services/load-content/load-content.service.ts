@@ -40,4 +40,9 @@ export class LoadContentService {
 
     return finalContent as any;
   }
+
+  setCurrentLanguage(languageIndex: number) {
+    this.currentLanguage = languageIndex;
+    localStorage.setItem('language', this.languages[this.currentLanguage]);
+  }
 }
