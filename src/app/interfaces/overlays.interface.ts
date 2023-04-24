@@ -2,12 +2,18 @@
 * type: tipo de overlay
 * id: numero del overlay de ese tipo
 */
-interface Overlay {
-    type:number,
+export interface Overlays {
     id:number,
-} 
-  
-export interface OverlayFootball extends Overlay{
+    urlId:number,
+    userId:string,
+    buttons:any[],
+    inputs:any[],
+    colors:any[],
+    font:string
+}
+
+
+export interface OverlayFootball extends Overlays{
     team1:string,
     team2:string,
     score1:number,

@@ -22,7 +22,6 @@ import { FormsModule } from '@angular/forms';
 import { OverlayFootballComponent } from './components/overlays/overlay-football/overlay-football.component';
 import { OverlayTennisComponent } from './components/overlays/overlay-tennis/overlay-tennis.component';
 import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
-import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,6 +30,8 @@ import { PaymentComponent } from './pages/payment/payment.component';
 import { RouterModule } from '@angular/router';
 import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.component';
+import { Basketball1Component } from './components/overlays/overlay-basketball/basketball1/basketball1.component';
+
 
 
 @NgModule({
@@ -48,11 +49,11 @@ import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.co
     OverlayFootballComponent,
     OverlayTennisComponent,
     OverlayTimerComponent,
-    OverlayBasketballComponent,
     PageNotFoundComponent,
     PaymentComponent,
     HowtouseComponent,
     CustomOverlayComponent,
+    Basketball1Component,
   ],
   imports: [
     BrowserModule,
