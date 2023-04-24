@@ -17,8 +17,6 @@ export class LoadContentService {
   constructor(private db:FirestoreService) {
     this.languages = ["PageContentEnglish","PageContentSpanish"];
     this.currentLanguage = localStorage.getItem("language") == "PageContentEnglish"? 0:1;
-    console.log(this.currentLanguage);
-
   }
 
   getCurrentLanguage():number{
@@ -30,21 +28,16 @@ export class LoadContentService {
     localStorage.setItem("language",this.languages[this.currentLanguage]);
   }
 
+
+
   async loadContent(locationData:string){
-    const languageIndex = this.languages.findIndex(l => l === localStorage.getItem('language'));
-    const collectionName = `PageContent${languageIndex === 0 ? 'English' : 'Spanish'}`;
 
     let finalContent;
-    await this.db.getData(collectionName,locationData).then(data =>{
+
+    await this.db.getData(this.languages[this.currentLanguage],locationData).then(data =>{
       finalContent = data;
     });
+
     return finalContent as any;
   }
-
-  setCurrentLanguage(languageIndex: number) {
-    this.currentLanguage = languageIndex;
-    localStorage.setItem('language', this.languages[this.currentLanguage]);
-  }
-
-
 }

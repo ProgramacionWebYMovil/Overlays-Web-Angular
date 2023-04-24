@@ -18,10 +18,12 @@ export class OverlaysComponent {
   constructor(public loadContent:OverlaysService){ }
 
   ngOnInit(){
-    this.loadContent.loadDemoOverlays().then(data => {
+
+    this.loadContent.loadDemoOverlays().then( data =>{
       this.overlays = this.loadContent.fillOverlays(0,this.loadContent.getCardsPerPage());
       this.paginationReady = true;
     });
+
   }
 
   //METODO LLAMADO POR APP-PAGINATION

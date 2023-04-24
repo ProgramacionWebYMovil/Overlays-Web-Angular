@@ -45,8 +45,6 @@ export class SessionComponent {
     let param = this.activeRoute.snapshot.params['sessionOption'];
     if(Number.isInteger((parseInt(param)))){
       //REDIRIJO A EDIT OVERLAYS CON EL OVERLAY
-      
-
     }
   }
 

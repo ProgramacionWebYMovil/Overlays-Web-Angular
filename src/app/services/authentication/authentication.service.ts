@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Auth, onAuthStateChanged } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged, user } from '@angular/fire/auth';
 
 import {
+  User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut, 
@@ -30,19 +31,17 @@ export class AuthenticationService {
 
   async registerUserEmail(name:string, email:string,password:string){
     await createUserWithEmailAndPassword(this.auth,email,password)
-      .then(() => {
+      .then(async () => {
         console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
-        this.updateUser(name,"default")
-        this.firestore.createSchemaUser(this.auth.currentUser as any);
+        this.updateUser(name,"default");
+        
       }).catch((error)=>{
-        console.log(error);
-
         console.log(error,"El usuario no ha podido registrarse");
       });
   }
 
-  getCurrentUid(){
-    return this.auth.currentUser?.uid;
+  getCurrentUid() : string{
+    return this.auth.currentUser?.uid as string;
   }
 
   async logInEmail(email:string,password:string){
@@ -62,11 +61,12 @@ export class AuthenticationService {
     })
   }
 
-  updateUser(name:string, photoURL:string){
+  async updateUser(name:string, photoURL:string){
     updateProfile(this.auth.currentUser!, {
       displayName: name, photoURL:photoURL
     }).then(() => {
       console.log("Usuario actualizado correctamente");
+      this.firestore.createSchemaUser(this.auth.currentUser as User);
     }).catch((error) => {
       console.log(error);
     })

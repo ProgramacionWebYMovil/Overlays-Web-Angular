@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PricesComponent } from './pages/prices/prices.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { HowtouseComponent } from './pages/howtouse/howtouse.component';
+import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.component';
 
 const routes: Routes = [
   {path:'', component: IndexComponent},
@@ -18,6 +19,8 @@ const routes: Routes = [
   {path:'prices',component:PricesComponent},
   {path:'payment',component:PaymentComponent},
   {path:'howToUse',component:HowtouseComponent},
+  {path:'customOverlay',component:CustomOverlayComponent},
+
   { path: '**', pathMatch: 'full',component: PageNotFoundComponent }
 ];
 

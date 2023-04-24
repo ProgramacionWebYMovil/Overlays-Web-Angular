@@ -30,6 +30,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { RouterModule } from '@angular/router';
 import { HowtouseComponent } from './pages/howtouse/howtouse.component';
+import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.component';
 
 
 
@@ -52,6 +53,7 @@ import { HowtouseComponent } from './pages/howtouse/howtouse.component';
     PageNotFoundComponent,
     PaymentComponent,
     HowtouseComponent,
+    CustomOverlayComponent,
   ],
   imports: [
     BrowserModule,

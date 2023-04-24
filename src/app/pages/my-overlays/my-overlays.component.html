@@ -1,8 +1,8 @@
 <app-header></app-header>
 
 <main>
-    <h1 id="h1_title">My overlay library</h1>
-    <p *ngIf="!overlays || overlays.length==0" id="messageNoOverlays">No hay overlays</p>
+    <h1 id="h1_title">{{pageContent.title}}</h1>
+    <a *ngIf="!overlays || overlays.length==0" id="messageNoOverlays" href="overlays"><h2>{{pageContent.messageNoOverlays}}</h2></a>
     <section id="overlays">
         <div *ngFor="let overlay of overlays; let i=index">
             <app-card-overlay [overlay]="overlays[i]"></app-card-overlay>
