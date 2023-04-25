@@ -4,11 +4,9 @@
 */
 export interface Overlays {
     id:number,
+    type:string,
     urlId:number,
     userId:string,
-    buttons:any[],
-    inputs:any[],
-    colors:any[],
     font:string
 }
 

@@ -1,8 +1,30 @@
 <app-header></app-header>
 <main>
+  <ng-container  [ngSwitch]="overlay.type">
 
 
-<app-basketball1></app-basketball1>
+    <div *ngSwitchCase="'football'">
+
+
+    </div>
+
+    <div *ngSwitchCase="'basketball'">
+
+
+    </div>
+
+    <div *ngSwitchCase="'tennis'">
+
+
+    </div>
+
+    <div *ngSwitchCase="'timer'">
+
+
+    </div>
+
+    <div *ngSwitchDefault>Error de datos</div>
+  </ng-container>
 
 </main>
 <app-footer></app-footer>
