@@ -1,43 +1,45 @@
 <nav id="nav_header">
+  <h1 id="title"><img src="assets/logotypes/logo.png" alt="Imagen del Logo"/><a href="">{{pageContent.title}}</a></h1>
   <section id="menu-header">
-      <h1 id="title"><img src="assets/logotypes/logo.png" alt="Imagen del Logo"/><a href="">{{pageContent.title}}</a></h1>
-      <button (click)="changeLanguage()" >Cambiar idioma</button>
-      <a href="edit/3/4">EDIT</a>
-      <button class="dropall"> <i>&#8801;</i>
-          <ul class="dropall_elements">
-            <li id="dropmenu">
-                <a id="dropmenu-top" href="overlays">{{pageContent.dropmenu_title}}</a>
-                <div class="dropmenu_elements">
-                    <a id="football" href="overlays">{{pageContent.dropmenu_football}}</a>
-                    <a id="basketball" href="overlays">{{pageContent.dropmenu_basketball}}</a>
-                    <a id="padel" href="overlays">{{pageContent.dropmenu_padel}}</a>
-                    <a id="tennis" href="overlays">{{pageContent.dropmenu_tennis}}</a>
-                    <a id="others" href="overlays">{{pageContent.dropmenu_others}}</a>
-                </div>
-            </li>
-
-            <li id="prices"><a href="prices">{{pageContent.prices_title}}</a></li>
-            <li id="howToUse"><a href="howToUse">{{pageContent.howToUse}}</a></li>
-
-            <li id="sessionOptions">
-                <img id="icono_usuario" src="assets/icons/user-yellow.png" alt="User Icon"/>
-                <div >
-
-                  <div *ngIf="isLoggedIn$ | async; else elseblock">
-                    <a href="myOverlays">{{pageContent.logged_option2}}</a>
-                    <a (click)="logOut()">{{pageContent.logged_option3}}</a>
-
+        <button class="dropall"> <i>&#8801;</i>
+            <ul class="dropall_elements">
+              <li id="dropmenu">
+                  <a id="dropmenu-top" href="overlays">{{pageContent.dropmenu_title}}</a>
+                  <div class="dropmenu_elements">
+                      <a id="football" href="overlays">{{pageContent.dropmenu_football}}</a>
+                      <a id="basketball" href="overlays">{{pageContent.dropmenu_basketball}}</a>
+                      <a id="padel" href="overlays">{{pageContent.dropmenu_padel}}</a>
+                      <a id="tennis" href="overlays">{{pageContent.dropmenu_tennis}}</a>
+                      <a id="others" href="overlays">{{pageContent.dropmenu_others}}</a>
                   </div>
+              </li>
 
-                  <ng-template #elseblock >
+              <li id="prices"><a href="prices">{{pageContent.prices_title}}</a></li>
+              <li id="howToUse"><a href="howToUse">{{pageContent.howToUse}}</a></li>
 
-                    <a href="session/login">{{pageContent.logged_option0}}</a>
-                    <a href="session/signup" >{{pageContent.logged_option1}}</a>
+              <li id="sessionOptions">
+                  <img id="icono_usuario" src="assets/icons/user-yellow.png" alt="User Icon"/>
+                  <div >
 
-                  </ng-template>
-                </div>
-            </li>
-        </ul>
-    </button>
+                    <div *ngIf="isLoggedIn$ | async; else elseblock">
+                      <a href="myOverlays">{{pageContent.logged_option2}}</a>
+                      <a (click)="logOut()">{{pageContent.logged_option3}}</a>
+
+                    </div>
+
+                    <ng-template #elseblock >
+
+                      <a href="session/login">{{pageContent.logged_option0}}</a>
+                      <a href="session/signup" >{{pageContent.logged_option1}}</a>
+
+                    </ng-template>
+                  </div>
+              </li>
+          </ul>
+      </button>
+      <select id="change_lang_select" name="languages" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
+        <option value="null" disabled selected>Language</option>
+        <option *ngFor="let language of languages" [value]="language.value">{{language.label}}</option>
+      </select>
   </section>
 </nav>
