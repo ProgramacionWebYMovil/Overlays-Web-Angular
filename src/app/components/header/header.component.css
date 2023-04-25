@@ -5,9 +5,13 @@ a {
 #nav_header {
   background: linear-gradient(var(--colorPrincipalOscuro),var(--colorPrincipal));
   font-family: Poppins, serif;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#menu-header #title img{
+ #title img{
   width: 2em;
   height: 2em;
   float: left;
@@ -16,14 +20,14 @@ a {
 
 #menu-header {
   display: inline-flex;
-  width: 100%;
   font-size: 1em;
   padding-left:inherit;
-  justify-content: space-between;
   align-items: center;
+  width: 50%;
+  justify-content: flex-end;
 }
 
-#menu-header a {
+nav a {
   font-weight: bold;
   color: var(--colorTerciario);
   text-decoration: none;
@@ -37,14 +41,44 @@ a {
   height: 2em;
 }
 
-#menu-header #title a{
+#title {
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
 
+#title a{
   text-decoration: none;
 }
 
-#menu-header a:hover {
-  box-shadow: inset 10em 0 0 0 var(--colorTerciario);
+nav a:hover {
+  box-shadow: inset 11em 0 0 0 var(--colorTerciario);
   color: var(--colorPrincipal);
+}
+
+ #change_lang_select {
+  position: relative;
+  display: flex;
+  width: 8em;
+  height: 2.5em;
+  line-height: 3;
+  background: var(--colorTerciario);
+  color: var(--colorSecundario);
+  font-family: Poppins-bold;
+  font-size: 1em;
+  margin-right: 1em;
+  overflow: hidden;
+  border-radius: .25em;
+}
+#change_lang_select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #2b2e2e;
+  cursor:pointer;
+  pointer-events:none;
+  transition:.25s all ease;
 }
 
 @media screen and (min-width:1024px){
@@ -58,16 +92,13 @@ a {
     display: flex;
     align-items: center;
     margin-left:1em;
+    justify-self: flex-start;
+    font-size: 2em;
   }
-
-  #menu-header #title a{
-    font-size:2em;
-  }
-
 
 
   .dropall{
-    width: 40%;
+    width: 100%;
     background: none;
     border: none;
   }
@@ -153,8 +184,15 @@ a {
 }
 
 @media screen and (min-width:768px) and (max-width:1023px){
+  #title {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    margin-top: 0.5em;
+  }
+
   #menu-header {
-    gap: 20%;
+    gap: 10%;
     flex-direction:row;
   }
 
@@ -173,7 +211,6 @@ a {
     padding: 0;
     border-width: 0;
     text-align: left;
-    margin-right:1.5em;
   }
 
   .dropall i{
@@ -239,30 +276,36 @@ a {
       margin-top: 0.5em;
   }
 
+  #change_lang_select{
+    width: 6.8em;
+    height: 2em;
+  }
+
 }
 
 @media screen and (max-width:767px){
   #menu-header {
-    gap: 20%;
     flex-direction:row;
   }
 
   #title {
     display: flex;
     align-items: center;
-    margin-left:1.5em;
+    margin: 0.4em 0 0 0.2em;
 }
 
-  #menu-header #title img{
+   #title img{
       width: 2em;
       height: 2em;
       float: left;
       margin-right:0.1em;
   }
 
-  #menu-header #title a{
-      font-size:1.2em;
+  #title a{
+      font-size:0.8em;
       text-decoration: none;
+      line-height: 1em;
+      width: 6em;
   }
 
   #menu-header #icono_usuario {
@@ -362,5 +405,14 @@ a {
       margin-top: 0.5em;
   }
 
-}
+  #change_lang_select{
+    height: 2em;
+    width: 2em;
+    font-size: 0.8em;
+  }
 
+  #change_lang_select option:first-child {
+    display: none;
+  }
+
+}

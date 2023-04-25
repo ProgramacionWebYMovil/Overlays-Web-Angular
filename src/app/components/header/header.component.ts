@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { User } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { Header } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
@@ -19,6 +18,14 @@ export class HeaderComponent {
 
   isLoggedIn$: Observable<boolean>;
 
+  languages = [
+    { value: 'es', label: 'ES' },
+    { value: 'en', label: 'EN' }
+  ];
+
+  selectedLanguage: string = '';
+
+
   constructor
   (private load:LoadContentService
   ,private auth:AuthenticationService){
@@ -27,7 +34,10 @@ export class HeaderComponent {
   }
 
   ngOnInit(){
-    this.load.loadContent("header").then(data =>this.pageContent=data);
+    this.load.loadContent('header').then(data => {
+      this.pageContent = data;
+    });
+    this.selectedLanguage = 'null';
   }
 
   async logOut(){
@@ -35,7 +45,11 @@ export class HeaderComponent {
   }
 
   changeLanguage(){
-    this.load.changeLanguage();
+    if(this.selectedLanguage === 'es'){
+      this.load.setCurrentLanguage(1);
+    } else if(this.selectedLanguage === 'en'){
+      this.load.setCurrentLanguage(0);
+    }
     window.location.reload();
   }
 

@@ -38,7 +38,7 @@ export class OverlaysService {
     if(nPages % 1 != 0){
       nPages = Math.trunc(nPages);
       nPages++;
-    } 
+    }
     return nPages;
   }
 

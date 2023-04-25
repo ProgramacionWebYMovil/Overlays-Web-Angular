@@ -12,6 +12,7 @@ export interface Header {
   logged_option2?:string,
   logged_option3?:string,
   prices_title?:string,
+  language?:string
 }
 
 export interface Footer  {

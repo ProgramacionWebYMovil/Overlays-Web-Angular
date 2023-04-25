@@ -35,9 +35,14 @@ export class LoadContentService {
     let finalContent;
 
     await this.db.getData(this.languages[this.currentLanguage],locationData).then(data =>{
-      finalContent = data;      
+      finalContent = data;
     });
 
     return finalContent as any;
+  }
+
+  setCurrentLanguage(languageIndex: number) {
+    this.currentLanguage = languageIndex;
+    localStorage.setItem('language', this.languages[this.currentLanguage]);
   }
 }
