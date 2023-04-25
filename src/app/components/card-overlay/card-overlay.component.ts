@@ -31,7 +31,7 @@ export class CardOverlayComponent {
       //SI ESTA REGISTRADO, LO MANDA A EDIT OVERLAY
 
       //this.route.navigate();
-      console.log(this.overlay.overlayType);
+      console.log(this.overlay);
       this.firestore.createOverlay(this.overlay,this.auth.getCurrentUid());
     }
     

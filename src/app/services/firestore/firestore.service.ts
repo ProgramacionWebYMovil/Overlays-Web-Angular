@@ -51,7 +51,7 @@ export class FirestoreService {
       userName:user.displayName,
       userEmail:user.email,
       userPhoto:user.photoURL,
-      countOverlay:0
+      countOverlay:1
     });
     /*Advertencia: Si borras un documento, no se borrarán las subcolecciones que contiene.
     Cuando borras un documento que tiene subcolecciones, estas no se borran. Por ejemplo, 
@@ -65,9 +65,20 @@ export class FirestoreService {
   }
 
   async createOverlay(overlay:any, userID:string){
-    const docRef = doc(this.firestore,"Users",userID,"Overlays","Overlay " + await this.nextIdOverlay(userID));
+    const nextId = await this.nextIdOverlay(userID);
+    const docRef = doc(this.firestore,"Users",userID,"Overlays","Overlay " + nextId);
+    
+    /*Insertamos el documento y su información
+    *   -id: es el identificador del overlay
+    *   -urlID: es el número de overlay que es en el esquema del usuario
+    *   -userID: el identificador de usuario
+    *   -type: el tipo de overlay en cuestión
+    */
     await setDoc(docRef,{
-      
+      id:overlay.overlayID,
+      urlID:nextId,
+      userID:userID,
+      type:overlay.type
     });
   }
 
@@ -81,6 +92,8 @@ export class FirestoreService {
       countOverlay:increment(1)
     });
     return docSnap!['countOverlay'];
+
+
   }
 
 }
