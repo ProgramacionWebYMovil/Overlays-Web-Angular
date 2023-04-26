@@ -31,6 +31,8 @@ import { RouterModule } from '@angular/router';
 import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.component';
 import { Basketball1Component } from './components/overlays/overlay-basketball/basketball1/basketball1.component';
+import { AuthenticationService } from './services/authentication/authentication.service';
+import { MyOverlaysService } from './services/myOverlays/my-overlays.service';
 
 
 
@@ -70,12 +72,11 @@ import { Basketball1Component } from './components/overlays/overlay-basketball/b
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
-    RouterModule.forRoot([
-      { path: 'prices', component: PricesComponent }
-    ])
+    RouterModule
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService,
+    UserTrackingService
   ],
   bootstrap: [AppComponent]
 })

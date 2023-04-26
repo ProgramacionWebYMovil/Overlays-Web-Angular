@@ -4,3 +4,7 @@ export const ID = {
   TIMER_1_ID:3,
   BASKETBALL_1_ID: 4,
 }
+
+export const IMAGE_OVERLAY = {
+  "1":"assets/images/overlays_preview/football.png"
+}

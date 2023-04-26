@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
+import { IMAGE_OVERLAY } from '../overlays/overlays-common';
 
 @Component({
   selector: 'app-card-overlay',
@@ -20,7 +21,16 @@ export class CardOverlayComponent {
   ngOnInit(){
     /*Compruebo que el padre es overlays o myOverlays
     * para poder eliminar o mostrar el boton de usar*/
-    window.location.pathname == "/myOverlays" ? this.buttonShow=false : this.buttonShow=true; 
+    window.location.pathname == "/myOverlays" ? this.buttonShow=false : this.buttonShow=true;
+    if(this.overlay.image===undefined){
+      const id = this.overlay.id;
+      
+      //const a = ;
+      //this.overlay.image = IMAGE_OVERLAY[a]!;
+      console.log(this.overlay.image);
+      
+    }
+     
   }
 
   useButton(): void {

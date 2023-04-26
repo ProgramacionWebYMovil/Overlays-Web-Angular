@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { collection , doc  } from '@firebase/firestore';
+import { DocumentData, collection , doc  } from '@firebase/firestore';
 
-import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc, updateDoc, increment} from '@angular/fire/firestore';
+import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc, updateDoc, increment, Timestamp} from '@angular/fire/firestore';
 import { User } from 'firebase/auth';
 import { child, get, getDatabase, ref, DatabaseReference } from 'firebase/database';
 import { Database } from '@angular/fire/database';
@@ -43,6 +43,21 @@ export class FirestoreService {
     return overlays;
   }
 
+  async getMyOverlays(user:string){
+    const querySnapshot = await getDocs(collection(this.firestore,"Users/"+user+"/Overlays"));
+
+    let overlays: DocumentData[] = [];
+    let index = 0;
+  
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      overlays[index] = doc.data();
+      index++;
+    });
+    
+    return overlays;
+  }
+
   /*METODO PARA CREAR EL ESQUEMA DE UN USUARIO, SE LLAMA CUANDO UN USUARIO SE REGISTRA*/
   async createSchemaUser(user:User){
     let uid = user.uid;
@@ -51,7 +66,7 @@ export class FirestoreService {
       userName:user.displayName,
       userEmail:user.email,
       userPhoto:user.photoURL,
-      countOverlay:1
+      countOverlay:0
     });
     /*Advertencia: Si borras un documento, no se borrarán las subcolecciones que contiene.
     Cuando borras un documento que tiene subcolecciones, estas no se borran. Por ejemplo, 
@@ -66,7 +81,7 @@ export class FirestoreService {
 
   async createOverlay(overlay:any, userID:string){
     const nextId = await this.nextIdOverlay(userID);
-    const docRef = doc(this.firestore,"Users",userID,"Overlays","Overlay " + nextId);
+    const docRef = doc(this.firestore,"Users",userID,"Overlays","Overlay " + (nextId +1));
     
     /*Insertamos el documento y su información
     *   -id: es el identificador del overlay
@@ -76,9 +91,10 @@ export class FirestoreService {
     */
     await setDoc(docRef,{
       id:overlay.overlayID,
-      urlID:nextId,
+      //urlID:nextId,
       userID:userID,
-      type:overlay.type
+      type:overlay.type,
+      date:Timestamp.now()
     });
   }
 
