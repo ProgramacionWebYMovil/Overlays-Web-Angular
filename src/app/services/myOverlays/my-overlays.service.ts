@@ -60,6 +60,16 @@ export class MyOverlaysService {
     return overlays.sort((a, b) => b.date.toDate() - a.date.toDate());
   }
 
+  /*Metodo que borra el overlay con el id urlID*/
+  deleteOverlay(urlID:Number){
+
+    //Eliminamos el overlay
+    let newOverlays = this.overlays.filter(overlay => overlay.urlID !== urlID);
+    //Ordenamos los overlays
+    this.overlays = this.sortOverlays(newOverlays);
+    return this.overlays.length;
+  }
+
   
 
 

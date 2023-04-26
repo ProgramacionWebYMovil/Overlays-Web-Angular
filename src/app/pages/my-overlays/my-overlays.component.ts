@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { noop } from 'rxjs';
 import { checkLogged } from 'src/app/common/tools/check-is-logged.tool';
+import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
 import { MyOverlays } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
@@ -17,20 +19,30 @@ export class MyOverlaysComponent {
   pageContent:MyOverlays = {};
   paginationReady:boolean = false;
 
+  @ViewChild(PaginationComponent) pagination!: PaginationComponent;
+
   constructor(public load: LoadContentService,
-    public loadOverlays:MyOverlaysService ) {
+    public overlayService:MyOverlaysService ) {
     this.load.loadContent("myoverlays").then(data => this.pageContent = data);
   }
 
   async ngOnInit(){
-    await this.loadOverlays.loadMyOverlays().then((data)=>{
-      this.overlays = this.loadOverlays.fillOverlays(0,this.loadOverlays.getCardsPerPage());
+    await this.overlayService.loadMyOverlays().then((data)=>{
+      this.overlays = this.overlayService.fillOverlays(0,this.overlayService.getCardsPerPage());
       this.paginationReady = true;  
     });
   }
 
   //METODO LLAMADO POR APP-PAGINATION
   changePage(startEnd:{start:number,end:number}):void{
-    this.overlays = this.loadOverlays.fillOverlays(startEnd.start,startEnd.end);
+    this.overlays = this.overlayService.fillOverlays(startEnd.start,startEnd.end);
+  }
+
+  deleteOverlay($event:any){
+    const overlaysLength = this.overlayService.deleteOverlay($event);
+
+    overlaysLength !== 0 ? this.paginationReady=true:this.paginationReady=false;
+    this.pagination.postDeleteAction(overlaysLength);
+
   }
 }

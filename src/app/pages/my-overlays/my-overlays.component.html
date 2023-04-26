@@ -6,13 +6,14 @@
         <div *ngFor="let overlay of overlays; let i=index">
             <app-card-overlay 
                 [overlay]="overlays[i]"
-                [language]="load.getCurrentLanguage()">
+                [language]="load.getCurrentLanguage()"
+                (deleteOverlay)="deleteOverlay($event)">
             </app-card-overlay>
         </div>
     </section>
-    <app-pagination *ngIf="paginationReady"
-    [nPages]="loadOverlays.getnumberOfPages()"
-    [cardsPerPage]="loadOverlays.getCardsPerPage()"
+    <app-pagination  *ngIf="paginationReady"
+    [nPages]="overlayService.getnumberOfPages()"
+    [cardsPerPage]="overlayService.getCardsPerPage()"
     (changePageEvent)="changePage($event)"></app-pagination>
 </main>
 

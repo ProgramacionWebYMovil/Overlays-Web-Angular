@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
@@ -16,6 +16,8 @@ export class CardOverlayComponent {
   buttonShow!: boolean;
 
   buttonsText!:string[];
+
+  @Output() deleteOverlay = new EventEmitter<number>();
 
   constructor(private auth:AuthenticationService,
               private route: Router,
@@ -46,13 +48,31 @@ export class CardOverlayComponent {
     }else{
       //SI ESTA REGISTRADO, LO MANDA A EDIT OVERLAY
       const nextId = await this.firestore.createOverlay(this.overlay,this.auth.getCurrentUid());
-      this.route.navigate(['edit',this.auth.getCurrentUid(),nextId]);
+      //this.route.navigate(['edit',this.auth.getCurrentUid(),nextId]);
       
     }
   }
 
   delete(){
     console.log("Hola");
+  }
+
+  actionEvent($event:any){
     
+    
+    switch($event){
+      case "use":
+        this.route.navigate(['edit',this.overlay.userID,this.overlay.urlID])
+        break;
+      case "edit":
+
+        break;
+      case "delete":
+        this.firestore.deleteOverlay(this.overlay.userID,this.overlay.urlID);
+        //Opcion 1: recargar la pagina despues de borrar el elemento
+        //Opcion 2: borrar el cardOverlay, para ello habrá que llamar al padre
+        this.deleteOverlay.emit(this.overlay.urlID);
+        break;
+    }
   }
 }

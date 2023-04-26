@@ -33,6 +33,7 @@ import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.co
 import { Basketball1Component } from './components/overlays/overlay-basketball/basketball1/basketball1.component';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { MyOverlaysService } from './services/myOverlays/my-overlays.service';
+import { DropdownCardButtonComponent } from './components/dropdown-card-button/dropdown-card-button.component';
 
 
 
@@ -58,6 +59,7 @@ import { MyOverlaysService } from './services/myOverlays/my-overlays.service';
     HowtouseComponent,
     CustomOverlayComponent,
     Basketball1Component,
+    DropdownCardButtonComponent,
   ],
   imports: [
     BrowserModule,
