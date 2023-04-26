@@ -1,4 +1,8 @@
-
+h1 {
+    color:var(--colorTerciario);
+    
+    font-family: Poppins-bold !important;
+}
 @media screen and (min-width:1024px) {
     main {
 
@@ -21,6 +25,8 @@
         grid-template-rows: repeat(2,auto);
         grid-row-gap:2em;
         justify-items:center;
+        height: 600px;
+        align-items: stretch;
     }
 
     #pages{
@@ -97,6 +103,7 @@
         grid-template-rows: repeat(2,auto);
         grid-row-gap:2em;
         justify-items:center;
+        
     }
 
     #pages{

@@ -28,7 +28,7 @@ export class FirestoreService {
     return data;
   }
 
-  async getOverlaysDemo(nameCollection:string){
+  async getOverlaysDemo(nameCollection:string){    
     const dbRef = ref(this.realTime);
     const data = await get(child(dbRef,nameCollection)).then((snapshot => {
       return snapshot.val();
@@ -50,7 +50,6 @@ export class FirestoreService {
     let index = 0;
   
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
       overlays[index] = doc.data();
       index++;
     });
@@ -91,11 +90,14 @@ export class FirestoreService {
     */
     await setDoc(docRef,{
       id:overlay.overlayID,
-      //urlID:nextId,
+      name:overlay.name,
+      description:overlay.description,
+      urlID:nextId,
       userID:userID,
       type:overlay.type,
       date:Timestamp.now()
     });
+    return nextId;
   }
 
   async nextIdOverlay(userID:string){

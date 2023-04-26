@@ -5,6 +5,8 @@ export const ID = {
   BASKETBALL_1_ID: 4,
 }
 
-export const IMAGE_OVERLAY = {
-  "1":"assets/images/overlays_preview/football.png"
-}
+export const IMAGE_OVERLAY = [
+  "assets/images/overlays_preview/football.png",
+  "assets/images/overlays_preview/tennis.png",
+  "assets/images/overlays_preview/timer.png",
+]

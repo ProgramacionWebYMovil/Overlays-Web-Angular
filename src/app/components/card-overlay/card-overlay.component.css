@@ -55,7 +55,7 @@
 
 .section_date {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .section_date p {
@@ -65,7 +65,7 @@
 
 .info-cardOverlay {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     color:var(--colorSecundario);
     font-size:0.8em;
@@ -87,6 +87,10 @@
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+}
+
+.card_dropdown:hover{
+    display: none;
 }
 
 .card_dropdown_button img{

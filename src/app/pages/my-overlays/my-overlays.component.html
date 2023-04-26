@@ -4,7 +4,10 @@
     <a *ngIf="!overlays || overlays.length==0" id="messageNoOverlays" href="overlays"><h2>{{pageContent.messageNoOverlays}}</h2></a>
     <section id="overlays">
         <div *ngFor="let overlay of overlays; let i=index">
-            <app-card-overlay [overlay]="overlays[i]"></app-card-overlay>
+            <app-card-overlay 
+                [overlay]="overlays[i]"
+                [language]="load.getCurrentLanguage()">
+            </app-card-overlay>
         </div>
     </section>
     <app-pagination *ngIf="paginationReady"

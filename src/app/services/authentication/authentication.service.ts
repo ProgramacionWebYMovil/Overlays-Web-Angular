@@ -28,11 +28,11 @@ export class AuthenticationService {
     })
   }
 
-  getUidWithPromise(){
+  async getUidWithPromise(){
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(this.getCurrentUid())
-      },1000);
+      },2000);
     });
   }
 

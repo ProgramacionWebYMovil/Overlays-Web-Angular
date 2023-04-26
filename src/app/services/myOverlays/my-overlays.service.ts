@@ -23,11 +23,15 @@ export class MyOverlaysService {
   
 
   async loadMyOverlays() {
-    return this.auth.getUidWithPromise().then(async id=>{
+    const id = await this.auth.getUidWithPromise();
+    const overlays = await this.db.getMyOverlays(id as string);
+    this.overlays = this.sortOverlays(overlays);
+    return this.overlays;
+    /*return this.auth.getUidWithPromise().then( async id=>{
       const overlays = await this.db.getMyOverlays(id as string);
       this.overlays = overlays;
       return this.fillOverlays(0,this.getCardsPerPage());
-    });
+    });*/
   }
 
   fillOverlays(start:number, end:number):any {
@@ -50,6 +54,10 @@ export class MyOverlaysService {
       nPages++;
     }
     return nPages;
+  }
+
+  sortOverlays(overlays:any[]){
+    return overlays.sort((a, b) => b.date.toDate() - a.date.toDate());
   }
 
   

@@ -17,24 +17,20 @@ export class MyOverlaysComponent {
   pageContent:MyOverlays = {};
   paginationReady:boolean = false;
 
-  constructor(private load: LoadContentService,
+  constructor(public load: LoadContentService,
     public loadOverlays:MyOverlaysService ) {
     this.load.loadContent("myoverlays").then(data => this.pageContent = data);
   }
 
   async ngOnInit(){
-    this.overlays = await this.loadOverlays.loadMyOverlays();
-    this.paginationReady = true;
-    console.log(this.overlays);
+    await this.loadOverlays.loadMyOverlays().then((data)=>{
+      this.overlays = this.loadOverlays.fillOverlays(0,this.loadOverlays.getCardsPerPage());
+      this.paginationReady = true;  
+    });
   }
 
   //METODO LLAMADO POR APP-PAGINATION
   changePage(startEnd:{start:number,end:number}):void{
-    this.loadOverlays.fillOverlays(startEnd.start,startEnd.end);
+    this.overlays = this.loadOverlays.fillOverlays(startEnd.start,startEnd.end);
   }
-
-
-  
-
-  //console.log(array.sort((a, b) => new Date(a.fechas).getTime() > new Date(b.fechas).getTime()));
 }
