@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +18,7 @@ import { CardOverlayComponent } from './components/card-overlay/card-overlay.com
 import { SessionComponent } from './pages/session/session.component';
 import { OverlaysComponent } from './pages/overlays/overlays.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule  } from '@angular/forms';
 import { OverlayFootballComponent } from './components/overlays/overlay-football/overlay-football.component';
 import { OverlayTennisComponent } from './components/overlays/overlay-tennis/overlay-tennis.component';
 import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
@@ -26,6 +26,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog'
 import { PaymentComponent } from './pages/payment/payment.component';
 import { RouterModule } from '@angular/router';
 import { HowtouseComponent } from './pages/howtouse/howtouse.component';
@@ -34,6 +35,9 @@ import { Basketball1Component } from './components/overlays/overlay-basketball/b
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { MyOverlaysService } from './services/myOverlays/my-overlays.service';
 import { DropdownCardButtonComponent } from './components/dropdown-card-button/dropdown-card-button.component';
+import { DialogComponentComponent } from './components/dialog-component/dialog-component.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -60,6 +64,7 @@ import { DropdownCardButtonComponent } from './components/dropdown-card-button/d
     CustomOverlayComponent,
     Basketball1Component,
     DropdownCardButtonComponent,
+    DialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -74,8 +79,13 @@ import { DropdownCardButtonComponent } from './components/dropdown-card-button/d
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
-    RouterModule
+    MatDialogModule,
+    RouterModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     ScreenTrackingService,
     UserTrackingService

@@ -135,4 +135,19 @@ export interface MyOverlays{
   messageNoOverlays?:string
 }
 
+/*Inteface para los datos del dialogo en myOverlays (cardOverlays)*/
+export interface DialogData {
+  title?:string,
+  text?:string,
+  titleOverlay?:string,
+  descriptionOverlay?:string,
+  descriptionText?:string,
+  alertTextTitle?:string,
+  alertTextDescription?:string,
+  buttonCancel?:string,
+  buttonOk?:string,
+  result1?:string,
+  result2?:string
+}
+
 

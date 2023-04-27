@@ -46,7 +46,7 @@
     color: var(--colorSecundario);
     margin: 0 auto auto auto;
     /*Limitar a solo 3 lineas el texto*/
-    display: -webkit-box;
+    display: contents;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;

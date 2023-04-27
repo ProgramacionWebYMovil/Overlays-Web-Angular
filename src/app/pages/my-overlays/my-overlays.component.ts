@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { noop } from 'rxjs';
 import { checkLogged } from 'src/app/common/tools/check-is-logged.tool';
 import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
-import { MyOverlays } from 'src/app/interfaces/pagesContents.interface';
+import { DialogData, MyOverlays } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
 import { MyOverlaysService } from 'src/app/services/myOverlays/my-overlays.service';
@@ -17,6 +17,7 @@ export class MyOverlaysComponent {
 
   overlays:any[] = [];
   pageContent:MyOverlays = {};
+  dialogData:DialogData = {};
   paginationReady:boolean = false;
 
   @ViewChild(PaginationComponent) pagination!: PaginationComponent;
@@ -24,6 +25,7 @@ export class MyOverlaysComponent {
   constructor(public load: LoadContentService,
     public overlayService:MyOverlaysService ) {
     this.load.loadContent("myoverlays").then(data => this.pageContent = data);
+    this.load.loadContent("dialogOverlay").then(data => this.dialogData = data);
   }
 
   async ngOnInit(){

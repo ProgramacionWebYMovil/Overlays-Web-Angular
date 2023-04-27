@@ -119,5 +119,12 @@ export class FirestoreService {
     
   }
 
+  changeOverlaysDetails(userID:string,urlID:number,data:any){
+    updateDoc(doc(this.firestore,"Users",userID,"Overlays","Overlay "+urlID),{
+      name:data.resultado1,
+      description:data.resultado2
+    });
+  }
+
 }
 
