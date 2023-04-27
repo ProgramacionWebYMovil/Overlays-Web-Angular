@@ -19,6 +19,7 @@ export class MyOverlaysComponent {
   pageContent:MyOverlays = {};
   dialogData:DialogData = {};
   paginationReady:boolean = false;
+  chargeComplete:boolean = false;
 
   @ViewChild(PaginationComponent) pagination!: PaginationComponent;
 
@@ -31,7 +32,8 @@ export class MyOverlaysComponent {
   async ngOnInit(){
     await this.overlayService.loadMyOverlays().then((data)=>{
       this.overlays = this.overlayService.fillOverlays(0,this.overlayService.getCardsPerPage());
-      this.paginationReady = true;  
+      this.paginationReady = true;
+      this.chargeComplete = true; 
     });
   }
 

@@ -12,8 +12,8 @@ export class DialogComponentComponent {
     public dialogRef: MatDialogRef<DialogComponentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
-    data.dialogData.resultado1="";
-    data.dialogData.resultado2="";
+    data.dialogData.resultado1=data.overlay.name;
+    data.dialogData.resultado2=data.overlay.description;
   }
 
   onNoClick(): void {

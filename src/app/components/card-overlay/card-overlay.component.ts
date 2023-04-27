@@ -91,9 +91,11 @@ export class CardOverlayComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.firestore.changeOverlaysDetails(this.overlay.userID,this.overlay.urlID,result);
-      this.overlay.name = result.resultado1;
-      this.overlay.description = result.resultado2;
+      if(result!==undefined){
+        this.firestore.changeOverlaysDetails(this.overlay.userID,this.overlay.urlID,result);
+        this.overlay.name = result.resultado1;
+        this.overlay.description = result.resultado2;
+      }
     });
   }
 }

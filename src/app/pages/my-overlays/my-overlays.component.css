@@ -3,13 +3,18 @@ h1 {
     
     font-family: Poppins-bold !important;
 }
+
+app-pagination{
+    margin-top: auto;
+}
 @media screen and (min-width:1024px) {
     main {
 
         display:flex;
-        justify-content:center;
+        justify-content:flex-start;
         flex-direction:column;
         margin:1em 3em 0 3em;
+        height: 700px;
     }
 
     body {
@@ -28,6 +33,14 @@ h1 {
         height: 600px;
         align-items: stretch;
     }
+
+    #spinnerContainer{
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
     #pages{
         display:flex;
@@ -119,6 +132,13 @@ h1 {
 
     }
 
+    #spinnerContainer{
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
 
 
@@ -157,6 +177,10 @@ h1 {
         margin:1em 3em 0 3em;
     }
 
+    #h1_title{
+        margin-top: 1em;
+    }
+
     body {
         background-color: var(--colorPrincipal);
         margin: 0;
@@ -184,6 +208,15 @@ h1 {
         display:flex;
 
     }
+
+    #spinnerContainer{
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
 
 
 

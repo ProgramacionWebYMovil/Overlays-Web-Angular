@@ -38,6 +38,7 @@ import { DropdownCardButtonComponent } from './components/dropdown-card-button/d
 import { DialogComponentComponent } from './components/dialog-component/dialog-component.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -83,7 +84,8 @@ import { MatInputModule } from '@angular/material/input';
     RouterModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [
