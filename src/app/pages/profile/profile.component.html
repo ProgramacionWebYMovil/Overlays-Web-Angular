@@ -13,11 +13,11 @@
     <ul class="user_data">
       <li id="name_field">
         <label for="name_user">Nombre de Usuario:</label>
-        <input type="text" id="name_user" name="name_user" >
+        <input type="text" id="name_user" name="name_user" [(ngModel)]="user.userName">
       </li>
       <li id="mail_field">
         <label for="mail_user">Correo Electrónico:</label>
-        <input type="email" id="mail_user" name="mail_user" >
+        <input type="email" id="mail_user" name="mail_user" [(ngModel)]="user.userEmail">
       </li>
       <li id="password_field">
         <label for="password_user">Contraseña Actual:</label>
@@ -29,7 +29,7 @@
       </li>
     </ul>
 
-    <button type="submit">Actualizar Datos</button>
+    <button type="submit" (click)="onSubmit()">Actualizar Datos</button>
   </form>
 </main>
 <app-footer></app-footer>
