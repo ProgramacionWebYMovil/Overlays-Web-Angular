@@ -1,9 +1,11 @@
 main {
-  background: var(--colorPrincipal);
-  margin: 0;
-  display: grid;
-  grid-template: 'header''body''footer';
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 60%;
+  margin: auto auto 1em auto;
 }
 
 #title_profile {
@@ -11,37 +13,33 @@ main {
   text-align: center;
   font-size: 2em;
   font-family: Poppins-bold;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 600px;
-  margin: auto auto 1em auto;
+  margin-top: 1em;
 }
 
 form {
   display: grid;
   grid-template-areas:
-    "foto-perfil datos-usuario"
-    "foto-perfil boton-submit";
+    "pfp_profile user_data"
+    "pfp_profile boton-submit";
   justify-content: center;
   align-items: flex-start;
   color: #FFFFFF;
+
+  box-shadow: 0 0 250px #000;
+  padding: 2em 1em 2em 1em;
+  background-color: rgba(255, 255, 255, 0.22);
+  border-radius: 5%;
 }
 
-.foto-perfil {
-  grid-area: foto-perfil;
-  margin-right: 2rem;
+.pfp_profile {
+  grid-area: pfp_profile;
+  margin-right: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.foto-perfil img {
+.pfp_profile img {
   width: 8em;
   height: 8em;
   object-fit: cover;
@@ -49,30 +47,33 @@ form {
   margin-bottom: 1rem;
 }
 
-.foto-perfil input{
-  font-size: 0;
-  width: fit-content;
-  background: #FFBB00;
-
+.custom_file_upload {
+  display: inline-block;
+  padding: 2px 8px;
+  cursor: pointer;
+  background-color: #FFBB00;
+  color: #fff;
+  border-radius: 4px;
 }
 
-.foto-perfil input button {
+.custom_file_upload:hover{
+  background-color: #a47700;
 }
 
-.datos-usuario {
-  grid-area: datos-usuario;
+.custom_file_upload input[type="file"] {
+  display: none;
+}
+
+.user_data {
+  grid-area: user_data;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-#campo-usuario {
-  margin-bottom: 1rem;
-}
-
 label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-top: 0.8em;
 }
 
 input[type="text"],
@@ -80,12 +81,11 @@ input[type="email"],
 input[type="password"],
 input[type="file"] {
   display: block;
-  width: 100%;
-  padding: 0.5rem;
+  padding: 0.5em;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+  font-size: 1em;
+  width: 18em;
 }
 
 button[type="submit"] {
@@ -97,9 +97,43 @@ button[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1em;
+  justify-self: center;
 }
 
 button[type="submit"]:hover {
   background-color: #a47700;
+}
+
+@media screen and (min-width:768px) and (max-width:1023px){
+
+}
+
+@media screen and (max-width:767px){
+  main{
+    height: auto;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+
+    box-shadow: 0 0 250px #000;
+    padding: 2em 1em 2em 1em;
+    background-color: rgba(255, 255, 255, 0.22);
+    border-radius: 30px;
+  }
+
+  .pfp_profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .custom_file_upload{
+    margin-bottom: 1em;
+  }
 }

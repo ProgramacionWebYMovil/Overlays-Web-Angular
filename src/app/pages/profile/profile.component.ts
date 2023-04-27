@@ -6,8 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+
   selectedImage: any;
   defaultValue: any = 'Valor predeterminado';
+  private _selectedFileName: string;
+
+  constructor() {
+    this._selectedFileName = '';
+  }
+
+  get selectedFileName(): string {
+    return this._selectedFileName;
+  }
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];

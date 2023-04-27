@@ -32,6 +32,7 @@ import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.component';
 import { Basketball1Component } from './components/overlays/overlay-basketball/basketball1/basketball1.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import {NgOptimizedImage} from "@angular/common";
 
 
 
@@ -58,23 +59,24 @@ import { ProfileComponent } from './pages/profile/profile.component';
     Basketball1Component,
     ProfileComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAnalytics(() => getAnalytics()),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
-    provideDatabase(() => getDatabase()),
-    provideStorage(() => getStorage()),
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatMenuModule,
-    RouterModule.forRoot([
-      { path: 'prices', component: PricesComponent }
-    ])
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideAnalytics(() => getAnalytics()),
+        provideAuth(() => getAuth()),
+        provideFirestore(() => getFirestore()),
+        provideDatabase(() => getDatabase()),
+        provideStorage(() => getStorage()),
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatMenuModule,
+        RouterModule.forRoot([
+            {path: 'prices', component: PricesComponent}
+        ]),
+        NgOptimizedImage
+    ],
   providers: [
     ScreenTrackingService,UserTrackingService
   ],
