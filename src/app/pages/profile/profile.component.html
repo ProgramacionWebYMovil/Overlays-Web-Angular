@@ -1,0 +1,32 @@
+<app-header></app-header>
+<main>
+  <h1 id="title_profile">Profile</h1>
+  <form >
+    <div class="foto-perfil">
+      <img [src]="selectedImage ? selectedImage : '../../../assets/icons/user-white.png'" alt="Foto de perfil">
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" [(ngModel)]="defaultValue" [style]="">
+    </div>
+
+    <ul class="datos-usuario">
+      <li id="campo-nombre">
+        <label for="nombre-usuario">Nombre de Usuario:</label>
+        <input type="text" id="nombre-usuario" name="nombreUsuario" >
+      </li>
+      <li id="campo-correo">
+        <label for="correo-usuario">Correo Electrónico:</label>
+        <input type="email" id="correo-usuario" name="correoElectronico" >
+      </li>
+      <li id="campo-password">
+        <label for="contrasena-actual">Contraseña Actual:</label>
+        <input type="password" id="contrasena-actual" name="contrasenaActual" >
+      </li>
+      <li id="campo-confirmpassword">
+        <label for="nueva-contrasena">Nueva Contraseña:</label>
+        <input type="password" id="nueva-contrasena" name="nuevaContrasena" >
+      </li>
+    </ul>
+
+    <button type="submit">Actualizar Datos</button>
+  </form>
+</main>
+<app-footer></app-footer>
