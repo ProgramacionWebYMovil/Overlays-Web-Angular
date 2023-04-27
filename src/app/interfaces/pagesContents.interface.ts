@@ -11,6 +11,7 @@ export interface Header {
   logged_option1?:string,
   logged_option2?:string,
   logged_option3?:string,
+  logged_option4?:string,
   prices_title?:string,
   language?:string
 }
