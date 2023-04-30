@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject } from 'rxjs';
 import { Auth, onAuthStateChanged, user } from '@angular/fire/auth';
 
 import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut, 
+  signOut,
   updateProfile}from 'firebase/auth';
 
 import { Observable } from 'rxjs';
@@ -17,9 +17,14 @@ import { update } from 'firebase/database';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private currentUserSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+  currentUser$: Observable<string | null> = this.currentUserSubject.asObservable();
 
   constructor(private auth:Auth,
-              private firestore:FirestoreService) {}
+              private firestore:FirestoreService)
+  {
+    this.initCurrentUser();
+  }
 
   isLoggedInObservable(): Observable<boolean> {
     return new Observable((subscriber) => {
@@ -34,15 +39,15 @@ export class AuthenticationService {
       .then(async () => {
         console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
         this.updateUser(name,"default");
-        
+
       }).catch((error)=>{
         console.log(error,"El usuario no ha podido registrarse");
       });
   }
 
-  getCurrentUid() : string{
+  /*getCurrentUid() : string{
     return this.auth.currentUser?.uid as string;
-  }
+  }*/
 
   async logInEmail(email:string,password:string){
     await signInWithEmailAndPassword(this.auth,email,password)
@@ -72,6 +77,15 @@ export class AuthenticationService {
     })
   }
 
-  
+  private initCurrentUser() {
+    this.auth.onAuthStateChanged((user: User | null) => {
+      const uid = user ? user.uid : null;
+      this.currentUserSubject.next(uid);
+    });
+  }
+
+  getCurrentUid(): string | null {
+    return this.currentUserSubject.value;
+  }
 
 }

@@ -5,7 +5,7 @@
     <div class="pfp_profile">
       <img [src]="selectedImage ? selectedImage : '../../../assets/icons/user-white.png'" alt="Profile Picture">
       <label class="custom_file_upload">
-        <input type="file" (change)="onFileSelected($event)" accept="image/*" [(ngModel)]="defaultValue">
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" >
         <span>{{ selectedFileName ? selectedFileName : 'Seleccionar archivo' }}</span>
       </label>
     </div>

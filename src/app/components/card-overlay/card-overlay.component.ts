@@ -20,7 +20,7 @@ export class CardOverlayComponent {
   ngOnInit(){
     /*Compruebo que el padre es overlays o myOverlays
     * para poder eliminar o mostrar el boton de usar*/
-    window.location.pathname == "/myOverlays" ? this.buttonShow=false : this.buttonShow=true; 
+    window.location.pathname == "/myOverlays" ? this.buttonShow=false : this.buttonShow=true;
   }
 
   useButton(): void {
@@ -32,9 +32,9 @@ export class CardOverlayComponent {
 
       //this.route.navigate();
       console.log(this.overlay.overlayType);
-      this.firestore.createOverlay(this.overlay,this.auth.getCurrentUid());
+      //this.firestore.createOverlay(this.overlay,this.auth.getCurrentUid());
     }
-    
+
 
   }
 }
