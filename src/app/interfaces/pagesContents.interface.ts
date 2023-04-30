@@ -137,7 +137,8 @@ export interface MyOverlays{
 }
 
 export interface User {
-  userName?: string;
-  userEmail?: string;
+  userName?: string,
+  userEmail?: string,
+  userPhoto?:string
 }
 

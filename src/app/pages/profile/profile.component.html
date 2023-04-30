@@ -3,7 +3,7 @@
   <h1 id="title_profile">Profile</h1>
   <form >
     <div class="pfp_profile">
-      <img [src]="selectedImage ? selectedImage : '../../../assets/icons/user-white.png'" alt="Profile Picture">
+      <img [src]="selectedImage ? selectedImage : user.userPhoto" alt="Profile Picture">
       <label class="custom_file_upload">
         <input type="file" (change)="onFileSelected($event)" accept="image/*" >
         <span>{{ selectedFileName ? selectedFileName : 'Seleccionar archivo' }}</span>

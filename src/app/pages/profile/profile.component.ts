@@ -64,12 +64,14 @@ export class ProfileComponent implements OnInit{
   onSubmit() {
     // Obtén el ID del usuario actual (reemplaza esta línea con el método adecuado para obtener el ID del usuario)
     const userID: string = this.authService.getCurrentUid() ?? '';
-
+    // Asigna la imagen seleccionada a la propiedad userPhoto
+    this.user.userPhoto = this.selectedImage;
 
     // Crea un objeto con los datos actualizados del usuario
     const updatedUserData = {
       userName: this.user.userName,
       userEmail: this.user.userEmail,
+      userPhoto: this.user.userPhoto,
       // Otros campos actualizados del usuario...
     };
 
