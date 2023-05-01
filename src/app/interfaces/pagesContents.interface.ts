@@ -142,3 +142,14 @@ export interface User {
   userPhoto?:string
 }
 
+export interface Profile {
+  profile_tittle?:string,
+  profile_name?:string,
+  profile_email?:string,
+  profile_actual_pss?:string,
+  profile_new_pss?:string,
+  profile_update_btt?:string,
+  profile_select_file?:string,
+
+}
+

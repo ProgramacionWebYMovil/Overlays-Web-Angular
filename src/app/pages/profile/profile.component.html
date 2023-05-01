@@ -1,35 +1,35 @@
 <app-header></app-header>
 <main>
-  <h1 id="title_profile">Profile</h1>
+  <h1 id="title_profile">{{pageContent.profile_tittle}}</h1>
   <form >
     <div class="pfp_profile">
       <img [src]="selectedImage ? selectedImage :  previousUserPhoto" alt="Profile Picture">
       <label class="custom_file_upload">
         <input type="file" (change)="onFileSelected($event)" accept="image/*" >
-        <span>{{ selectedFileName ? selectedFileName : 'Seleccionar archivo' }}</span>
+        <span>{{ selectedFileName ? selectedFileName : pageContent.profile_select_file }}</span>
       </label>
     </div>
 
     <ul class="user_data">
       <li id="name_field">
-        <label for="name_user">Nombre de Usuario:</label>
+        <label for="name_user">{{pageContent.profile_name}}</label>
         <input type="text" id="name_user" name="name_user" [(ngModel)]="user.userName" [value]="previousUserName">
       </li>
       <li id="mail_field">
-        <label for="mail_user">Correo Electrónico:</label>
+        <label for="mail_user">{{pageContent.profile_email}}</label>
         <input type="email" id="mail_user" name="mail_user" [(ngModel)]="user.userEmail" [value]="previousUserEmail">
       </li>
       <li id="password_field">
-        <label for="password_user">Contraseña Actual:</label>
+        <label for="password_user">{{pageContent.profile_actual_pss}}</label>
         <input type="password" id="password_user" name="password_user" >
       </li>
       <li id="newpassword_field">
-        <label for="newpassword_user">Nueva Contraseña:</label>
+        <label for="newpassword_user">{{pageContent.profile_new_pss}}</label>
         <input type="password" id="newpassword_user" name="newpassword_user" >
       </li>
     </ul>
 
-    <button type="submit" (click)="onSubmit()">Actualizar Datos</button>
+    <button type="submit" (click)="onSubmit()">{{pageContent.profile_update_btt}}</button>
   </form>
 </main>
 <app-footer></app-footer>

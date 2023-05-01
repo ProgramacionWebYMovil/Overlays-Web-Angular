@@ -92,19 +92,6 @@ export class FirestoreService {
     await updateDoc(docRef, updatedData);
   }
 
-  async getData2(nameCollection: string, document: string): Promise<any> {
-    const docRef = doc(this.firestore, nameCollection, document);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      const data = docSnap.data();
-      console.log('Data:', data);
-      return data;
-    } else {
-      console.log('Document does not exist');
-      return null;
-    }
-  }
-
   async getUser(uid: string): Promise<any> {
     const docRef = doc(this.firestore, 'Users', uid);
     const docSnap = await getDoc(docRef);

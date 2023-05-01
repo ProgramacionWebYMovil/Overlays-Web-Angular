@@ -32,7 +32,7 @@ import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.component';
 import { Basketball1Component } from './components/overlays/overlay-basketball/basketball1/basketball1.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import {NgOptimizedImage} from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 
 
 
