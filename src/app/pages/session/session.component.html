@@ -10,15 +10,18 @@
   </h1>
 
   <form #form="ngForm" id="sessionForm" action="" method="post" autocomplete="off" (ngSubmit)="submit(form)">
-    <!-- Agregar después de la etiqueta <form> -->
-    <p *ngIf="loginError">Error al iniciar sesión. Por favor, verifica tus datos.</p>
-
     <ul >
+
       <ng-template [ngIf]="sessionOption" >
         <li *ngFor="let item of pageContent.input_list">
           <label for={{item.for}}>{{item.label}}</label>
           <input ngModel type={{item.type}} id={{item.for}} name={{item.for}}>
         </li>
+
+        <li *ngIf="errorMessage" id="error">
+          {{ errorMessage }}
+        </li>
+
         <li>
           <input type="submit" id="submit" value={{pageContent.submit_signup}}  >
           <div id="changeSessionOptions">
@@ -30,10 +33,14 @@
 
       <ng-template [ngIf]="!sessionOption" >
         <li *ngFor="let item of pageContent.input_list">
-          <ng-template [ngIf]="item.for == 'mail' || item.for == 'password' " >
+          <ng-template [ngIf]="item.for === 'mail' || item.for === 'password' " >
             <label for={{item.for}}>{{item.label}}</label>
             <input ngModel type={{item.type}} id={{item.for}} name={{item.for}}>
           </ng-template>
+        </li>
+
+        <li *ngIf="errorMessage" id="error">
+          {{ errorMessage }}
         </li>
 
         <li>
@@ -44,6 +51,7 @@
           </div>
         </li>
       </ng-template>
+
     </ul>
   </form>
 </main>
