@@ -10,8 +10,10 @@
   </h1>
 
   <form #form="ngForm" id="sessionForm" action="" method="post" autocomplete="off" (ngSubmit)="submit(form)">
-    <ul >
+    <!-- Agregar después de la etiqueta <form> -->
+    <p *ngIf="loginError">Error al iniciar sesión. Por favor, verifica tus datos.</p>
 
+    <ul >
       <ng-template [ngIf]="sessionOption" >
         <li *ngFor="let item of pageContent.input_list">
           <label for={{item.for}}>{{item.label}}</label>
@@ -42,7 +44,6 @@
           </div>
         </li>
       </ng-template>
-
     </ul>
   </form>
 </main>

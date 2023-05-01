@@ -40,6 +40,7 @@ export class AuthenticationService {
       }).catch((error)=>{
         console.log(error,"El usuario no ha podido registrarse");
       });
+    return Promise.resolve(true);
   }
 
   getCurrentUid() : string{
@@ -53,6 +54,7 @@ export class AuthenticationService {
       }).catch((error)=>{
         console.log(error,"El usuario no ha podido iniciar sesión")
       })
+    return Promise.resolve(true);
   }
 
   async logOut(){

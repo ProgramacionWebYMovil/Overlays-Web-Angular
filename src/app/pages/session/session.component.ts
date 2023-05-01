@@ -1,6 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Session } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
@@ -15,17 +15,21 @@ export class SessionComponent {
 
   sessionOption:boolean;
 
+  loginError: boolean = false;
+
+
 
   constructor(private load:LoadContentService,
     private activeRoute:ActivatedRoute,
-    private authentication:AuthenticationService) {
+    private authentication:AuthenticationService,
+    private router: Router) {
     this.sessionOption = this.checkSessionOption();
   }
 
   ngOnInit(){
     this.load.loadContent("session").then(data=> this.pageContent=data);
     this.checkSessionStatus();
-   
+
   }
   checkSessionOption() {
     return this.activeRoute.snapshot.params['sessionOption'] == "login" ? false:true;
@@ -60,13 +64,43 @@ export class SessionComponent {
       name = form.controls['name'].value;
       passwordConfirm = form.controls['passwordConfirm'].value;
     }
-    
+
     //HAY QUE HACER LA VALIDACIÓN DE LOS DATOS
+    //MIO INI
+    const isValid = await this.validateCredentials(mail, password, name, passwordConfirm);
+    if (isValid) {
+      // Datos correctos, redirigir a otra página
+      this.router.navigate(['/myOverlays']);
+    } else {
+      // Datos incorrectos, mostrar mensaje de error
+      this.loginError = true;
+    }
+    //MIO FIN
 
     (!this.sessionOption ? await this.authentication.logInEmail(mail,password)
     : await this.authentication.registerUserEmail(name,mail,password));
     sessionStorage.setItem("logged","true");
     this.redirect();
+  }
+
+  async validateCredentials(mail: string, password: string, name: string, passwordConfirm: string): Promise<boolean> {
+    // Realizar la validación de los datos aquí
+    // Puedes usar el servicio AuthenticationService para validar los datos de inicio de sesión
+    if (this.sessionOption) {
+      // Validar datos de registro
+      const isValidRegistration = await this.authentication.registerUserEmail(name, mail, password);
+      if (!isValidRegistration) {
+        return false;
+      }
+    } else {
+      // Validar datos de inicio de sesión
+      const isValidLogin = await this.authentication.logInEmail(mail, password);
+      if (!isValidLogin) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   logOut(){
