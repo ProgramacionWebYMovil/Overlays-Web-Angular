@@ -8,7 +8,6 @@ import { child, get, getDatabase, ref, DatabaseReference } from 'firebase/databa
 import { Database } from '@angular/fire/database';
 import { OverlayFootball } from 'src/app/interfaces/overlays.interface';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -92,6 +91,33 @@ export class FirestoreService {
     const docRef = doc(this.firestore, "Users", userID);
     await updateDoc(docRef, updatedData);
   }
+
+  async getData2(nameCollection: string, document: string): Promise<any> {
+    const docRef = doc(this.firestore, nameCollection, document);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      console.log('Data:', data);
+      return data;
+    } else {
+      console.log('Document does not exist');
+      return null;
+    }
+  }
+
+  async getUser(uid: string): Promise<any> {
+    const docRef = doc(this.firestore, 'Users', uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const userData = docSnap.data();
+      console.log('User Data:', userData);
+      return userData;
+    } else {
+      console.log('User does not exist');
+      return null;
+    }
+  }
+
 
 }
 

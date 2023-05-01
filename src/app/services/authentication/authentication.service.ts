@@ -45,9 +45,9 @@ export class AuthenticationService {
       });
   }
 
-  /*getCurrentUid() : string{
+  getCurrentUid() : string{
     return this.auth.currentUser?.uid as string;
-  }*/
+  }
 
   async logInEmail(email:string,password:string){
     await signInWithEmailAndPassword(this.auth,email,password)
@@ -84,8 +84,28 @@ export class AuthenticationService {
     });
   }
 
-  getCurrentUid(): string | null {
+  getCurrentUid2(): string | null {
     return this.currentUserSubject.value;
   }
+
+  async getUserData(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      const unsubscribe = onAuthStateChanged(this.auth, async (user: User | null) => {
+        unsubscribe();
+
+        if (user) {
+          const uid = user.uid;
+          const userData = await this.firestore.getUser(uid);
+          console.log('User Data:', userData);
+          resolve(userData);
+        } else {
+          console.log('No user logged in');
+          resolve(null);
+        }
+      });
+    });
+  }
+
+
 
 }

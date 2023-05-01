@@ -32,7 +32,7 @@ export class CardOverlayComponent {
 
       //this.route.navigate();
       console.log(this.overlay.overlayType);
-      //this.firestore.createOverlay(this.overlay,this.auth.getCurrentUid());
+      this.firestore.createOverlay(this.overlay,this.auth.getCurrentUid());
     }
 
 

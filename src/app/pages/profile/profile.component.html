@@ -3,7 +3,7 @@
   <h1 id="title_profile">Profile</h1>
   <form >
     <div class="pfp_profile">
-      <img [src]="selectedImage ? selectedImage : user.userPhoto" alt="Profile Picture">
+      <img [src]="selectedImage ? selectedImage :  previousUserPhoto" alt="Profile Picture">
       <label class="custom_file_upload">
         <input type="file" (change)="onFileSelected($event)" accept="image/*" >
         <span>{{ selectedFileName ? selectedFileName : 'Seleccionar archivo' }}</span>
@@ -13,11 +13,11 @@
     <ul class="user_data">
       <li id="name_field">
         <label for="name_user">Nombre de Usuario:</label>
-        <input type="text" id="name_user" name="name_user" [(ngModel)]="user.userName">
+        <input type="text" id="name_user" name="name_user" [(ngModel)]="user.userName" [value]="previousUserName">
       </li>
       <li id="mail_field">
         <label for="mail_user">Correo Electrónico:</label>
-        <input type="email" id="mail_user" name="mail_user" [(ngModel)]="user.userEmail">
+        <input type="email" id="mail_user" name="mail_user" [(ngModel)]="user.userEmail" [value]="previousUserEmail">
       </li>
       <li id="password_field">
         <label for="password_user">Contraseña Actual:</label>
