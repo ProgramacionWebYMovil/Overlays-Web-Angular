@@ -9,7 +9,7 @@ import {
   signOut, 
   updateProfile}from 'firebase/auth';
 
-import { Observable } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
 import { FirestoreService } from '../firestore/firestore.service';
 
 
@@ -32,7 +32,8 @@ export class AuthenticationService {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(this.getCurrentUid())
-      },2000);
+        console.log(this.getCurrentUid())
+      },6000);
     });
   }
 
@@ -77,6 +78,13 @@ export class AuthenticationService {
     }).catch((error) => {
       console.log(error);
     })
+  }
+
+  getUidObservable(): Observable<string> {
+  
+    return new Observable((subscriber) => {
+      subscriber.next(this.auth.currentUser?.uid);
+    });
   }
 
   

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { FirestoreService } from '../firestore/firestore.service';
 import { analyticInstance$ } from '@angular/fire/analytics';
@@ -8,22 +8,27 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MyOverlaysService {
+export class MyOverlaysService implements OnInit {
 
   
   overlays!:any[];
 
   actualOverlays!:any[];
 
+  uid!: string;
+
   
-  constructor(private db: FirestoreService, private auth:AuthenticationService) { 
-    
+  constructor(private db: FirestoreService, private auth:AuthenticationService) {  
   }
+
+  ngOnInit(){ }
+
+
 
   
 
   async loadMyOverlays() {
-    const id = await this.auth.getUidWithPromise();
+    const id = this.auth.getCurrentUid();
     const overlays = await this.db.getMyOverlays(id as string);
     this.overlays = this.sortOverlays(overlays);
     return this.overlays;

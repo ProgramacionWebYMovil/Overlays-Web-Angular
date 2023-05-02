@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { noop } from 'rxjs';
 import { checkLogged } from 'src/app/common/tools/check-is-logged.tool';
 import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
@@ -13,13 +13,15 @@ import { OverlaysService } from 'src/app/services/overlays/overlays.service';
   templateUrl: './my-overlays.component.html',
   styleUrls: ['./my-overlays.component.css']
 })
-export class MyOverlaysComponent {
+export class MyOverlaysComponent implements OnInit {
 
   overlays:any[] = [];
   pageContent:MyOverlays = {};
   dialogData:DialogData = {};
   paginationReady:boolean = false;
   chargeComplete:boolean = false;
+
+  
 
   @ViewChild(PaginationComponent) pagination!: PaginationComponent;
 
