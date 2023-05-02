@@ -5,6 +5,12 @@ export const ID = {
   BASKETBALL_1_ID: 4,
 }
 
+export const TYPE = {
+  FOOTBALL:"football",
+  BASKETBALL:"basketball",
+  TENNIS:"tennis",
+  TIMER:"timer"
+}
 export const IMAGE_OVERLAY = [
   "assets/images/overlays_preview/football.png",
   "assets/images/overlays_preview/tennis.png",

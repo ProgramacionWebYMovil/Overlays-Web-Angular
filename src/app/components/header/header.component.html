@@ -1,21 +1,21 @@
 <nav id="nav_header">
-  <h1 id="title"><img src="assets/logotypes/logo.png" alt="Imagen del Logo"/><a href="">{{pageContent.title}}</a></h1>
+  <h1 id="title"><img src="/assets/logotypes/logo.png" alt="Imagen del Logo"/><a [routerLink]="['']">{{pageContent.title}}</a></h1>
   <section id="menu-header">
-        <button class="dropall"> <i>&#8801;</i>
+        <button class="dropall"> <i id="burguer-button">&#8801;</i>
             <ul class="dropall_elements">
               <li id="dropmenu">
-                  <a id="dropmenu-top" href="overlays">{{pageContent.dropmenu_title}}</a>
+                  <a id="dropmenu-top" [routerLink]="['/overlays']">{{pageContent.dropmenu_title}}</a>
                   <div class="dropmenu_elements">
-                      <a id="football" href="overlays">{{pageContent.dropmenu_football}}</a>
-                      <a id="basketball" href="overlays">{{pageContent.dropmenu_basketball}}</a>
-                      <a id="padel" href="overlays">{{pageContent.dropmenu_padel}}</a>
-                      <a id="tennis" href="overlays">{{pageContent.dropmenu_tennis}}</a>
-                      <a id="others" href="overlays">{{pageContent.dropmenu_others}}</a>
+                      <a id="football" [routerLink]="['/overlays']">{{pageContent.dropmenu_football}}</a>
+                      <a id="basketball" [routerLink]="['/overlays']">{{pageContent.dropmenu_basketball}}</a>
+                      <a id="padel" [routerLink]="['/overlays']">{{pageContent.dropmenu_padel}}</a>
+                      <a id="tennis" [routerLink]="['/overlays']">{{pageContent.dropmenu_tennis}}</a>
+                      <a id="others" [routerLink]="['/overlays']">{{pageContent.dropmenu_others}}</a>
                   </div>
               </li>
 
-              <li id="prices"><a href="prices">{{pageContent.prices_title}}</a></li>
-              <li id="howToUse"><a href="howToUse">{{pageContent.howToUse}}</a></li>
+              <li id="prices"><a [routerLink]="['/prices']">{{pageContent.prices_title}}</a></li>
+              <li id="howToUse"><a [routerLink]="['/howToUse']">{{pageContent.howToUse}}</a></li>
 
               <li id="sessionOptions">
                   <i id="icon-user" class="bi bi-person-circle"></i>
@@ -29,8 +29,8 @@
 
                     <ng-template #elseblock >
 
-                      <a href="session/login">{{pageContent.logged_option0}}</a>
-                      <a href="session/signup" >{{pageContent.logged_option1}}</a>
+                      <a [routerLink]="['/session/login']">{{pageContent.logged_option0}}</a>
+                      <a [routerLink]="['/session/signup']" >{{pageContent.logged_option1}}</a>
 
                     </ng-template>
                   </div>

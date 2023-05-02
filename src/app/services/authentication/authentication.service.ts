@@ -6,19 +6,20 @@ import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut, 
+  signOut,
   updateProfile}from 'firebase/auth';
 
 import { Observable, Subscriber } from 'rxjs';
 import { FirestoreService } from '../firestore/firestore.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  
-  constructor(private auth:Auth,private firestore:FirestoreService) { }
+
+  constructor(private auth:Auth,private firestore:FirestoreService,private router:Router) { }
 
   isLoggedInObservable(): Observable<boolean> {
     return new Observable((subscriber) => {
@@ -42,7 +43,7 @@ export class AuthenticationService {
       .then(async () => {
         console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
         this.updateUser(name,"default");
-        
+
       }).catch((error)=>{
         console.log(error,"El usuario no ha podido registrarse");
       });
@@ -63,7 +64,7 @@ export class AuthenticationService {
 
   async logOut(){
     await signOut(this.auth).then(() =>{
-      window.location.href ="";
+      this.router.navigate(['']);
     }).catch((error) =>{
       console.log(error);
     })
@@ -81,12 +82,12 @@ export class AuthenticationService {
   }
 
   getUidObservable(): Observable<string> {
-  
+
     return new Observable((subscriber) => {
       subscriber.next(this.auth.currentUser?.uid);
     });
   }
 
-  
+
 
 }

@@ -9,11 +9,9 @@ import { ID } from '../../overlays-common';
   templateUrl: './basketball1.component.html',
   styleUrls: ['./basketball1.component.css']
 })
-export class Basketball1Component extends OverlayBasketballComponent {
+export class Basketball1Component  {
 
-  constructor(_activeRoute:ActivatedRoute){
-    super(_activeRoute);
-    this.id = ID.BASKETBALL_1_ID;
+  constructor(){
 
   }
 
