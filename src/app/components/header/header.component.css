@@ -96,6 +96,12 @@ nav a:hover {
     font-size: 2em;
   }
 
+  #icon-user {
+    color:var(--colorTerciario);
+    font-size: 25px;
+    display: flex;
+  }
+
 
   .dropall{
     width: 100%;
