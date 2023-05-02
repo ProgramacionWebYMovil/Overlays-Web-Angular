@@ -6,7 +6,7 @@
     </div>
     <ng-template #elseblock>
         <h1 id="h1_title">{{pageContent.title}}</h1>
-        <a *ngIf="!overlays || overlays.length==0" id="messageNoOverlays" [routerLink]="overlays"><h2>{{pageContent.messageNoOverlays}}</h2></a>
+        <a *ngIf="!overlays || overlays.length==0" id="messageNoOverlays" [routerLink]="['/overlays']"><h2>{{pageContent.messageNoOverlays}}</h2></a>
         <section id="overlays">
             <div *ngFor="let overlay of overlays; let i=index">
                 <app-card-overlay

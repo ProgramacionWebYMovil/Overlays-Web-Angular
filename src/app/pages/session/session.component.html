@@ -3,16 +3,16 @@
 
   <h1 id="titleForm" style="text-align: center;">
 
-    <p *ngIf="sessionOption;else elseblock" >{{pageContent.title_signup}}</p>
+    <p *ngIf="sessionOption;else elseTitle" >{{pageContent.title_signup}}</p>
 
-    <ng-template #elseblock ><p>{{pageContent.title_login}}</p></ng-template>
+    <ng-template #elseTitle ><p>{{pageContent.title_login}}</p></ng-template>
 
   </h1>
 
   <form #form="ngForm" id="sessionForm" action="" method="post" autocomplete="off" (ngSubmit)="submit(form)">
     <ul >
 
-      <ng-template [ngIf]="sessionOption" >
+      <ng-container *ngIf="sessionOption; else elseOption" >
         <li *ngFor="let item of pageContent.input_list">
           <label for={{item.for}}>{{item.label}}</label>
           <input ngModel type={{item.type}} id={{item.for}} name={{item.for}}>
@@ -24,9 +24,8 @@
             <input (click)="changeSessionOption()" id="changeButton" type="button" value={{pageContent.change_login?.button}}/>
           </div>
         </li>
-      </ng-template>
-
-      <ng-template [ngIf]="!sessionOption" >
+      </ng-container>
+      <ng-template #elseOption >
         <li *ngFor="let item of pageContent.input_list">
           <ng-template [ngIf]="item.for == 'mail' || item.for == 'password' " >
             <label for={{item.for}}>{{item.label}}</label>

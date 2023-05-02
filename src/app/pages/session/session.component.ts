@@ -1,9 +1,10 @@
 import { Component ,OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Session } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
+import { SessionOptionService } from 'src/app/services/sessionOption/session-option.service';
 
 @Component({
   selector: 'app-session',
@@ -16,10 +17,15 @@ export class SessionComponent {
   sessionOption:boolean;
 
 
-  constructor(private load:LoadContentService,
+  constructor(
+    private load:LoadContentService,
     private activeRoute:ActivatedRoute,
-    private authentication:AuthenticationService) {
-    this.sessionOption = this.checkSessionOption();
+    private authentication:AuthenticationService,
+    private sessionOptionService:SessionOptionService,
+    private routerService:Router
+
+    ) {
+      this.sessionOption = this.checkSessionOption;
   }
 
   ngOnInit(){
@@ -27,14 +33,19 @@ export class SessionComponent {
     this.checkSessionStatus();
 
   }
-  checkSessionOption() {
-    return this.activeRoute.snapshot.params['sessionOption'] == "login" ? false:true;
+  get checkSessionOption() {
+    return this.sessionOptionService.sessionOptionValue;
+  }
+
+  set sessionOptionValue(value:boolean){
+    this.sessionOption = value;
   }
 
 
 
   changeSessionOption(){
-    this.sessionOption = !this.sessionOption;
+    this.sessionOptionService.sessionOptionValue = !this.sessionOptionService.sessionOptionValue;
+    this.sessionOption = this.checkSessionOption;
   }
 
   checkSessionStatus(){
@@ -46,6 +57,8 @@ export class SessionComponent {
     if(Number.isInteger((parseInt(param)))){
       //REDIRIJO A EDIT OVERLAYS CON EL OVERLAY
     }
+    this.routerService.navigate([""])
+
   }
 
   //HAY QUE AÑADIR LA POSIBILIDAD DE FALLO AL LOGUEARSE!!!
