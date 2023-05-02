@@ -1,0 +1,35 @@
+<!-- <div class="card_dropdown">
+    <button class="card_dropdown_button" type="button">
+        <img src="/assets/icons/threeDots.png" />
+    </button>
+    <ul class="card_dropdown_content">
+        <li>
+            <button class="use_overlay">{{buttonsText[0]}}</button>
+        </li>
+        <li>
+            <button class="edit_overlay">{{buttonsText[1]}}</button>
+        </li>
+        <li>
+            <button  class="delete_overlay">{{buttonsText[2]}}</button>
+        </li>
+    </ul>
+        
+</div> -->
+
+<button mat-icon-button [matMenuTriggerFor]="menu" id="buttonPrincipal" aria-label="Example icon-button with a menu">
+    <img src="/assets/icons/threeDots.png" />
+</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="useOverlay()">
+      <!-- <mat-icon>dialpad</mat-icon> -->
+      <span>{{buttonsText[0]}}</span>
+    </button>
+    <button mat-menu-item (click)="editOverlay()">
+      <!--<mat-icon>voicemail</mat-icon>-->
+      <span>{{buttonsText[1]}}</span>
+    </button>
+    <button mat-menu-item (click)="deleteOverlay()">
+      <!-- <mat-icon>notifications_off</mat-icon> -->
+      <span>{{buttonsText[2]}}</span>
+    </button>
+  </mat-menu>

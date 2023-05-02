@@ -28,7 +28,7 @@ export class OverlaysComponent {
 
   //METODO LLAMADO POR APP-PAGINATION
   changePage(startEnd:{start:number,end:number}):void{
-    this.loadContent.fillOverlays(startEnd.start,startEnd.end);
+    this.overlays = this.loadContent.fillOverlays(startEnd.start,startEnd.end);
   }
 
 }

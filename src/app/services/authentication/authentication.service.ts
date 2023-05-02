@@ -9,17 +9,16 @@ import {
   signOut, 
   updateProfile}from 'firebase/auth';
 
-import { Observable } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
 import { FirestoreService } from '../firestore/firestore.service';
-import { update } from 'firebase/database';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-
-  constructor(private auth:Auth,
-              private firestore:FirestoreService) {}
+  
+  constructor(private auth:Auth,private firestore:FirestoreService) { }
 
   isLoggedInObservable(): Observable<boolean> {
     return new Observable((subscriber) => {
@@ -27,6 +26,15 @@ export class AuthenticationService {
         subscriber.next(!!user)
       })
     })
+  }
+
+  async getUidWithPromise(){
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.getCurrentUid())
+        console.log(this.getCurrentUid())
+      },6000);
+    });
   }
 
   async registerUserEmail(name:string, email:string,password:string){
@@ -40,8 +48,8 @@ export class AuthenticationService {
       });
   }
 
-  getCurrentUid() : string{
-    return this.auth.currentUser?.uid as string;
+  getCurrentUid(){
+      return this.auth.currentUser?.uid as string;
   }
 
   async logInEmail(email:string,password:string){
@@ -70,6 +78,13 @@ export class AuthenticationService {
     }).catch((error) => {
       console.log(error);
     })
+  }
+
+  getUidObservable(): Observable<string> {
+  
+    return new Observable((subscriber) => {
+      subscriber.next(this.auth.currentUser?.uid);
+    });
   }
 
   

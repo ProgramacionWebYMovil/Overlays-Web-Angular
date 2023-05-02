@@ -1,0 +1,15 @@
+
+
+mat-form-field{
+    display: flex ;
+}
+
+#description {
+    height: 100px;
+}
+
+#buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+

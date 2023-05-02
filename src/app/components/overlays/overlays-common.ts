@@ -11,3 +11,10 @@ export const TYPE = {
   TENNIS:"tennis",
   TIMER:"timer"
 }
+export const IMAGE_OVERLAY = [
+  "assets/images/overlays_preview/football.png",
+  "assets/images/overlays_preview/tennis.png",
+  "assets/images/overlays_preview/timer.png",
+]
+
+

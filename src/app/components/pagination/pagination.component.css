@@ -10,6 +10,9 @@
     display: flex;
 }
 
+#pageText p {
+    margin:0;
+}
 
 
 #pages svg {

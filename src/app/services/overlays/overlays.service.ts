@@ -7,6 +7,7 @@ import { LoadContentService } from '../load-content/load-content.service';
 })
 export class OverlaysService {
 
+
   //Todos los Overlays demo
   overlays!: any[];
 
@@ -46,9 +47,14 @@ export class OverlaysService {
     return innerWidth>=1250 ?  8 : 4;
   }
 
-  //Metodo que te da el siguiente id de los overlays del usuario
+  /*//Metodo que te da el siguiente id de los overlays del usuario
   getNextOverlayID():number{
     return 0;
-  }
+  }*/
+
+
+
+
+
 
 }

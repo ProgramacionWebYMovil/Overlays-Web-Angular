@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { collection , doc  } from '@firebase/firestore';
+import { DocumentData, collection , deleteDoc, doc  } from '@firebase/firestore';
 
-import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc, updateDoc, increment} from '@angular/fire/firestore';
+import { Firestore , collectionData, getDoc , addDoc, getDocs, setDoc, updateDoc, increment, Timestamp} from '@angular/fire/firestore';
 import { User } from 'firebase/auth';
 import { child, get, getDatabase, ref, DatabaseReference } from 'firebase/database';
 import { Database } from '@angular/fire/database';
@@ -28,7 +28,7 @@ export class FirestoreService {
     return data;
   }
 
-  async getOverlaysDemo(nameCollection:string){
+  async getOverlaysDemo(nameCollection:string){    
     const dbRef = ref(this.realTime);
     const data = await get(child(dbRef,nameCollection)).then((snapshot => {
       return snapshot.val();
@@ -40,6 +40,20 @@ export class FirestoreService {
       overlays[index] = data[i];
       index++;
     }
+    return overlays;
+  }
+
+  async getMyOverlays(user:string){
+    const querySnapshot = await getDocs(collection(this.firestore,"Users/"+user+"/Overlays"));
+
+    let overlays: DocumentData[] = [];
+    let index = 0;
+  
+    querySnapshot.forEach((doc) => {
+      overlays[index] = doc.data();
+      index++;
+    });
+    
     return overlays;
   }
 
@@ -65,10 +79,25 @@ export class FirestoreService {
   }
 
   async createOverlay(overlay:any, userID:string){
-    const docRef = doc(this.firestore,"Users",userID,"Overlays","Overlay " + await this.nextIdOverlay(userID));
+    const nextId = await this.nextIdOverlay(userID)+1;
+    const docRef = doc(this.firestore,"Users",userID,"Overlays","Overlay " + nextId);
+    
+    /*Insertamos el documento y su información
+    *   -id: es el identificador del overlay
+    *   -urlID: es el número de overlay que es en el esquema del usuario
+    *   -userID: el identificador de usuario
+    *   -type: el tipo de overlay en cuestión
+    */
     await setDoc(docRef,{
-      
+      id:overlay.overlayID,
+      name:overlay.name,
+      description:overlay.description,
+      urlID:nextId,
+      userID:userID,
+      type:overlay.type,
+      date:Timestamp.now()
     });
+    return nextId;
   }
 
   async nextIdOverlay(userID:string){
@@ -81,6 +110,20 @@ export class FirestoreService {
       countOverlay:increment(1)
     });
     return docSnap!['countOverlay'];
+
+
+  }
+
+  async deleteOverlay(userId:string, urlId:number){
+    await deleteDoc(doc(this.firestore,"Users",userId,"Overlays","Overlay "+urlId));
+    
+  }
+
+  changeOverlaysDetails(userID:string,urlID:number,data:any){
+    updateDoc(doc(this.firestore,"Users",userID,"Overlays","Overlay "+urlID),{
+      name:data.resultado1,
+      description:data.resultado2
+    });
   }
 
 }

@@ -22,7 +22,7 @@
                   <div >
 
                     <div *ngIf="isLoggedIn$ | async; else elseblock">
-                      <a href="myOverlays">{{pageContent.logged_option2}}</a>
+                      <a [routerLink]="['/myOverlays']">{{pageContent.logged_option2}}</a>
                       <a (click)="logOut()">{{pageContent.logged_option3}}</a>
 
                     </div>

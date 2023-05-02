@@ -46,7 +46,7 @@
     color: var(--colorSecundario);
     margin: 0 auto auto auto;
     /*Limitar a solo 3 lineas el texto*/
-    display: -webkit-box;
+    display: contents;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -55,7 +55,7 @@
 
 .section_date {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .section_date p {
@@ -65,7 +65,7 @@
 
 .info-cardOverlay {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     color:var(--colorSecundario);
     font-size:0.8em;
@@ -87,6 +87,10 @@
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+}
+
+.card_dropdown:hover{
+    display: none;
 }
 
 .card_dropdown_button img{
@@ -120,4 +124,5 @@
     border-radius:1em;
     font-family: Poppins-bold;
     margin-bottom: 0;
+    margin-top: auto;
 }
