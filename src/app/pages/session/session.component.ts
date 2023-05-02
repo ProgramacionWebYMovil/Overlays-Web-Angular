@@ -25,7 +25,7 @@ export class SessionComponent {
   ngOnInit(){
     this.load.loadContent("session").then(data=> this.pageContent=data);
     this.checkSessionStatus();
-   
+
   }
   checkSessionOption() {
     return this.activeRoute.snapshot.params['sessionOption'] == "login" ? false:true;
@@ -38,7 +38,7 @@ export class SessionComponent {
   }
 
   checkSessionStatus(){
-    //if(this.authentication.checkLogged()) window.location.href = "";
+    //if(this.authentication.checkLogged()) window.location.[routerLink] = "";
   }
 
   redirect(){
@@ -60,7 +60,7 @@ export class SessionComponent {
       name = form.controls['name'].value;
       passwordConfirm = form.controls['passwordConfirm'].value;
     }
-    
+
     //HAY QUE HACER LA VALIDACIÓN DE LOS DATOS
 
     (!this.sessionOption ? await this.authentication.logInEmail(mail,password)
