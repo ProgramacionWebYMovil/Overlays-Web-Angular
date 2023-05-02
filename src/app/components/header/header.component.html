@@ -18,8 +18,7 @@
               <li id="howToUse"><a [routerLink]="['/howToUse']">{{pageContent.howToUse}}</a></li>
 
               <li id="sessionOptions">
-                  <!-- <mat-icon  class="mat-icon-user" color="red">person</mat-icon> -->
-                  <i id="user-icon" class="bi bi-person-circle"></i>
+                  <i id="icon-user" class="bi bi-person-circle"></i>
                   <div >
 
                     <div *ngIf="isLoggedIn$ | async; else elseblock">
