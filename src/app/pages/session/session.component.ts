@@ -14,7 +14,7 @@ import { SessionOptionService } from 'src/app/services/sessionOption/session-opt
 export class SessionComponent {
   pageContent:Session = {}
 
-  sessionOption:boolean;
+  sessionOption:boolean = false;
 
 
   constructor(
@@ -25,27 +25,19 @@ export class SessionComponent {
     private routerService:Router
 
     ) {
-      this.sessionOption = this.checkSessionOption;
   }
 
   ngOnInit(){
     this.load.loadContent("session").then(data=> this.pageContent=data);
     this.checkSessionStatus();
-
+    this.sessionOptionService.sessionOptionObservable.subscribe(value => {
+      this.sessionOption = value;
+    });
   }
-  get checkSessionOption() {
-    return this.sessionOptionService.sessionOptionValue;
-  }
-
-  set sessionOptionValue(value:boolean){
-    this.sessionOption = value;
-  }
-
-
 
   changeSessionOption(){
-    this.sessionOptionService.sessionOptionValue = !this.sessionOptionService.sessionOptionValue;
-    this.sessionOption = this.checkSessionOption;
+    this.sessionOptionService.sessionOptionValue = !this.sessionOption;
+    this.sessionOption = !this.sessionOption;
   }
 
   checkSessionStatus(){

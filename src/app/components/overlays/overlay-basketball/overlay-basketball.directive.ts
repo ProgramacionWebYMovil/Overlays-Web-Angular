@@ -15,10 +15,12 @@ export class OverlayBasketballComponent implements Overlays {
   urlId!: number;
   userId!: string;
   font!: string;
+  name!: string;
 
   constructor(){
 
   }
+
 
 
 }

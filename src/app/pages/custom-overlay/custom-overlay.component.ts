@@ -1,44 +1,35 @@
 import { Component , OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Overlays } from 'src/app/interfaces/overlays.interface';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { CustomOverlayService } from 'src/app/services/customOverlay/custom-overlay.service';
+import { OverlayStateService } from 'src/app/services/customOverlay/overlay-state.service';
 
 @Component({
   selector: 'app-custom-overlay',
   templateUrl: './custom-overlay.component.html',
   styleUrls: ['./custom-overlay.component.css']
 })
-export class CustomOverlayComponent {
+export class CustomOverlayComponent  implements OnInit{
 
-  overlay: Overlays = {
-    id:0,
-    type:"",
-    urlId:0,
-    userId:"",
-    font:"",
-  };
 
-  constructor(private activeRoute: ActivatedRoute){
-    let dataRoute = this.getDataFromRoute();
-    this.overlay.userId = dataRoute[0];
-    this.overlay.urlId = dataRoute[1];
-    this.getDataFromRoute();
-    this.getDataFromRoute();
+  overlay!: Overlays;
+
+  constructor(
+    private customOverlayService:CustomOverlayService,
+    private router:Router,
+    private overlayStateService:OverlayStateService
+  ){
+    this.overlayStateService.setupReloadHandler();
   }
 
   ngOnInit(){
-    console.log(this.overlay);
+    this.overlay = this.customOverlayService.overlay;
   }
 
   getDataFromDatabase(){
 
 
-  }
-
-  getDataFromRoute(){
-    return [
-    this.activeRoute.snapshot.params['uid'],
-    parseInt(this.activeRoute.snapshot.params['urlId'])
-    ]
   }
 
 
