@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { OverlayFirestoreService } from '../../firestore/overlay-firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,9 @@ export class ScoreFootballService implements OnInit{
   }
   private scoreSubject = new Subject<{score1:number,score2:number}>();
 
-  constructor() {}
+  constructor(
+    private overlayFirestoreService:OverlayFirestoreService
+  ) {}
 
 
   ngOnInit(): void {
@@ -35,6 +38,8 @@ export class ScoreFootballService implements OnInit{
   private updateScore(){
     this.scoreSubject.next(this._score);
     //escribir en base de datos
+    this.overlayFirestoreService.writeOverlay(this._score)
+
   }
 
 }

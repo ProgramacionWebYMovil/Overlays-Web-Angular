@@ -37,7 +37,6 @@ export class CustomOverlayService {
   set overlay(overlay:Overlays){
     this.currentOverlay = overlay;
     this.subject.next(this.currentOverlay);
-    console.log(this.currentOverlay);
   }
 
   set overlayUrlId(urlID:number){

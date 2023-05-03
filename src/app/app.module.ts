@@ -42,7 +42,7 @@ import { OverlayBasketballComponent } from './components/overlays/overlay-basket
 import { ButtonsFootballComponent } from './components/buttons/buttons-football/buttons-football.component';
 import { FootballComponent } from './components/fullComponents/football/football.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { OverlaySuscribeService } from './services/firestore/overlay-suscribe.service';
+import { OverlayFirestoreService } from './services/firestore/overlay-firestore.service';
 import { ViewComponent } from './pages/view/view.component';
 
 

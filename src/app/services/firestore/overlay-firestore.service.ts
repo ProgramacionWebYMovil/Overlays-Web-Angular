@@ -4,15 +4,20 @@ import { Firestore, doc, onSnapshot } from '@angular/fire/firestore';
 import { updateDoc } from 'firebase/firestore';
 import { OverlayFootball } from 'src/app/interfaces/overlays.interface';
 import { AuthenticationService } from '../authentication/authentication.service';
+import { CustomOverlayService } from '../customOverlay/custom-overlay.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OverlaySuscribeService {
+export class OverlayFirestoreService {
 
   public datos!:Observable<any>;
 
-  constructor(private firestore:Firestore, private auth:AuthenticationService) {  }
+  constructor(
+    private firestore:Firestore,
+    private auth:AuthenticationService,
+    private customOverlayService:CustomOverlayService
+  ) {  }
 
   async createSuscribe(userID:string,urlID:number){
     this.datos = new Observable(observer => {
@@ -21,7 +26,7 @@ export class OverlaySuscribeService {
         datos = doc.data();
         observer.next(datos);
       });
-      
+
     });
   }
 
@@ -29,8 +34,17 @@ export class OverlaySuscribeService {
     return this.datos;
   }
 
-  async writeOverlay(urlID:number,data:any){
-    const ref = doc(this.firestore,"Users",this.auth.getCurrentUid(),"Overlays","Overlay "+urlID,"Data","score");
+  async writeOverlay(data:any){
+    const ref =
+    doc(
+      this.firestore,
+      "Users",
+      this.auth.getCurrentUid(),
+      "Overlays",
+      "Overlay "+this.customOverlayService.overlay.urlID,
+      "Data",
+      "score"
+    );
     await updateDoc(ref,{
       ...data
     });
