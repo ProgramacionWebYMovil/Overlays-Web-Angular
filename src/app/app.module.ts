@@ -39,6 +39,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatIconModule} from '@angular/material/icon';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { OverlaySuscribeService } from './services/firestore/overlay-suscribe.service';
 
 
 

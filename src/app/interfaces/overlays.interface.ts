@@ -27,5 +27,8 @@ export interface OverlayFootball extends Overlays{
     colorBoxTeam2:string,
     colorBoxScore1:string,
     colorBoxScore2:string,
-    colorBoxSpace:string
+    colorBoxSpace:string,
+    timer:number;
+    colorTimer:string;
+    colorBoxTimer:string;
 }
