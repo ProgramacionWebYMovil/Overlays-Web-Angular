@@ -29,8 +29,8 @@
 
                     <ng-template #elseblock >
 
-                      <a [routerLink]="['/session/login']">{{pageContent.logged_option0}}</a>
-                      <a [routerLink]="['/session/signup']" >{{pageContent.logged_option1}}</a>
+                      <a (click)="selectSessionOption(false)" [routerLink]="['/session']">{{pageContent.logged_option0}}</a>
+                      <a (click)="selectSessionOption(true)" [routerLink]="['/session']" >{{pageContent.logged_option1}}</a>
 
                     </ng-template>
                   </div>

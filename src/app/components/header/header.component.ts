@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Header } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
+import { SessionOptionService } from 'src/app/services/sessionOption/session-option.service';
 
 
 @Component({
@@ -26,9 +27,12 @@ export class HeaderComponent {
   selectedLanguage: string = '';
 
 
-  constructor
-  (private load:LoadContentService
-  ,private auth:AuthenticationService){
+  constructor(
+    private load:LoadContentService,
+    private auth:AuthenticationService,
+    private sessionOptionService:SessionOptionService
+
+  ){
     this.isLoggedIn$ = this.auth.isLoggedInObservable();
     this.pageContent={}
   }
@@ -51,6 +55,10 @@ export class HeaderComponent {
       this.load.setCurrentLanguage(0);
     }
     window.location.reload();
+  }
+
+  selectSessionOption(value:boolean){
+    this.sessionOptionService.sessionOptionValue = value;
   }
 
 }
