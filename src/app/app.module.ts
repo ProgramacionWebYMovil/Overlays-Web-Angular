@@ -40,6 +40,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatIconModule} from '@angular/material/icon';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -94,7 +95,8 @@ import { MatIconModule} from '@angular/material/icon';
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     ScreenTrackingService,
-    UserTrackingService
+    UserTrackingService,
+    
   ],
   bootstrap: [AppComponent]
 })

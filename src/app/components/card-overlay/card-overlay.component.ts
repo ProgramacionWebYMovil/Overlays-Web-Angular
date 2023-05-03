@@ -63,9 +63,6 @@ export class CardOverlayComponent {
     }
   }
 
-  delete(){
-    console.log("Hola");
-  }
 
   actionEvent($event:any){
  
