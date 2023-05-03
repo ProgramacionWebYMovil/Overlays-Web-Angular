@@ -8,11 +8,11 @@
     flex-direction:column;
     font-family:Poppins;
     transition: 1s;
+    
 }
 
 .cardOverlay:hover{
-
-    box-shadow: var(--colorTerciario) 0px 22px 70px 4px;
+    box-shadow: var(--colorTerciario) 0px 0px 70px 10px; 
 }
 
 .image_card {
