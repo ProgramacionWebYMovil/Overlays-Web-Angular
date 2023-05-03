@@ -103,7 +103,7 @@ import { ViewComponent } from './pages/view/view.component';
   providers: [
     ScreenTrackingService,
     UserTrackingService,
-
+    
   ],
   bootstrap: [AppComponent]
 })

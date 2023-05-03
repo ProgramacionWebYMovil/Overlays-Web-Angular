@@ -12,7 +12,7 @@ export interface Overlays {
 }
 
 
-export interface OverlayFootball extends Overlays{
+export interface OverlayFootball{
     team1:string,
     team2:string,
     score1:number,
@@ -28,7 +28,19 @@ export interface OverlayFootball extends Overlays{
     colorBoxScore1:string,
     colorBoxScore2:string,
     colorBoxSpace:string,
-    timer:number;
+    timer:string;
     colorTimer:string;
     colorBoxTimer:string;
+}
+
+export interface OverlayBasketball {
+
+}
+
+export interface OverlayTennis{
+
+}
+
+export interface OverlayTimer{
+    
 }

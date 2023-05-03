@@ -9,6 +9,9 @@ import { Database } from '@angular/fire/database';
 import { OverlayFootball } from 'src/app/interfaces/overlays.interface';
 import { onSnapshot } from 'firebase/firestore';
 import { Observable } from 'rxjs';
+import { FootballOverlay1Default, ID, TYPE, TennisOverlay1Default, TimerOverlat1Default } from 'src/app/components/overlays/overlays-common';
+import { Basketball1Component } from 'src/app/components/overlays/overlay-basketball/basketball1/basketball1.component';
+import { Overlay } from '@angular/cdk/overlay';
 
 
 @Injectable({
@@ -99,6 +102,50 @@ export class FirestoreService {
       type:overlay.type,
       date:Timestamp.now()
     });
+
+
+    /*Escribir en la base de datos los valores por predeterminado de cada overlay*/
+    const docRefScore = doc(this.firestore,"Users",userID,"Overlays","Overlay " + nextId, "Data","score");
+    let document;
+    /*SWITCH CON TIPO DE OVERLAY*/
+    switch(overlay.type){
+      //TIPO FUTBOL
+      case TYPE.FOOTBALL:
+        //DISTINTOS OVERLAYS DE FOOTBALL
+        switch(overlay.overlayID){
+          case ID.FOOTBALL_1_ID:
+            document = new FootballOverlay1Default();
+            break;
+        }
+        break;
+      case TYPE.BASKETBALL:
+        switch(overlay.overlayID){
+          case ID.BASKETBALL_1_ID:
+            document = new Basketball1Component();
+            break;
+        }
+        break;
+      case TYPE.TENNIS:
+        switch(overlay.overlayID){
+          case ID.TENNIS_1_ID:
+            document = new TennisOverlay1Default();
+            break;
+        }
+        break;
+      case TYPE.TIMER:
+        switch(overlay.overlayID){
+          case ID.TIMER_1_ID:
+            document = new TimerOverlat1Default();
+            break;
+        }
+        break;
+
+    }
+    
+    await setDoc(docRefScore,{
+      ...document
+    });
+
     return nextId;
   }
 
