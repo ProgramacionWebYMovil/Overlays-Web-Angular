@@ -40,6 +40,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatIconModule} from '@angular/material/icon';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OverlaySuscribeService } from './services/firestore/overlay-suscribe.service';
+import { ViewComponent } from './pages/view/view.component';
 
 
 
@@ -67,7 +68,8 @@ import { OverlaySuscribeService } from './services/firestore/overlay-suscribe.se
     CustomOverlayComponent,
     Basketball1Component,
     DropdownCardButtonComponent,
-    DialogComponentComponent
+    DialogComponentComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { OverlayFootball } from 'src/app/interfaces/overlays.interface';
 import { FirestoreService } from 'src/app/services/firestore/firestore.service';
@@ -10,19 +11,25 @@ import { OverlaySuscribeService } from 'src/app/services/firestore/overlay-suscr
   styleUrls: ['./overlay-football.component.css']
 })
 export class OverlayFootballComponent {
-  constructor (private db:OverlaySuscribeService){}
+  constructor (private db:OverlaySuscribeService,
+               private router:ActivatedRoute){}
 
 
   datos!:OverlayFootball;
 
 
   async ngOnInit(){
-    //Hay que suscribir la escucha a la base de datos
-    //https://firebase.google.com/docs/firestore/query-data/listen?hl=es-419
-    await this.db.createSuscribe("ZfKbuQCO24Ugy5cZYzEwiTARpyV2",10);
-    this.db.suscribeOverlay().subscribe(datos => {
+    const snapshot = this.router.snapshot;
+    if(snapshot.routeConfig?.path==='edit'){
+      //Lo de kenai
+
+    }else{
+      await this.db.createSuscribe(snapshot.params[0],snapshot.params[1]);
+      this.db.suscribeOverlay().subscribe(datos => {
       this.datos = datos;
     });
+    }
+    
     
   }
 

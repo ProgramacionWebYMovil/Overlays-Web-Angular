@@ -24,11 +24,9 @@ export class CustomOverlayComponent  implements OnInit{
 
   ngOnInit(){
     this.customOverlayService.overlaySubject.subscribe(newOverlay => this.overlay = newOverlay);
-    console.log(this.overlay);
   }
 
   getDataFromDatabase(){
-
 
   }
 
