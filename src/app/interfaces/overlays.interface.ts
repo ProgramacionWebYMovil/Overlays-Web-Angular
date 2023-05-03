@@ -5,8 +5,8 @@
 export interface Overlays {
     id:number,
     type:string,
-    urlId:number,
-    userId:string,
+    urlID:number,
+    userID:string,
     font:string,
     name:string
 }

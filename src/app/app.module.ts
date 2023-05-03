@@ -38,6 +38,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatIconModule} from '@angular/material/icon';
+import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
+import { ButtonsFootballComponent } from './components/buttons/buttons-football/buttons-football.component';
+import { FootballComponent } from './components/fullComponents/football/football.component';
 
 
 
@@ -65,7 +68,10 @@ import { MatIconModule} from '@angular/material/icon';
     CustomOverlayComponent,
     Basketball1Component,
     DropdownCardButtonComponent,
-    DialogComponentComponent
+    DialogComponentComponent,
+    OverlayBasketballComponent,
+    ButtonsFootballComponent,
+    FootballComponent
   ],
   imports: [
     BrowserModule,

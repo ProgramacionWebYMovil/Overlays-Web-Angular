@@ -8,18 +8,19 @@ import { Overlays } from 'src/app/interfaces/overlays.interface';
 })
 
 
-export class OverlayBasketballComponent implements Overlays {
+export class OverlayBasketballComponent  {
 
-  id!: number;
-  type!: string;
-  urlId!: number;
-  userId!: string;
-  font!: string;
-  name!: string;
-
-  constructor(){
-
+  overlay:Overlays = {
+    id: 0,
+    type: TYPE.BASKETBALL,
+    urlID: 0,
+    userID: '',
+    font: '',
+    name: ''
   }
+  constructor(){
+  }
+
 
 
 

@@ -20,8 +20,8 @@ export class CustomOverlayService {
     this.currentOverlay = {
       id:0,
       type:"",
-      urlId:0,
-      userId:this.auth.getCurrentUid(),
+      urlID:0,
+      userID:this.auth.getCurrentUid(),
       font:"",
       name:""
     }
@@ -40,8 +40,8 @@ export class CustomOverlayService {
     console.log(this.currentOverlay);
   }
 
-  set overlayUrlId(urlId:number){
-    this.currentOverlay.urlId = urlId;
+  set overlayUrlId(urlID:number){
+    this.currentOverlay.urlID = urlID;
     this.loadRemainingOverlay();
   }
 
@@ -49,7 +49,7 @@ export class CustomOverlayService {
 
     this.firestoreService.getMyOverlays(this.auth.getCurrentUid()).then(data =>{
 
-      this.currentOverlay = data[this.currentOverlay.urlId-1] as Overlays;
+      this.currentOverlay = data[this.currentOverlay.urlID-1] as Overlays;
       this.subject.next(this.currentOverlay);
       console.log(this.currentOverlay);
     })

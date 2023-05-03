@@ -1,31 +1,24 @@
 <app-header></app-header>
 <main>
   <h1>{{overlay.name}}</h1>
-  <ng-container  [ngSwitch]="overlay.type">
+  <div [ngSwitch]="overlay.type">
+    <ng-container *ngSwitchCase="'football'">
+      <app-football></app-football>
+    </ng-container>
+    <ng-container *ngSwitchCase="'basketball'">
+      <app-overlay-basketball></app-overlay-basketball>
+    </ng-container>
+    <ng-container *ngSwitchCase="'tennis'">
+      <app-overlay-tennis></app-overlay-tennis>
+    </ng-container>
+    <ng-container *ngSwitchCase="'timer'">
+      <app-overlay-timer></app-overlay-timer>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      Error de datos
+    </ng-container>
+  </div>
 
-
-    <div *ngSwitchCase="'football'">
-
-
-    </div>
-
-    <div *ngSwitchCase="'basketball'">
-
-
-    </div>
-
-    <div *ngSwitchCase="'tennis'">
-
-
-    </div>
-
-    <div *ngSwitchCase="'timer'">
-
-
-    </div>
-
-    <div *ngSwitchDefault>Error de datos</div>
-  </ng-container>
 
 </main>
 <app-footer></app-footer>

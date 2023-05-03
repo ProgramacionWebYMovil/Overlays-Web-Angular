@@ -1,0 +1,22 @@
+<div class="scoreboard">
+  <div class="team-a">
+    <div class="team-name">teamAName</div>
+    <div class="team-score">teamAScore</div>
+  </div>
+  <div class="team-b">
+    <div class="team-name">teamBName</div>
+    <div class="team-score">teamBScore</div>
+  </div>
+
+  <div class="buttons">
+    <button (click)="reset()">Reset</button>
+    <button (click)="addScore('A', 1)">+1</button>
+    <button (click)="addScore('A', 2)">+2</button>
+    <button (click)="addScore('A', 3)">+3</button>
+    <button (click)="addFoul('A')">Foul</button>
+    <button (click)="addScore('B', 1)">+1</button>
+    <button (click)="addScore('B', 2)">+2</button>
+    <button (click)="addScore('B', 3)">+3</button>
+    <button (click)="addFoul('B')">Foul</button>
+  </div>
+</div>

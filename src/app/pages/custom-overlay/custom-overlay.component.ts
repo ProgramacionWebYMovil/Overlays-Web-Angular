@@ -1,7 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { Router } from '@angular/router';
 import { Overlays } from 'src/app/interfaces/overlays.interface';
-import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { CustomOverlayService } from 'src/app/services/customOverlay/custom-overlay.service';
 import { OverlayStateService } from 'src/app/services/customOverlay/overlay-state.service';
 
