@@ -13,18 +13,17 @@ import { OverlayStateService } from 'src/app/services/customOverlay/overlay-stat
 export class CustomOverlayComponent  implements OnInit{
 
 
-  overlay!: Overlays;
+  overlay: Overlays = this.customOverlayService.overlay;
 
   constructor(
     private customOverlayService:CustomOverlayService,
-    private router:Router,
     private overlayStateService:OverlayStateService
   ){
     this.overlayStateService.setupReloadHandler();
   }
 
   ngOnInit(){
-    this.overlay = this.customOverlayService.overlay;
+    this.customOverlayService.overlaySubject.subscribe(newOverlay => this.overlay = newOverlay);
   }
 
   getDataFromDatabase(){

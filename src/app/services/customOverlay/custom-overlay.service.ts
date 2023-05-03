@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { Overlays } from 'src/app/interfaces/overlays.interface';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { FirestoreService } from '../firestore/firestore.service';
+import { Observable, Subject, Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomOverlayService {
+
+  private subject = new Subject<Overlays>();
 
   private currentOverlay: Overlays;
 
@@ -24,12 +27,16 @@ export class CustomOverlayService {
     }
   }
 
-  get overlay(){
+  get overlay():Overlays{
     return this.currentOverlay;
+  }
+  get overlaySubject(): Subject<Overlays>{
+    return this.subject;
   }
 
   set overlay(overlay:Overlays){
     this.currentOverlay = overlay;
+    this.subject.next(this.currentOverlay);
     console.log(this.currentOverlay);
   }
 
@@ -43,6 +50,7 @@ export class CustomOverlayService {
     this.firestoreService.getMyOverlays(this.auth.getCurrentUid()).then(data =>{
 
       this.currentOverlay = data[this.currentOverlay.urlId-1] as Overlays;
+      this.subject.next(this.currentOverlay);
       console.log(this.currentOverlay);
     })
 

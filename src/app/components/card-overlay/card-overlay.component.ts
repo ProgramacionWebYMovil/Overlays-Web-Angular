@@ -78,8 +78,6 @@ export class CardOverlayComponent {
     switch($event){
       case "use":
         this.route.navigate(['edit']);
-        console.log(this.overlay);
-
         this.customOverlayService.overlayUrlId = this.overlay.urlID;
         break;
       case "edit":
