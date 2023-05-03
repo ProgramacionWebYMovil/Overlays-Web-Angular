@@ -41,6 +41,9 @@ import { MatIconModule} from '@angular/material/icon';
 import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
 import { ButtonsFootballComponent } from './components/buttons/buttons-football/buttons-football.component';
 import { FootballComponent } from './components/fullComponents/football/football.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { OverlaySuscribeService } from './services/firestore/overlay-suscribe.service';
+import { ViewComponent } from './pages/view/view.component';
 
 
 
@@ -71,7 +74,8 @@ import { FootballComponent } from './components/fullComponents/football/football
     DialogComponentComponent,
     OverlayBasketballComponent,
     ButtonsFootballComponent,
-    FootballComponent
+    FootballComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +102,8 @@ import { FootballComponent } from './components/fullComponents/football/football
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     ScreenTrackingService,
-    UserTrackingService
+    UserTrackingService,
+
   ],
   bootstrap: [AppComponent]
 })

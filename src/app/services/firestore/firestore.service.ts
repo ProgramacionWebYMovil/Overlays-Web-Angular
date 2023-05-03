@@ -7,6 +7,8 @@ import { User } from 'firebase/auth';
 import { child, get, getDatabase, ref, DatabaseReference } from 'firebase/database';
 import { Database } from '@angular/fire/database';
 import { OverlayFootball } from 'src/app/interfaces/overlays.interface';
+import { onSnapshot } from 'firebase/firestore';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -125,6 +127,8 @@ export class FirestoreService {
       description:data.resultado2
     });
   }
+
+  
 
 }
 

@@ -65,13 +65,11 @@ export class CardOverlayComponent {
     }else{
       //SI ESTA REGISTRADO, LO MANDA A EDIT OVERLAY
       const nextId = await this.firestore.createOverlay(this.overlay,this.auth.getCurrentUid());
-      this.route.navigate(['edit',this.auth.getCurrentUid(),nextId]);
+      this.route.navigate(['edit']);
+      this.customOverlayService.overlayUrlId = nextId;
     }
   }
 
-  delete(){
-    console.log("Hola");
-  }
 
   actionEvent($event:any){
 

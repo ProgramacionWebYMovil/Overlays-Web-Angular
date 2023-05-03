@@ -26,7 +26,6 @@ export class CustomOverlayComponent  implements OnInit{
 
   getDataFromDatabase(){
 
-
   }
 
 
