@@ -5,6 +5,9 @@ import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { IMAGE_OVERLAY } from '../overlays/overlays-common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponentComponent } from '../dialog-component/dialog-component.component';
+import { CustomOverlayService } from 'src/app/services/customOverlay/custom-overlay.service';
+import { Overlays } from 'src/app/interfaces/overlays.interface';
+
 
 
 
@@ -25,20 +28,23 @@ export class CardOverlayComponent {
 
   buttonsText!:string[];
 
-  
+
 
   @Output() deleteOverlay = new EventEmitter<number>();
 
-  constructor(private auth:AuthenticationService,
-              private route: Router,
-              private firestore: FirestoreService,
-              public dialog: MatDialog){}
+  constructor(
+    private auth:AuthenticationService,
+    private route: Router,
+    private firestore: FirestoreService,
+    public dialog: MatDialog,
+    private customOverlayService:CustomOverlayService
+  ){}
 
   ngOnInit(){
     /*Compruebo que el padre es overlays o myOverlays
     * para poder eliminar o mostrar el boton de usar*/
     window.location.pathname == "/myOverlays" ? this.buttonShow=false : this.buttonShow=true;
-    if(this.overlay.image===undefined){      
+    if(this.overlay.image===undefined){
       this.overlay.image = IMAGE_OVERLAY[this.overlay.id-1];
     }
 
@@ -49,7 +55,7 @@ export class CardOverlayComponent {
     }
 
 
-     
+
   }
 
   async useButton() {
@@ -65,10 +71,11 @@ export class CardOverlayComponent {
 
 
   actionEvent($event:any){
- 
+
     switch($event){
       case "use":
-        this.route.navigate(['edit',this.overlay.userID,this.overlay.urlID])
+        this.route.navigate(['edit']);
+        this.customOverlayService.overlayUrlId = this.overlay.urlID;
         break;
       case "edit":
         this.openDialog();

@@ -1,6 +1,7 @@
 <app-header></app-header>
 <main>
   <app-overlay-football></app-overlay-football>
+  <h1>{{overlay.name}}</h1>
   <ng-container  [ngSwitch]="overlay.type">
 
     <div *ngSwitchCase="'football'">

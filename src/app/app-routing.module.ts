@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'prices',component:PricesComponent},
   {path:'payment',component:PaymentComponent},
   {path:'howToUse',component:HowtouseComponent},
-  {path:'edit/:uid/:urlId',component:CustomOverlayComponent},
+  {path:'edit',component:CustomOverlayComponent},
 
 
   { path: '**', pathMatch: 'full',component: PageNotFoundComponent }
