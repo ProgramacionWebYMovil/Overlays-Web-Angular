@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { ScoreFootballService } from 'src/app/services/scores/socoreFootball/score-football.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -13,6 +13,10 @@ import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-fire
 })
 export class OverlayFootball1Component {
   
+  //Input que entra solo cuando está en view
+  @Input() overlayView: any;
+
+
   constructor(
     private db:OverlayFirestoreService,
     private router:ActivatedRoute,

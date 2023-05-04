@@ -64,6 +64,20 @@ export class OverlayFirestoreService {
     return result.data();
   }
 
+  async readOverlayView(userID:string,urlID:number){
+    const ref = doc(this.firestore,
+      "Users",
+      userID,
+      "Overlays",
+      "Overlay "+urlID,
+      "Data",
+      "score");
+    console.log(ref); 
+    const result = await getDoc(ref);
+    console.log(result.data());
+    return result.data();
+  }
+
   
 
 }

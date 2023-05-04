@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
@@ -44,6 +43,8 @@ import { FootballComponent } from './components/fullComponents/football/football
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OverlayFirestoreService } from './services/firestore/overlay-firestore.service';
 import { ViewComponent } from './pages/view/view.component';
+import { OverlayDefaultViewComponent } from './components/overlays/overlay-default-view/overlay-default-view.component';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -75,7 +76,8 @@ import { ViewComponent } from './pages/view/view.component';
     OverlayBasketballComponent,
     ButtonsFootballComponent,
     FootballComponent,
-    ViewComponent
+    ViewComponent,
+    OverlayDefaultViewComponent
   ],
   imports: [
     BrowserModule,
