@@ -12,6 +12,7 @@ import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.co
 import { ViewComponent } from './pages/view/view.component';
 
 const routes: Routes = [
+  
   {path:'', component: IndexComponent},
   {path:'myOverlays', component: MyOverlaysComponent},
   {path:'overlays',component:OverlaysComponent},
@@ -21,8 +22,8 @@ const routes: Routes = [
   {path:'payment',component:PaymentComponent},
   {path:'howToUse',component:HowtouseComponent},
   {path:'edit',component:CustomOverlayComponent},
-  {path:'view',component:ViewComponent},
-  {path:'view/:parametro1/:parametro2', component:ViewComponent },
+  {path:'view/:uid/:urlID', component:ViewComponent},
+  
 
 
   { path: '**', pathMatch: 'full',component: PageNotFoundComponent }

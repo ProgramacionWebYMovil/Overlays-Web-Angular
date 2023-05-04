@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Overlays } from 'src/app/interfaces/overlays.interface';
+import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-firestore.service';
 
 @Component({
   selector: 'app-view',
@@ -8,17 +10,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewComponent implements OnInit{
 
-  parametro1!: string;
-  parametro2!: string;
-  constructor(private route:ActivatedRoute){
+  uid!: string;
+  urlID!: number;
+  overlayType!:string;
+  overlay:any;
+  constructor(
+    private route:ActivatedRoute,
+    private overlayFirestoreService:OverlayFirestoreService){
 
   }
 
   
 
-  ngOnInit(){
-    this.parametro1 = this.route.snapshot.params['parametro1'];
-    this.parametro2 = this.route.snapshot.params['parametro2'];
-    console.log(this.parametro1,this.parametro2);
+  async ngOnInit(){
+    this.uid = this.route.snapshot.params['uid'];
+    this.urlID = this.route.snapshot.params['urlID'];
+    this.overlayType = await this.overlayFirestoreService.readOverlayType(this.uid,this.urlID);
   }
 }

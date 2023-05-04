@@ -1,2 +1,17 @@
-<!-- <app-overlay-default-view></app-overlay-default-view> -->
-<h1>Hola</h1>
+<div [ngSwitch]="overlayType">
+    <ng-container *ngSwitchCase="'football'">
+      <app-overlay-football1></app-overlay-football1>
+    </ng-container>
+    <ng-container *ngSwitchCase="'basketball'">
+      <app-overlay-basketball></app-overlay-basketball>
+    </ng-container>
+    <ng-container *ngSwitchCase="'tennis'">
+      <app-overlay-tennis></app-overlay-tennis>
+    </ng-container>
+    <ng-container *ngSwitchCase="'timer'">
+      <app-overlay-timer></app-overlay-timer>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      Error de datos
+    </ng-container>
+</div>

@@ -7,14 +7,12 @@ import { FirestoreService } from 'src/app/services/firestore/firestore.service';
 import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-firestore.service';
 
 @Component({
-  selector: 'app-overlay-football',
+  selector: 'app-overlay-football1',
   templateUrl: './overlay-football1.component.html',
   styleUrls: ['./overlay-football1.component.css']
 })
 export class OverlayFootball1Component {
   
-  //Input que entra solo cuando está en view
-  @Input() overlayView: any;
 
 
   constructor(
@@ -55,7 +53,6 @@ export class OverlayFootball1Component {
       //Añadido por juan realizar una lectura al overlay de la base de datos
       this.datos = await this.db.readOverlay() as OverlayFootball;
 
-      console.log(this.datos);
 
 
       this.scoreService.score.subscribe(({score1,score2}) =>{
@@ -65,7 +62,7 @@ export class OverlayFootball1Component {
       })
 
     }else{
-      await this.db.createSuscribe(snapshot.params[0],snapshot.params[1]);
+      await this.db.createSuscribe(snapshot.params['uid'],snapshot.params['urlID']);
       this.db.suscribeOverlay().subscribe(datos => {
       this.datos = datos;
     });

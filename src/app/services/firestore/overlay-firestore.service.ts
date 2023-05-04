@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Firestore, doc, onSnapshot } from '@angular/fire/firestore';
-import { getDoc, updateDoc } from 'firebase/firestore';
+import { collection, getDoc, getDocs, updateDoc } from 'firebase/firestore';
 import { OverlayFootball } from 'src/app/interfaces/overlays.interface';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { CustomOverlayService } from '../customOverlay/custom-overlay.service';
+import { get } from 'firebase/database';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class OverlayFirestoreService {
         datos = doc.data();
         observer.next(datos);
       });
-
+      return datos;
     });
   }
 
@@ -57,26 +58,26 @@ export class OverlayFirestoreService {
       "Overlays",
       "Overlay "+this.customOverlayService.overlay.urlID,
       "Data",
-      "score");
-    console.log(ref); 
+      "score"); 
     const result = await getDoc(ref);
-    console.log(result.data());
     return result.data();
   }
 
-  async readOverlayView(userID:string,urlID:number){
+  async readOverlayType(userID:string,urlID:number){
+    
     const ref = doc(this.firestore,
       "Users",
       userID,
       "Overlays",
-      "Overlay "+urlID,
-      "Data",
-      "score");
-    console.log(ref); 
+      "Overlay "+urlID
+      );
     const result = await getDoc(ref);
-    console.log(result.data());
-    return result.data();
+
+    return result.data()!['type'];
   }
+
+
+  
 
   
 

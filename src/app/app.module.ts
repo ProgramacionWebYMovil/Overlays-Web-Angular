@@ -43,7 +43,6 @@ import { FootballComponent } from './components/fullComponents/football/football
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OverlayFirestoreService } from './services/firestore/overlay-firestore.service';
 import { ViewComponent } from './pages/view/view.component';
-import { OverlayDefaultViewComponent } from './components/overlays/overlay-default-view/overlay-default-view.component';
 import { environment } from 'src/environments/environment';
 
 
@@ -76,8 +75,7 @@ import { environment } from 'src/environments/environment';
     OverlayBasketballComponent,
     ButtonsFootballComponent,
     FootballComponent,
-    ViewComponent,
-    OverlayDefaultViewComponent
+    ViewComponent
   ],
   imports: [
     BrowserModule,
