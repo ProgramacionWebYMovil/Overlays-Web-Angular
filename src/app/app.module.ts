@@ -19,7 +19,7 @@ import { SessionComponent } from './pages/session/session.component';
 import { OverlaysComponent } from './pages/overlays/overlays.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FormsModule  } from '@angular/forms';
-import { OverlayFootballComponent } from './components/overlays/overlay-football/overlay-football.component';
+import { OverlayFootball1Component } from './components/overlays/overlay-football/overlay-football1.component';
 import { OverlayTennisComponent } from './components/overlays/overlay-tennis/overlay-tennis.component';
 import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -62,7 +62,7 @@ import { ViewComponent } from './pages/view/view.component';
     SessionComponent,
     OverlaysComponent,
     PaginationComponent,
-    OverlayFootballComponent,
+    OverlayFootball1Component,
     OverlayTennisComponent,
     OverlayTimerComponent,
     PageNotFoundComponent,

@@ -8,10 +8,10 @@ import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-fire
 
 @Component({
   selector: 'app-overlay-football',
-  templateUrl: './overlay-football.component.html',
-  styleUrls: ['./overlay-football.component.css']
+  templateUrl: './overlay-football1.component.html',
+  styleUrls: ['./overlay-football1.component.css']
 })
-export class OverlayFootballComponent {
+export class OverlayFootball1Component {
   
   constructor(
     private db:OverlayFirestoreService,

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverlayFootballComponent } from './overlay-football.component';
+import { OverlayFootball1Component } from './overlay-football1.component';
 
 describe('OverlayFootballComponent', () => {
-  let component: OverlayFootballComponent;
-  let fixture: ComponentFixture<OverlayFootballComponent>;
+  let component: OverlayFootball1Component;
+  let fixture: ComponentFixture<OverlayFootball1Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OverlayFootballComponent ]
+      declarations: [ OverlayFootball1Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OverlayFootballComponent);
+    fixture = TestBed.createComponent(OverlayFootball1Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
