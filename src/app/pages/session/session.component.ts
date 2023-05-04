@@ -67,10 +67,14 @@ export class SessionComponent implements OnInit {
         return;
       }
       const loginSuccess = await this.authentication.logInEmail(mail, password);
+      console.log("A ver:" + loginSuccess);
       if (!loginSuccess) {
         this.errorMessage = 'Credenciales incorrectas. Verifica tus datos.';
         form.reset(); // Resetear el formulario para limpiar los campos
         return;
+      } else {
+        // Inicio de sesión exitoso, redirigir a la página /myOverlays
+        this.router.navigate(['/myOverlays']);
       }
     } else {
       // Validación de creación de cuenta
@@ -86,6 +90,9 @@ export class SessionComponent implements OnInit {
       if (!registerSuccess) {
         this.errorMessage = 'Hubo un error al crear la cuenta. Inténtalo nuevamente.';
         return;
+      } else {
+        // Creación de cuenta exitosa, redirigir a la página /perfil
+        this.router.navigate(['/perfil']);
       }
     }
 

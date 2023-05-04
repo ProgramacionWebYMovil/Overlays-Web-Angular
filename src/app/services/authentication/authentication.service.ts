@@ -31,7 +31,7 @@ export class AuthenticationService {
     })
   }
 
-  async registerUserEmail(name:string, email:string,password:string){
+  /*async registerUserEmail(name:string, email:string,password:string){
     await createUserWithEmailAndPassword(this.auth,email,password)
       .then(async () => {
         console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
@@ -41,13 +41,13 @@ export class AuthenticationService {
         console.log(error,"El usuario no ha podido registrarse");
       });
     return Promise.resolve(true);
-  }
+  }*/
 
   getCurrentUid() : string{
     return this.auth.currentUser?.uid as string;
   }
 
-  async logInEmail(email:string,password:string){
+  /*async logInEmail(email:string,password:string){
     await signInWithEmailAndPassword(this.auth,email,password)
       .then(() => {
         console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
@@ -55,7 +55,7 @@ export class AuthenticationService {
         console.log(error,"El usuario no ha podido iniciar sesión")
       })
     return Promise.resolve(true);
-  }
+  }*/
 
   async logOut(){
     await signOut(this.auth).then(() =>{
@@ -105,6 +105,30 @@ export class AuthenticationService {
     });
   }
 
+  async registerUserEmail(name: string, email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password)
+      .then(async () => {
+        console.log("El usuario " + this.auth.currentUser?.uid + " se ha registrado");
+        this.updateUser(name, "default");
+        return Promise.resolve(true);
+      })
+      .catch((error) => {
+        console.log(error, "El usuario no ha podido registrarse");
+        return Promise.resolve(false);
+      });
+  }
+
+  async logInEmail(email: string, password: string) {
+    return signInWithEmailAndPassword(this.auth, email, password)
+      .then(() => {
+        console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
+        return Promise.resolve(true);
+      })
+      .catch((error) => {
+        console.log(error, "El usuario no ha podido iniciar sesión");
+        return Promise.resolve(false);
+      });
+  }
 
 
 }
