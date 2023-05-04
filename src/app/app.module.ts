@@ -18,7 +18,7 @@ import { CardOverlayComponent } from './components/card-overlay/card-overlay.com
 import { SessionComponent } from './pages/session/session.component';
 import { OverlaysComponent } from './pages/overlays/overlays.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-import { FormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { OverlayFootballComponent } from './components/overlays/overlay-football/overlay-football.component';
 import { OverlayTennisComponent } from './components/overlays/overlay-tennis/overlay-tennis.component';
 import { OverlayTimerComponent } from './components/overlays/overlay-timer/overlay-timer.component';
@@ -44,6 +44,7 @@ import { FootballComponent } from './components/fullComponents/football/football
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OverlayFirestoreService } from './services/firestore/overlay-firestore.service';
 import { ViewComponent } from './pages/view/view.component';
+import { InputsFootballComponent } from './components/inputs/inputs-football/inputs-football.component';
 
 
 
@@ -75,7 +76,8 @@ import { ViewComponent } from './pages/view/view.component';
     OverlayBasketballComponent,
     ButtonsFootballComponent,
     FootballComponent,
-    ViewComponent
+    ViewComponent,
+    InputsFootballComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +98,8 @@ import { ViewComponent } from './pages/view/view.component';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

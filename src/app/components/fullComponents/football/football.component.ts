@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-football',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class FootballComponent {
 
+  constructor(
+    ){}
 }
