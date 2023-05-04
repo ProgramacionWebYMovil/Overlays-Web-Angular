@@ -45,14 +45,18 @@ export class CustomOverlayService {
   }
 
   private loadRemainingOverlay(){
-
     this.firestoreService.getMyOverlays(this.auth.getCurrentUid()).then(data =>{
-
-      this.currentOverlay = data[this.currentOverlay.urlID-1] as Overlays;
+      
+      const sortedOverlays = this.sortOverlays(data); 
+      this.currentOverlay = sortedOverlays[this.currentOverlay.urlID-1] as Overlays;;
       this.subject.next(this.currentOverlay);
-      console.log(this.currentOverlay);
+      
     })
 
+  }
+
+  private sortOverlays(overlays:any[]){
+    return overlays.sort((a, b) => a.urlID - b.urlID);
   }
 
 

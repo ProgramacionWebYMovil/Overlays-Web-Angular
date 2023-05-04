@@ -6,7 +6,6 @@ import { IMAGE_OVERLAY } from '../overlays/overlays-common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponentComponent } from '../dialog-component/dialog-component.component';
 import { CustomOverlayService } from 'src/app/services/customOverlay/custom-overlay.service';
-import { Overlays } from 'src/app/interfaces/overlays.interface';
 
 
 
@@ -65,8 +64,9 @@ export class CardOverlayComponent {
     }else{
       //SI ESTA REGISTRADO, LO MANDA A EDIT OVERLAY
       const nextId = await this.firestore.createOverlay(this.overlay,this.auth.getCurrentUid());
-      this.route.navigate(['edit']);
       this.customOverlayService.overlayUrlId = nextId;
+      console.log(nextId);
+      this.route.navigate(['edit']);
     }
   }
 
@@ -83,8 +83,6 @@ export class CardOverlayComponent {
         break;
       case "delete":
         this.firestore.deleteOverlay(this.overlay.userID,this.overlay.urlID);
-        //Opcion 1: recargar la pagina despues de borrar el elemento
-        //Opcion 2: borrar el cardOverlay, para ello habrá que llamar al padre
         this.deleteOverlay.emit(this.overlay.urlID);
         break;
     }

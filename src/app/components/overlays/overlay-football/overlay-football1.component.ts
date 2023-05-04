@@ -8,10 +8,10 @@ import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-fire
 
 @Component({
   selector: 'app-overlay-football',
-  templateUrl: './overlay-football.component.html',
-  styleUrls: ['./overlay-football.component.css']
+  templateUrl: './overlay-football1.component.html',
+  styleUrls: ['./overlay-football1.component.css']
 })
-export class OverlayFootballComponent {
+export class OverlayFootball1Component {
   
   constructor(
     private db:OverlayFirestoreService,
@@ -36,22 +36,25 @@ export class OverlayFootballComponent {
     colorBoxScore1: '',
     colorBoxScore2: '',
     colorBoxSpace: '',
-    timer: 0,
+    timer: '',
     colorTimer: '',
-    colorBoxTimer: '',
-    id: 0,
-    type: '',
-    urlID: 0,
-    userID: '',
-    name: ''
+    colorBoxTimer: ''
   };
 
 
   async ngOnInit(){
     const snapshot = this.router.snapshot;
+    
+
+
     if(snapshot.routeConfig?.path==='edit'){
+      //Añadido por juan realizar una lectura al overlay de la base de datos
+      this.datos = await this.db.readOverlay() as OverlayFootball;
+
+      console.log(this.datos);
+
+
       this.scoreService.score.subscribe(({score1,score2}) =>{
-        console.log(score1);
 
         this.datos.score1 = score1;
         this.datos.score2 = score2;

@@ -1,0 +1,30 @@
+button {
+
+}
+
+div{
+    display: grid;
+    align-items: center;
+    grid-template-areas: "add1 add2" "rem1 rem2" "reset reset";
+    margin: 1em 1em 0 1em;
+}
+
+#add1{
+    grid-area: add1;
+}
+
+#add2{
+    grid-area: add2;
+}
+
+#rem1 {
+    grid-area: rem1;
+}
+
+#rem2 {
+    grid-area: rem2;
+}
+
+#reset {
+    grid-area: reset;
+}

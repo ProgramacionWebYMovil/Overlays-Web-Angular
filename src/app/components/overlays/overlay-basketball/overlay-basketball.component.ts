@@ -1,5 +1,4 @@
 import { Component, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef } from '@angular/core';
-import { Overlays } from 'src/app/interfaces/overlays.interface';
 import { TYPE } from '../overlays-common';
 
 @Component({
@@ -8,14 +7,6 @@ import { TYPE } from '../overlays-common';
   styleUrls: ['./overlay-basketball.component.css']
 })
 export class OverlayBasketballComponent {
-  overlay:Overlays = {
-    id: 0,
-    type: TYPE.BASKETBALL,
-    urlID: 0,
-    userID: '',
-    font: '',
-    name: ''
-  }
 
   teamAName = 'Team A';
   teamBName = 'Team B';
