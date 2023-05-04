@@ -82,6 +82,22 @@ export class SessionComponent implements OnInit {
         this.errorMessage = 'Por favor, ingresa todos los datos.';
         return;
       }
+
+      // Validación de formato de correo electrónico
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(mail)) {
+        this.errorMessage = 'El correo electrónico ingresado no es válido.';
+        return;
+      }
+
+      // Validación de formato de contraseña
+      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{6,16}$/;
+      if (!passwordPattern.test(password)) {
+        this.errorMessage =
+          'La contraseña debe tener entre 6 y 16 caracteres\ny Contener al menos: \n 1 letra mayúscula, 1\n letra minúscula, 1\n número y 1\n carácter especial.';
+        return;
+      }
+
       if (password !== passwordConfirm) {
         this.errorMessage = 'Las contraseñas no coinciden. Verifica tus datos.';
         return;
@@ -92,7 +108,7 @@ export class SessionComponent implements OnInit {
         return;
       } else {
         // Creación de cuenta exitosa, redirigir a la página /perfil
-        this.router.navigate(['/perfil']);
+        this.router.navigate(['/profile']);
       }
     }
 
