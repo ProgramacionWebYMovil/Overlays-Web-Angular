@@ -13,7 +13,7 @@ import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-fire
   templateUrl: './custom-overlay.component.html',
   styleUrls: ['./custom-overlay.component.css']
 })
-export class CustomOverlayComponent  implements OnInit,OnDestroy{
+export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
 
 
   overlay: Overlays = this.customOverlayService.overlay;
@@ -32,15 +32,12 @@ export class CustomOverlayComponent  implements OnInit,OnDestroy{
 
 
   //CUANDO SE HABRA EL EDIT OVERLAY POR PRIMARA VEZ, LLAMAME A timeStampOverlay() para kenai
-  ngOnInit(){
-    
+  ngAfterContentChecked(){
     this.customOverlayService.overlaySubject.subscribe(newOverlay => {
       this.overlay = newOverlay.overlay;
       this.overlayData = newOverlay.overlayData;
       this.urlView = domain+"/view/"+this.overlay.userID+"/"+this.overlay.urlID;
     });
-
-
   }
 
   getDataFromDatabase(){
