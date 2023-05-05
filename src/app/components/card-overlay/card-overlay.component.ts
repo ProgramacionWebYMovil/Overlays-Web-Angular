@@ -72,7 +72,7 @@ export class CardOverlayComponent {
 
 
   actionEvent($event:any){
-
+    console.log("Hola");
     switch($event){
       case "use":
         this.route.navigate(['edit']);
@@ -89,8 +89,10 @@ export class CardOverlayComponent {
   }
 
   openDialog(): void {
+    
     const dialogRef = this.dialog.open(DialogComponentComponent, {
-      data:{overlay:this.overlay, dialogData:this.dialogData}
+      data:{overlay:this.overlay, dialogData:this.dialogData},
+      panelClass:'dialog-custom'
     });
 
     dialogRef.afterClosed().subscribe(result => {

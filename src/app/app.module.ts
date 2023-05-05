@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
@@ -41,10 +40,11 @@ import { MatIconModule} from '@angular/material/icon';
 import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
 import { ButtonsFootballComponent } from './components/buttons/buttons-football/buttons-football.component';
 import { FootballComponent } from './components/fullComponents/football/football.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { OverlayFirestoreService } from './services/firestore/overlay-firestore.service';
 import { ViewComponent } from './pages/view/view.component';
 import { InputsFootballComponent } from './components/inputs/inputs-football/inputs-football.component';
+import { environment } from 'src/environments/environment';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -99,7 +99,9 @@ import { InputsFootballComponent } from './components/inputs/inputs-football/inp
     MatInputModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClipboardModule,
+    MatSnackBarModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

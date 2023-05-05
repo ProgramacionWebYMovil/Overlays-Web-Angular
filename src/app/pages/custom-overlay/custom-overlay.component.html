@@ -1,6 +1,11 @@
 <app-header></app-header>
 <main>
-  <h1>{{overlay.name}}</h1>
+  <h1>{{overlay.name}}
+    <button mat-flat-button [cdkCopyToClipboard]="urlView" (click)="openSnackBar()" id="clipboardBtn">
+      <i class="bi bi-link-45deg"></i>
+      Copiar url
+    </button>
+  </h1>
   <div [ngSwitch]="overlay.type">
     <ng-container *ngSwitchCase="'football'">
       <app-football></app-football>
@@ -14,6 +19,7 @@
     <ng-container *ngSwitchCase="'timer'">
       <app-overlay-timer></app-overlay-timer>
     </ng-container>
+    
     <ng-container *ngSwitchDefault>
       Error de datos
     </ng-container>

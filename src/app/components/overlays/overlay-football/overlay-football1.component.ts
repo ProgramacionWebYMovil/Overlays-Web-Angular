@@ -1,4 +1,5 @@
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { ScoreFootballService } from 'src/app/services/scores/socoreFootball/score-football.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -8,7 +9,7 @@ import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-fire
 import { CustomOverlayService } from 'src/app/services/customOverlay/custom-overlay.service';
 
 @Component({
-  selector: 'app-overlay-football',
+  selector: 'app-overlay-football1',
   templateUrl: './overlay-football1.component.html',
   styleUrls: ['./overlay-football1.component.css']
 })
@@ -61,7 +62,7 @@ export class OverlayFootball1Component implements OnInit,AfterContentChecked{
       })
 
     }else{
-      await this.db.createSuscribe(snapshot.params[0],snapshot.params[1]);
+      await this.db.createSuscribe(snapshot.params['uid'],snapshot.params['urlID']);
       this.db.suscribeOverlay().subscribe(datos => {
       this.datos = datos;
     });

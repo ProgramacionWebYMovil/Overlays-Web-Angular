@@ -1,3 +1,23 @@
 div{
-  background-color: white;
+  background-color: var(--colorPrincipal);
 }
+
+h1 {
+  color:var(--colorTerciario);
+}
+
+#clipboardBtn{
+  font-size: medium;
+  border:none;
+  background-color: transparent;
+  color:var(--colorTerciario);
+  font-family: Poppins-medium;
+}
+
+main{
+  margin: 0 2em 2em 2em;
+}
+
+
+
+

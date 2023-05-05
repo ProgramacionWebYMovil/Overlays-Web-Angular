@@ -28,3 +28,46 @@ body {
     margin: 0;
     height: 100vh;
 }
+
+
+
+
+
+
+
+/*CUSTOM ANGULAR MATERIAL*/
+.snack-custom {
+    --mat-mdc-snack-bar-button-color:var(--colorTerciario) !important;
+    --mdc-snackbar-container-color:var(--colorPrincipalOscuro) !important;
+}
+
+.dialog-custom, .mat-mdc-dialog-container{
+    --mdc-dialog-container-color:var(--colorPrincipalOscuro) !important;
+    --mdc-dialog-subhead-color:var(--colorTerciario) !important;
+    --mdc-dialog-supporting-text-color:rgba(255,255,255,1) !important;
+    --mdc-text-button-label-text-color:var(--colorTerciario) !important;
+    --mdc-dialog-with-divider-divider-color:var(--colorTerciario) !important;
+}
+
+.dialog-custom .mdc-floating-label {
+    color:#04006B !important;
+    
+}
+
+.dialog-custom mat-hint{
+    color:rgba(255,255,255,0.7);
+}
+
+.dialog-custom .mdc-text-field--filled .mdc-line-ripple::after{
+    border-bottom-color: var(--colorPrincipalOscuro) !important;
+}
+
+.dialog-custom .mat-mdc-button.mat-unthemed {
+    color:#FFBB00 !important;
+}
+
+.dialog-custom .mdc-text-field .mdc-text-field__input {
+    caret-color: #04006B !important;
+}
+
+
