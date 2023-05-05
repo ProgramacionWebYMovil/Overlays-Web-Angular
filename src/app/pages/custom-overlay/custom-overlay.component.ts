@@ -1,9 +1,10 @@
-import { AfterContentChecked, AfterViewChecked, Component , OnInit} from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, Component , OnDestroy, OnInit} from '@angular/core';
 import { domain } from 'src/app/common/constants';
 import { Overlays } from 'src/app/interfaces/overlays.interface';
 import { CustomOverlayService } from 'src/app/services/customOverlay/custom-overlay.service';
 import { OverlayStateService } from 'src/app/services/customOverlay/overlay-state.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-firestore.service';
 
 
 
@@ -12,7 +13,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   templateUrl: './custom-overlay.component.html',
   styleUrls: ['./custom-overlay.component.css']
 })
-export class CustomOverlayComponent  implements OnInit{
+export class CustomOverlayComponent  implements OnInit,OnDestroy{
 
 
   overlay: Overlays = this.customOverlayService.overlay;
@@ -22,7 +23,8 @@ export class CustomOverlayComponent  implements OnInit{
   constructor(
     private customOverlayService:CustomOverlayService,
     private overlayStateService:OverlayStateService,
-    private _snackBar:MatSnackBar
+    private _snackBar:MatSnackBar,
+    private overlayFirestoreService:OverlayFirestoreService
   ){
     this.overlayStateService.setupReloadHandler();
   }
@@ -31,6 +33,7 @@ export class CustomOverlayComponent  implements OnInit{
 
   //CUANDO SE HABRA EL EDIT OVERLAY POR PRIMARA VEZ, LLAMAME A timeStampOverlay() para kenai
   ngOnInit(){
+    
     this.customOverlayService.overlaySubject.subscribe(newOverlay => {
       this.overlay = newOverlay.overlay;
       this.overlayData = newOverlay.overlayData;
@@ -49,6 +52,10 @@ export class CustomOverlayComponent  implements OnInit{
       panelClass: ['snack-custom'],
       duration:3000
     });
+  }
+
+  ngOnDestroy(){
+    this.overlayFirestoreService.timeStampOverlay();
   }
 
 

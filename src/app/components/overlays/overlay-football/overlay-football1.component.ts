@@ -52,7 +52,6 @@ export class OverlayFootball1Component implements OnInit,AfterContentChecked{
       }else{
         this.datos = this.customOverlayService.overlayData as OverlayFootball;
       }
-      console.log(this.datos);
 
       this.scoreService.scoreValues = {score1:this.datos.score1,score2:this.datos.score2};
 
@@ -62,6 +61,7 @@ export class OverlayFootball1Component implements OnInit,AfterContentChecked{
       })
 
     }else{
+      //VIEW
       await this.db.createSuscribe(snapshot.params['uid'],snapshot.params['urlID']);
       this.db.suscribeOverlay().subscribe(datos => {
       this.datos = datos;
