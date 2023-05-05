@@ -2,7 +2,18 @@ div{
     display: grid;
     align-items: center;
     grid-template-areas: "add1 add2" "rem1 rem2" "reset reset";
-    margin: 1em 1em 0 1em;
+    padding: 1em 1em 0 1em;
+    gap:1em;
+}
+
+button{
+    color: var(--colorPrincipalOscuro) !important;
+    background-color: var(--colorTerciario) !important;
+    border: none;
+    border-radius: 0.3em;
+    height: 50px;
+    font-size: 1.5em;
+    font-family: Poppins-bold;
 }
 
 #add1{
@@ -24,3 +35,4 @@ div{
 #reset {
     grid-area: reset;
 }
+

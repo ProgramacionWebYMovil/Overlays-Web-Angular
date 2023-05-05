@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { noop } from 'rxjs';
 import { checkLogged } from 'src/app/common/tools/check-is-logged.tool';
 import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
@@ -13,7 +13,7 @@ import { OverlaysService } from 'src/app/services/overlays/overlays.service';
   templateUrl: './my-overlays.component.html',
   styleUrls: ['./my-overlays.component.css']
 })
-export class MyOverlaysComponent implements OnInit {
+export class MyOverlaysComponent implements AfterContentChecked,OnInit {
 
   overlays:any[] = [];
   pageContent:MyOverlays = {};
@@ -27,16 +27,23 @@ export class MyOverlaysComponent implements OnInit {
 
   constructor(public load: LoadContentService,
     public overlayService:MyOverlaysService ) {
+    
+  }
+
+  ngOnInit() {
     this.load.loadContent("myoverlays").then(data => this.pageContent = data);
     this.load.loadContent("dialogOverlay").then(data => this.dialogData = data);
   }
 
-  async ngOnInit(){
-    await this.overlayService.loadMyOverlays().then((data)=>{
-      this.overlays = this.overlayService.fillOverlays(0,this.overlayService.getCardsPerPage());
-      this.paginationReady = true;
-      this.chargeComplete = true; 
-    });
+  async ngAfterContentChecked(){
+    if(this.chargeComplete===false){
+      await this.overlayService.loadMyOverlays().then((data)=>{
+        this.overlays = this.overlayService.fillOverlays(0,this.overlayService.getCardsPerPage());
+        this.paginationReady = true;
+        this.chargeComplete = true; 
+      });
+    }
+    
   }
 
   //METODO LLAMADO POR APP-PAGINATION

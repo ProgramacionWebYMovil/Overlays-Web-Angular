@@ -40,11 +40,10 @@ import { MatIconModule} from '@angular/material/icon';
 import { OverlayBasketballComponent } from './components/overlays/overlay-basketball/overlay-basketball.component';
 import { ButtonsFootballComponent } from './components/buttons/buttons-football/buttons-football.component';
 import { FootballComponent } from './components/fullComponents/football/football.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { OverlayFirestoreService } from './services/firestore/overlay-firestore.service';
 import { ViewComponent } from './pages/view/view.component';
 import { environment } from 'src/environments/environment';
 import { ClipboardModule } from '@angular/cdk/clipboard'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -98,7 +97,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatInputModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    ClipboardModule
+    ClipboardModule,
+    MatSnackBarModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
