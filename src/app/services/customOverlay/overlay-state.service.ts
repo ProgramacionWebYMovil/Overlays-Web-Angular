@@ -25,7 +25,7 @@ export class OverlayStateService {
 
     if(temp){
       this.restoreDataToOverlay(JSON.parse(temp));
-      //localStorage.removeItem(this.appStateKey);
+      localStorage.removeItem(this.appStateKey);
     }
 
   }

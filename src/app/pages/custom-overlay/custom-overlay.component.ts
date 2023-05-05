@@ -12,7 +12,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   templateUrl: './custom-overlay.component.html',
   styleUrls: ['./custom-overlay.component.css']
 })
-export class CustomOverlayComponent  implements OnInit{
+export class CustomOverlayComponent  implements AfterContentChecked{
 
 
   overlay: Overlays = this.customOverlayService.overlay;
@@ -30,14 +30,12 @@ export class CustomOverlayComponent  implements OnInit{
 
 
   //CUANDO SE HABRA EL EDIT OVERLAY POR PRIMARA VEZ, LLAMAME A timeStampOverlay() para kenai
-  ngOnInit(){
+  ngAfterContentChecked(){
     this.customOverlayService.overlaySubject.subscribe(newOverlay => {
       this.overlay = newOverlay.overlay;
       this.overlayData = newOverlay.overlayData;
       this.urlView = domain+"/view/"+this.overlay.userID+"/"+this.overlay.urlID;
     });
-
-
   }
 
   getDataFromDatabase(){
