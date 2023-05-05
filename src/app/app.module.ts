@@ -44,6 +44,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OverlayFirestoreService } from './services/firestore/overlay-firestore.service';
 import { ViewComponent } from './pages/view/view.component';
 import { environment } from 'src/environments/environment';
+import { ClipboardModule } from '@angular/cdk/clipboard'; 
 
 
 
@@ -96,7 +97,8 @@ import { environment } from 'src/environments/environment';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    ClipboardModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

@@ -63,7 +63,7 @@ export class OverlayFirestoreService {
     return result.data();
   }
 
-  async readOverlayType(userID:string,urlID:number){
+  async readOverlayInfo(userID:string,urlID:number){
     
     const ref = doc(this.firestore,
       "Users",
@@ -73,7 +73,7 @@ export class OverlayFirestoreService {
       );
     const result = await getDoc(ref);
 
-    return result.data()!['type'];
+    return result.data();
   }
 
 

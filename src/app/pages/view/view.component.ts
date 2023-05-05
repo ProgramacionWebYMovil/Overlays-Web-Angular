@@ -10,10 +10,14 @@ import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-fire
 })
 export class ViewComponent implements OnInit{
 
-  uid!: string;
-  urlID!: number;
-  overlayType!:string;
-  overlay:any;
+  overlay:Overlays={
+    id: 0,
+    type: '',
+    urlID: 0,
+    userID: '',
+    font: '',
+    name: ''
+  };
   constructor(
     private route:ActivatedRoute,
     private overlayFirestoreService:OverlayFirestoreService){
@@ -23,8 +27,8 @@ export class ViewComponent implements OnInit{
   
 
   async ngOnInit(){
-    this.uid = this.route.snapshot.params['uid'];
-    this.urlID = this.route.snapshot.params['urlID'];
-    this.overlayType = await this.overlayFirestoreService.readOverlayType(this.uid,this.urlID);
+    const uid = this.route.snapshot.params['uid'];
+    const urlID = this.route.snapshot.params['urlID'];
+    this.overlay = await this.overlayFirestoreService.readOverlayInfo(uid,urlID) as Overlays;
   }
 }
