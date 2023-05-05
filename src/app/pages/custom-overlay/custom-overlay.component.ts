@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, Component , OnInit} from '@angular/core';
 import { Overlays } from 'src/app/interfaces/overlays.interface';
 import { CustomOverlayService } from 'src/app/services/customOverlay/custom-overlay.service';
 import { OverlayStateService } from 'src/app/services/customOverlay/overlay-state.service';
@@ -12,6 +12,7 @@ export class CustomOverlayComponent  implements OnInit{
 
 
   overlay: Overlays = this.customOverlayService.overlay;
+  overlayData:any = this.customOverlayService.overlayData;
 
   constructor(
     private customOverlayService:CustomOverlayService,
@@ -20,8 +21,13 @@ export class CustomOverlayComponent  implements OnInit{
     this.overlayStateService.setupReloadHandler();
   }
 
+
+
   ngOnInit(){
-    this.customOverlayService.overlaySubject.subscribe(newOverlay => this.overlay = newOverlay);
+    this.customOverlayService.overlaySubject.subscribe(newOverlay => {
+      this.overlay = newOverlay.overlay;
+      this.overlayData = newOverlay.overlayData;
+    });
   }
 
   getDataFromDatabase(){

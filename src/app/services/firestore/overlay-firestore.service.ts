@@ -58,12 +58,10 @@ export class OverlayFirestoreService {
       "Overlay "+this.customOverlayService.overlay.urlID,
       "Data",
       "score");
-    console.log(ref); 
     const result = await getDoc(ref);
-    console.log(result.data());
     return result.data();
   }
 
-  
+
 
 }
