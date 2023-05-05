@@ -18,8 +18,8 @@ export class SessionComponent implements OnInit {
   pageContent: Session = {};
   sessionOption: boolean;
   errorMessage: string = '';
-  errorMessages: any[] = [];
-
+  private currentLanguage:number;
+  private languages:string[];
 
 
   constructor(
@@ -27,15 +27,14 @@ export class SessionComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private authentication: AuthenticationService,
-    private db: Database,
   ) {
     this.sessionOption = this.checkSessionOption();
+    this.languages = ["PageContentEnglish","PageContentSpanish"];
+    this.currentLanguage = localStorage.getItem("language") == "PageContentEnglish"? 0:1;
   }
 
   ngOnInit() {
     this.load.loadContent("session").then(data => this.pageContent = data);
-    //this.loadErrorMessagesFromDatabase(); // Cargar los mensajes de error desde la base de datos
-    this.checkSessionStatus();
   }
 
   checkSessionOption() {
@@ -44,10 +43,6 @@ export class SessionComponent implements OnInit {
 
   changeSessionOption() {
     this.sessionOption = !this.sessionOption;
-  }
-
-  checkSessionStatus() {
-    //if(this.authentication.checkLogged()) window.location.href = "";
   }
 
   redirect() {
@@ -133,8 +128,13 @@ export class SessionComponent implements OnInit {
   loadErrorMessageFromDatabase(key: string) {
     // Obtener una referencia a la base de datos
     const database = getDatabase();
-    // Obtener una referencia al documento específico en la colección "messageErrorEnglish"
-    const messageRef = ref(database, `messageErrorEnglish/${key}`);
+    // Obtener una referencia a la colección específica según el idioma actual
+    const collectionRef = this.currentLanguage === 0 ? 'messageErrorEnglish' : 'messageErrorSpanish';
+    // Obtener una referencia al documento específico en la colección
+    const messageRef = ref(database, `${collectionRef}/${key}`);
+    console.log(localStorage.getItem("language"));
+    console.log(this.currentLanguage);
+    console.log('idioma seleccionado'+ collectionRef);
     // Escuchar los cambios en el documento específico
     onValue(messageRef, (snapshot) => {
       const errorMessage = snapshot.val();
@@ -144,41 +144,4 @@ export class SessionComponent implements OnInit {
   }
 
 
-
-  /*loadErrorMessagesFromDatabase() {
-    const firebaseConfig = {
-      // Configuración de tu proyecto Firebase
-    };
-    // Inicializar la aplicación de Firebase
-    const firebaseApp = initializeApp(firebaseConfig);
-    // Obtener una referencia a la base de datos
-    const database = getDatabase(firebaseApp);
-    // Obtener una referencia a la colección "messageErrorEnglish"
-    const messagesRef = ref(database, 'messageErrorEnglish');
-    // Escuchar los cambios en la colección "messageErrorEnglish"
-    onValue(messagesRef, (snapshot) => {
-      const data = snapshot.val();
-      this.errorMessages = Object.values(data);
-      console.log('errorMessages:', this.errorMessages);
-    });
-  }*/
-
-  /*loadErrorMessageFromDatabase(key: string) {
-    const errorMessageDoc = this.db.collection('messageErrorEnglish').doc(key);
-    errorMessageDoc.valueChanges().subscribe((data: any) => {
-      const errorMessage = data?.value;
-      this.showError(errorMessage);
-    });
-  }
-
-
-  showError(message: string) {
-    // Mostrar el mensaje de error en la interfaz de usuario
-    console.log(message);
-  }*/
-
-
-  logOut() {
-    this.authentication.logOut();
-  }
 }
