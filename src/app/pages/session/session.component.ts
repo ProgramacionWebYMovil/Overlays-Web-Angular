@@ -137,8 +137,9 @@ export class SessionComponent implements OnInit {
     console.log('idioma seleccionado'+ collectionRef);
     // Escuchar los cambios en el documento específico
     onValue(messageRef, (snapshot) => {
-      const errorMessage = snapshot.val();
-      console.log('errorMessage:', errorMessage);
+      let errorMessage = snapshot.val();
+      errorMessage = errorMessage.replace(/\\n/g, '\n'); // Reemplazar los caracteres \n por saltos de línea reales
+      console.log('errorMessage:', this.errorMessage);
       this.errorMessage = errorMessage; // Asignar el mensaje de error a la variable errorMessage en la clase
     });
   }
