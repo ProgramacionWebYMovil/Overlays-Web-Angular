@@ -18,8 +18,10 @@
           <input ngModel type={{item.type}} id={{item.for}} name={{item.for}}>
         </li>
 
-        <li *ngIf="errorMessage" id="error">
-          {{ errorMessage }}
+        <li>
+          <div *ngIf="errorMessage" id="error">
+            <p [innerHTML]="errorMessage"></p>
+          </div>
         </li>
 
         <li>
@@ -39,9 +41,12 @@
           </ng-template>
         </li>
 
-        <li *ngIf="errorMessage" id="error">
-          {{ errorMessage }}
+        <li>
+          <div *ngIf="errorMessage" id="error">
+            <p [innerHTML]="errorMessage"></p>
+          </div>
         </li>
+
 
         <li>
           <input type="submit" id="submit" value={{pageContent.submit_login}}  >
