@@ -82,10 +82,10 @@ export class OverlayFirestoreService {
       "Users",
       this.auth.getCurrentUid(),
       "Overlays",
-      "Overlay"+this.customOverlayService.overlay.urlID);
+      "Overlay "+this.customOverlayService.overlay.urlID);
 
       updateDoc(ref, {
-        data: Timestamp.now()
+        date: Timestamp.now()
       });
   }
 
