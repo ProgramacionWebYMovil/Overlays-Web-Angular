@@ -36,3 +36,16 @@ button{
     grid-area: reset;
 }
 
+@media screen and (max-width:500px) {
+    div {
+        grid-template-rows: repeat(5,auto);
+        grid-template-areas: none;
+    }
+
+    #reset, #add1, #add2, #rem1, #rem2{
+        grid-area: unset;
+    }
+
+  
+}
+

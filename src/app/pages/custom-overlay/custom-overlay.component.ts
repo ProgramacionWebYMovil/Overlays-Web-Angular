@@ -50,6 +50,7 @@ export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
       panelClass: ['snack-custom'],
       duration:3000
     });
+    
   }
 
   ngOnDestroy(){
