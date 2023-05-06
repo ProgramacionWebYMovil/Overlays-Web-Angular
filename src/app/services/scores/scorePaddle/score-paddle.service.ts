@@ -181,7 +181,7 @@ export class ScorePaddleService {
   removePoint(player:number){
     //Condición para principio de partido
     if(this.point1===0 && this.point2===0 && this.sets1[0] === 0 && this.sets2[0] === 0) return;
-    if(player){
+    if(player===1){
       this.point1 > 0 ? this.point1-- : this.removeGame(player); 
     }else{
       this.point2 > 0 ? this.point2-- : this.removeGame(player);
