@@ -1,6 +1,4 @@
-import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { object } from '@angular/fire/database';
 import { FormBuilder } from '@angular/forms';
 import { CustomOverlayService } from 'src/app/services/customOverlay/custom-overlay.service';
 import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-firestore.service';
