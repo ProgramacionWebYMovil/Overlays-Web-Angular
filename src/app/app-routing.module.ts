@@ -9,6 +9,7 @@ import { PricesComponent } from './pages/prices/prices.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
 

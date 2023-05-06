@@ -9,7 +9,7 @@ import {
   signOut,
   updateProfile}from 'firebase/auth';
 
-import { Observable, Subscriber } from 'rxjs';
+import {BehaviorSubject, Observable, Subscriber} from 'rxjs';
 import { FirestoreService } from '../firestore/firestore.service';
 import { Router } from '@angular/router';
 

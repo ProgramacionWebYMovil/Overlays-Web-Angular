@@ -78,7 +78,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ButtonsFootballComponent,
     FootballComponent,
     ViewComponent,
-    InputsFootballComponent
+    InputsFootballComponent,
     ProfileComponent,
   ],
   imports: [
