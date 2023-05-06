@@ -8,9 +8,6 @@ a, label, p {
 }
 
 
-
-
-
 /* BIG STYLE */
 @media screen and (min-width:1024px){
     #footer {
@@ -55,7 +52,7 @@ a, label, p {
     #logo-footer{
         width:150px;
         height:150px;
-        margin-top: 60px;
+        margin-top: 10px;
     }
 
 

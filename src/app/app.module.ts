@@ -47,6 +47,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -78,6 +79,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FootballComponent,
     ViewComponent,
     InputsFootballComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

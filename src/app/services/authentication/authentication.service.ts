@@ -18,8 +18,12 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private currentUserSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+  currentUser$: Observable<string | null> = this.currentUserSubject.asObservable();
 
-  constructor(private auth:Auth,private firestore:FirestoreService,private router:Router) { }
+  constructor(private auth:Auth,private firestore:FirestoreService,private router:Router) {
+    this.initCurrentUser();
+  }
 
   isLoggedInObservable(): Observable<boolean> {
     return new Observable((subscriber) => {
@@ -85,6 +89,34 @@ export class AuthenticationService {
 
     return new Observable((subscriber) => {
       subscriber.next(this.auth.currentUser?.uid);
+    });
+  }
+  private initCurrentUser() {
+    this.auth.onAuthStateChanged((user: User | null) => {
+      const uid = user ? user.uid : null;
+      this.currentUserSubject.next(uid);
+    });
+  }
+
+  getCurrentUid2(): string | null {
+    return this.currentUserSubject.value;
+  }
+
+  async getUserData(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      const unsubscribe = onAuthStateChanged(this.auth, async (user: User | null) => {
+        unsubscribe();
+
+        if (user) {
+          const uid = user.uid;
+          const userData = await this.firestore.getUser(uid);
+          console.log('User Data:', userData);
+          resolve(userData);
+        } else {
+          console.log('No user logged in');
+          resolve(null);
+        }
+      });
     });
   }
 

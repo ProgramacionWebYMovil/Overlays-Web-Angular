@@ -20,12 +20,12 @@ import { Overlay } from '@angular/cdk/overlay';
 
 export class FirestoreService {
 
-  constructor(private firestore: Firestore, private realTime:Database) { 
+  constructor(private firestore: Firestore, private realTime:Database) {
   }
 
  // Devuelve la colección deseada
   async getData(nameCollection : string, document:string){
-    
+
     const dbRef = ref(this.realTime);
     const data = await get(child(dbRef, nameCollection+'/'+document)).then((snapshot)=> {
       return snapshot.val();
@@ -33,7 +33,7 @@ export class FirestoreService {
     return data;
   }
 
-  async getOverlaysDemo(nameCollection:string){    
+  async getOverlaysDemo(nameCollection:string){
     const dbRef = ref(this.realTime);
     const data = await get(child(dbRef,nameCollection)).then((snapshot => {
       return snapshot.val();
@@ -53,12 +53,12 @@ export class FirestoreService {
 
     let overlays: DocumentData[] = [];
     let index = 0;
-  
+
     querySnapshot.forEach((doc) => {
       overlays[index] = doc.data();
       index++;
     });
-    
+
     return overlays;
   }
 
@@ -73,7 +73,7 @@ export class FirestoreService {
       countOverlay:0
     });
     /*Advertencia: Si borras un documento, no se borrarán las subcolecciones que contiene.
-    Cuando borras un documento que tiene subcolecciones, estas no se borran. Por ejemplo, 
+    Cuando borras un documento que tiene subcolecciones, estas no se borran. Por ejemplo,
     puede haber un documento ubicado en coll/doc/subcoll/subdoc, aunque el documento coll/doc
     ya no exista. Si deseas borrar los documentos de las subcolecciones cuando borras un documento
     principal, debes hacerlo de forma manual, como se muestra en la sección Borra colecciones.*/
@@ -86,7 +86,7 @@ export class FirestoreService {
   async createOverlay(overlay:any, userID:string){
     const nextId = await this.nextIdOverlay(userID)+1;
     const docRef = doc(this.firestore,"Users",userID,"Overlays","Overlay " + nextId);
-    
+
     /*Insertamos el documento y su información
     *   -id: es el identificador del overlay
     *   -urlID: es el número de overlay que es en el esquema del usuario
@@ -141,7 +141,7 @@ export class FirestoreService {
         break;
 
     }
-    
+
     await setDoc(docRefScore,{
       ...document
     });
@@ -154,7 +154,7 @@ export class FirestoreService {
     const docSnap = await getDoc(docRef).then((data)=> {
       return data.data();
     });
-    
+
     await updateDoc(docRef,{
       countOverlay:increment(1)
     });
@@ -165,7 +165,7 @@ export class FirestoreService {
 
   async deleteOverlay(userId:string, urlId:number){
     await deleteDoc(doc(this.firestore,"Users",userId,"Overlays","Overlay "+urlId));
-    
+
   }
 
   changeOverlaysDetails(userID:string,urlID:number,data:any){
@@ -175,7 +175,31 @@ export class FirestoreService {
     });
   }
 
-  
+
+
+  async updateData(nameCollection: string, document: string, updatedData: any) {
+    const ref = doc(this.firestore, nameCollection, document);
+    await setDoc(ref, updatedData);
+  }
+
+  async updateUserData(userID: string, updatedData: any) {
+    const docRef = doc(this.firestore, "Users", userID);
+    await updateDoc(docRef, updatedData);
+  }
+
+  async getUser(uid: string): Promise<any> {
+    const docRef = doc(this.firestore, 'Users', uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const userData = docSnap.data();
+      console.log('User Data:', userData);
+      return userData;
+    } else {
+      console.log('User does not exist');
+      return null;
+    }
+  }
+
 
 }
 
