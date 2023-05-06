@@ -83,51 +83,29 @@ a, label, p {
         margin-top:0;
     }
 
-
-
     h3{
         color:var(--colorTerciario);
     }
 
-    #form-footer {
-        display: flex;
-
-        align-items: flex-end;
+    ul-contac_us{
+      display: flex;
+      flex-direction: column;
     }
 
-    #message-form-footer{
-        display:flex;
-        flex-direction:row;
-        text-align:initial;
-    }
+  #ul-contac_us{
+    display: flex;
+    flex-direction: column;
+  }
 
-    #textArea-form-footer {
-        display: flex;
-        flex-direction: column;
-        height: 72px;
-        resize:none;
-    }
+  #link_mail{
+    color: #FFFFFF;
+    padding: 0.5em;
+  }
 
-    .nameEmail-form-footer {
-        display: flex;
-        margin-right: 10px;
-        margin:0 10px 10px 0;
-        flex-direction: column;
-    }
+  #link_mail:hover{
+    color: #FFBB00;;
+  }
 
-    #message-form{
-        display:flex;
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    #message-form button{
-        margin-top:0.3em;
-        background-color:var(--colorTerciario);
-        border:none;
-        border-radius:0.2em;
-        color:var(--colorPrincipalOscuro);
-    }
 }
 
 @media screen and (max-width:1023px) and (min-width:768px) {
@@ -235,34 +213,28 @@ a, label, p {
         margin: 0px 10px;
     }
 
-    /* No se ve el mensaje para este tamaño*/
-    #ul-contac_us{
-        display: none;
+    ul-contac_us{
+      display: flex;
+      flex-direction: column;
     }
 
-    #form-footer {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
+  #ul-contac_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+  }
 
-    #message-form-footer{
-        display:flex;
-    }
+  #link_mail{
+    color: #FFFFFF;
+    padding: 0.5em;
+  }
 
-    #textArea-form-footer {
-        display: flex;
-        flex-direction: column;
-        height: 72px;
-        resize:none;
-    }
+  #link_mail:hover{
+    color: #FFBB00;;
+  }
 
-    .nameEmail-form-footer {
-        display: flex;
-        margin-right: 10px;
-        margin:0 10px 10px 0;
-        flex-direction: column;
-    }
 }
 
 @media screen and (max-width:767px){
@@ -370,34 +342,22 @@ a, label, p {
         margin: 0px 10px;
     }
 
-    /* No se ve el mensaje para este tamaño*/
     #ul-contac_us{
-        display: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    #form-footer {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+    #link_mail{
+      color: #FFFFFF;
+      padding: 0.5em;
     }
 
-    #message-form-footer{
-        display:flex;
+    #link_mail:hover{
+      color: #FFBB00;;
     }
 
-    #textArea-form-footer {
-        display: flex;
-        flex-direction: column;
-        height: 72px;
-        resize:none;
-    }
-
-    .nameEmail-form-footer {
-        display: flex;
-        margin-right: 10px;
-        margin:0 10px 10px 0;
-        flex-direction: column;
-    }
 
     @media screen and (max-width:560px) {
 

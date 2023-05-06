@@ -33,9 +33,7 @@ export interface Footer  {
 
   //Form section
   title_form?:string,
-  text_email?:string,
-  text_name?:string,
-  text_message?:string
+  link_mail?:string;
 }
 
 export interface Index {
@@ -167,4 +165,3 @@ export interface Profile {
   profile_select_file?:string,
 
 }
-
