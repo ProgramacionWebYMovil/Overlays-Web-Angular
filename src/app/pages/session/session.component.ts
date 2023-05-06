@@ -1,9 +1,13 @@
 import { Component ,OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Session } from 'src/app/interfaces/pagesContents.interface';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { LoadContentService } from 'src/app/services/load-content/load-content.service';
+import { Database } from '@angular/fire/database';
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, onValue } from 'firebase/database';
+
 
 @Component({
   selector: 'app-session',
