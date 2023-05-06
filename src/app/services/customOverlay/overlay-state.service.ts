@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CustomOverlayService } from './custom-overlay.service';
-import { Overlay } from '@angular/cdk/overlay';
 import { OverlayFootball, Overlays } from 'src/app/interfaces/overlays.interface';
 
 @Injectable({
@@ -10,9 +9,17 @@ export class OverlayStateService {
 
   private appStateKey = 'overlayState';
 
-  constructor(private customOverlayService:CustomOverlayService) { }
+  constructor(private customOverlayService:CustomOverlayService) {
+    window.addEventListener('load', () => {
+      console.log("CARGADO");
 
-  saveAppState() {
+    },false);
+    this.restoreAppState();
+  }
+
+  private saveAppState() {
+    console.log("Guardando datos");
+
     const temp={
       overlayState: this.customOverlayService.overlay,
       overlayDataState : this.customOverlayService.overlayData
@@ -20,12 +27,14 @@ export class OverlayStateService {
     localStorage.setItem(this.appStateKey, JSON.stringify(temp));
   }
 
-  restoreAppState() {
-    const temp = localStorage.getItem(this.appStateKey);
+  private restoreAppState() {
 
-    if(temp){
-      this.restoreDataToOverlay(JSON.parse(temp));
-      localStorage.removeItem(this.appStateKey);
+    if(!this.customOverlayService.overlay.userID){
+      const temp = localStorage.getItem(this.appStateKey);
+      if(temp){
+        this.restoreDataToOverlay(JSON.parse(temp));
+        localStorage.removeItem(this.appStateKey);
+      }
     }
 
   }
@@ -35,9 +44,21 @@ export class OverlayStateService {
   }
 
   setupReloadHandler() {
+
+    console.log("Asignando eventos...");
+    console.log("Segunda Marca" + Date.now());
+
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log("CARGADO");
+
+    },false);
+
+
+
     window.addEventListener('beforeunload', () => this.saveAppState());
-    window.addEventListener('load', () => this.restoreAppState());
+
   }
 }
+
 
 

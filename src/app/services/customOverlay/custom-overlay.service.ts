@@ -58,19 +58,21 @@ export class CustomOverlayService{
     this.currentOverlay.urlID = urlID;
     this.loadRemainingOverlay();
   }
-
   restartData(data: { overlayState: Overlays; overlayDataState:any; }) {
     this._overlayData = data.overlayDataState;
     this.currentOverlay = data.overlayState;
+    this.loadRemainingOverlay();
     this.updateData();
   }
 
   private loadRemainingOverlay(){
     this.firestoreService.getMyOverlays(this.auth.getCurrentUid()).then(data =>{
 
-      const sortedOverlays = this.sortOverlays(data);
-      this.currentOverlay = sortedOverlays[this.currentOverlay.urlID-1] as Overlays;;
-      this.updateData();
+      if(data.length != 0){
+        const sortedOverlays = this.sortOverlays(data);
+        this.currentOverlay = sortedOverlays[this.currentOverlay.urlID-1] as Overlays;;
+        this.updateData();
+      }
 
     })
 
