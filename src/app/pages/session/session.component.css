@@ -100,12 +100,16 @@ input {
   margin-top: 1em;
 }
 
-form:valid #submit:hover{
-  background: greenyellow;
-}
-
-form:invalid #submit:hover{
-  background: red;
+form p {
+  color: darkred;
+  font-size: 0.8em;
+  width: 22vw;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  text-align: center;
+  background-color: rgba(253, 99, 99, 0.22);
+  padding: 0.5em;
+  border-radius: 20px;
 }
 
 label {
@@ -119,6 +123,7 @@ label {
   input{
     width: 35vw;
   }
+  form p{width: 35vw;}
 }
 
 @media screen and (max-width:767px){
@@ -126,5 +131,6 @@ label {
   input{
     width: 60vw;
   }
+  form p{width: 60vw;}
 }
 

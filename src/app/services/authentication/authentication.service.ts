@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject } from 'rxjs';
 import { Auth, onAuthStateChanged, user } from '@angular/fire/auth';
-
 import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   updateProfile}from 'firebase/auth';
-
-import {BehaviorSubject, Observable, Subscriber} from 'rxjs';
+import { Observable } from 'rxjs';
 import { FirestoreService } from '../firestore/firestore.service';
 import { Router } from '@angular/router';
 
@@ -42,28 +40,9 @@ export class AuthenticationService {
     });
   }
 
-  async registerUserEmail(name:string, email:string,password:string){
-    await createUserWithEmailAndPassword(this.auth,email,password)
-      .then(async () => {
-        console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
-        this.updateUser(name,"default");
-
-      }).catch((error)=>{
-        console.log(error,"El usuario no ha podido registrarse");
-      });
-  }
 
   getCurrentUid(){
       return this.auth.currentUser?.uid as string;
-  }
-
-  async logInEmail(email:string,password:string){
-    await signInWithEmailAndPassword(this.auth,email,password)
-      .then(() => {
-        console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
-      }).catch((error)=>{
-        console.log(error,"El usuario no ha podido iniciar sesión")
-      })
   }
 
   async logOut(){
@@ -120,6 +99,30 @@ export class AuthenticationService {
     });
   }
 
+  async registerUserEmail(name: string, email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password)
+      .then(async () => {
+        console.log("El usuario " + this.auth.currentUser?.uid + " se ha registrado");
+        this.updateUser(name, "default");
+        return Promise.resolve(true);
+      })
+      .catch((error) => {
+        console.log(error, "El usuario no ha podido registrarse");
+        return Promise.resolve(false);
+      });
+  }
+
+  async logInEmail(email: string, password: string) {
+    return signInWithEmailAndPassword(this.auth, email, password)
+      .then(() => {
+        console.log("El usuario " + this.auth.currentUser?.uid + " se ha logueado");
+        return Promise.resolve(true);
+      })
+      .catch((error) => {
+        console.log(error, "El usuario no ha podido iniciar sesión");
+        return Promise.resolve(false);
+      });
+  }
 
 
 }

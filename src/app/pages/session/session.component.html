@@ -17,6 +17,13 @@
           <label for={{item.for}}>{{item.label}}</label>
           <input ngModel type={{item.type}} id={{item.for}} name={{item.for}}>
         </li>
+
+        <li>
+          <div *ngIf="errorMessage" id="error">
+            <p [innerHTML]="errorMessage"></p>
+          </div>
+        </li>
+
         <li>
           <input type="submit" id="submit" value={{pageContent.submit_signup}}  >
           <div id="changeSessionOptions">
@@ -27,10 +34,16 @@
       </ng-container>
       <ng-template #elseOption >
         <li *ngFor="let item of pageContent.input_list">
-          <ng-template [ngIf]="item.for == 'mail' || item.for == 'password' " >
+          <ng-template [ngIf]="item.for === 'mail' || item.for === 'password' " >
             <label for={{item.for}}>{{item.label}}</label>
             <input ngModel type={{item.type}} id={{item.for}} name={{item.for}}>
           </ng-template>
+        </li>
+
+        <li>
+          <div *ngIf="errorMessage" id="error">
+            <p [innerHTML]="errorMessage"></p>
+          </div>
         </li>
 
         <li>
