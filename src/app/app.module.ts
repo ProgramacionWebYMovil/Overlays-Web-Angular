@@ -41,11 +41,14 @@ import { OverlayBasketballComponent } from './components/overlays/overlay-basket
 import { ButtonsFootballComponent } from './components/buttons/buttons-football/buttons-football.component';
 import { FootballComponent } from './components/fullComponents/football/football.component';
 import { ViewComponent } from './pages/view/view.component';
-import { InputsFootballComponent } from './components/inputs/inputs-football/inputs-football.component';
 import { environment } from 'src/environments/environment';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { InputsOverlaysComponent } from './components/inputs/inputs-overlays/inputs-overlays.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import { UploadImagesComponent } from './components/inputs/upload-images/upload-images.component';
 
 
 
@@ -77,7 +80,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ButtonsFootballComponent,
     FootballComponent,
     ViewComponent,
-    InputsFootballComponent
+    InputsOverlaysComponent,
+    UploadImagesComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -101,7 +106,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatIconModule,
     ReactiveFormsModule,
     ClipboardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,
+    MatRadioModule,
+    MatSelectModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

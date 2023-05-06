@@ -17,7 +17,6 @@ export class OverlayFirestoreService {
   constructor(
     private firestore:Firestore,
     private auth:AuthenticationService,
-    private customOverlayService:CustomOverlayService
   ) {  }
 
   async createSuscribe(userID:string,urlID:number){
@@ -35,14 +34,14 @@ export class OverlayFirestoreService {
     return this.datos;
   }
 
-  async writeOverlay(data:any){
+  async writeOverlay(data:any,urlId:number){
     const ref =
     doc(
       this.firestore,
       "Users",
       this.auth.getCurrentUid(),
       "Overlays",
-      "Overlay "+this.customOverlayService.overlay.urlID,
+      "Overlay "+urlId,
       "Data",
       "score"
     );
@@ -50,19 +49,6 @@ export class OverlayFirestoreService {
       ...data
     });
   }
-
-  async readOverlay(){
-    const ref = doc(this.firestore,
-      "Users",
-      this.auth.getCurrentUid(),
-      "Overlays",
-      "Overlay "+this.customOverlayService.overlay.urlID,
-      "Data",
-      "score");
-    const result = await getDoc(ref);
-    return result.data();
-  }
-
 
   async readOverlayInfo(userID:string,urlID:number){
 
@@ -77,12 +63,12 @@ export class OverlayFirestoreService {
     return result.data();
   }
 
-  timeStampOverlay(){
+  timeStampOverlay(urlId:number){
     const ref = doc(this.firestore,
       "Users",
       this.auth.getCurrentUid(),
       "Overlays",
-      "Overlay "+this.customOverlayService.overlay.urlID);
+      "Overlay "+urlId);
 
       updateDoc(ref, {
         date: Timestamp.now()

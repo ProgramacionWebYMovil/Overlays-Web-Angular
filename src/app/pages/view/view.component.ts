@@ -24,7 +24,7 @@ export class ViewComponent implements OnInit{
 
   }
 
-  
+
 
   async ngOnInit(){
     const uid = this.route.snapshot.params['uid'];

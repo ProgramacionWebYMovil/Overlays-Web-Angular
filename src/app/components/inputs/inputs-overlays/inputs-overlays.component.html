@@ -1,0 +1,19 @@
+<form [formGroup]="form" >
+  <label id="team1" for="team1">
+    Nombre del Equipo 1
+    <input name="team1" type="text" formControlName="team1">
+  </label>
+  <label id="team2" for="team2">
+    Nombre del Equipo 2
+    <input name="team2" type="text" formControlName="team2">
+  </label>
+  <label id="font" for="font">
+    Fuente del overlay
+    <mat-select [style]="'width:100%'" formControlName="font">
+      <ng-container *ngFor="let font of fonts">
+        <mat-option [style]="'border: 1px solid #ffbb00;'"[value]=font selected><span [style]="'font-family:'+font" class="mat-option-border">{{font}}</span></mat-option>
+      </ng-container>
+    </mat-select>
+  </label>
+  <button (click)="submit()">Aceptar cambios</button>
+</form>
