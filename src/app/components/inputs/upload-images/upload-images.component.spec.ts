@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputsFootballComponent } from './inputs-football.component';
+import { UploadImagesComponent } from './upload-images.component';
 
-describe('InputsFootballComponent', () => {
-  let component: InputsFootballComponent;
-  let fixture: ComponentFixture<InputsFootballComponent>;
+describe('UploadImagesComponent', () => {
+  let component: UploadImagesComponent;
+  let fixture: ComponentFixture<UploadImagesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputsFootballComponent ]
+      declarations: [ UploadImagesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InputsFootballComponent);
+    fixture = TestBed.createComponent(UploadImagesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

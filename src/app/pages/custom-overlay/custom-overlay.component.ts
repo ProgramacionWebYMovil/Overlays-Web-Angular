@@ -27,14 +27,12 @@ export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
     private overlayFirestoreService:OverlayFirestoreService
   ){
     this.overlayStateService.setupReloadHandler();
+    addEventListener('beforeunload',() => this.overlayFirestoreService.timeStampOverlay(this.customOverlayService.overlay.urlID))
   }
 
 
   ngAfterContentChecked(){
     this.customOverlayService.overlaySubject.subscribe(newOverlay => {
-      console.log(newOverlay);
-      console.log("hola");
-
       this.overlay = newOverlay.overlay;
       this.overlayData = newOverlay.overlayData;
       this.urlView = domain+"/view/"+this.overlay.userID+"/"+this.overlay.urlID;
@@ -54,6 +52,6 @@ export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
   }
 
   ngOnDestroy(){
-    this.overlayFirestoreService.timeStampOverlay();
+
   }
 }

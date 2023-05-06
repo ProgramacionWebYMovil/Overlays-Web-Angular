@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OverlayFirestoreService } from '../../firestore/overlay-firestore.service';
+import { CustomOverlayService } from '../../customOverlay/custom-overlay.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class ScorePaddleService {
   setActual!:number;
 
   constructor(
-    private db:OverlayFirestoreService
+    private db:OverlayFirestoreService,
+    private customOverlayService:CustomOverlayService
   ) {}
 
 
@@ -25,7 +27,7 @@ export class ScorePaddleService {
     if(this.setActual===4){
       this.writeScoreToDatabase();
       return;
-    } 
+    }
 
     if(this.sets1[this.setActual-1]===6 && this.sets2[this.setActual-1]===6) {
       this.tieBreak(player);
@@ -83,7 +85,7 @@ export class ScorePaddleService {
             this.sets1[this.setActual-1]++;
             break;
           case set1==6:
-            this.sets1[this.setActual-1]++; 
+            this.sets1[this.setActual-1]++;
             this.addSet(1);
             break;
         }
@@ -102,7 +104,7 @@ export class ScorePaddleService {
             this.sets2[this.setActual-1]++;
             break;
           case set2==6:
-            this.sets2[this.setActual-1]++; 
+            this.sets2[this.setActual-1]++;
             this.addSet(1);
             break;
         }
@@ -171,7 +173,7 @@ export class ScorePaddleService {
           break;
       }
     }
-    
+
   }
 
   endMatch(){
@@ -182,7 +184,7 @@ export class ScorePaddleService {
     //Condición para principio de partido
     if(this.point1===0 && this.point2===0 && this.sets1[0] === 0 && this.sets2[0] === 0) return;
     if(player===1){
-      this.point1 > 0 ? this.point1-- : this.removeGame(player); 
+      this.point1 > 0 ? this.point1-- : this.removeGame(player);
     }else{
       this.point2 > 0 ? this.point2-- : this.removeGame(player);
     }
@@ -246,7 +248,8 @@ export class ScorePaddleService {
         sets2:this.sets2,
         point1:this.point1,
         point2:this.point2,
-        setActual:this.setActual}
+        setActual:this.setActual},
+        this.customOverlayService.overlay.urlID
     );
   }
 

@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { OverlayFirestoreService } from '../../firestore/overlay-firestore.service';
+import { CustomOverlayService } from '../../customOverlay/custom-overlay.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,24 +9,17 @@ import { OverlayFirestoreService } from '../../firestore/overlay-firestore.servi
 export class ScoreFootballService{
   private _score!:{score1:number,score2:number}
 
-  private scoreSubject$ = new Subject<{score1:number,score2:number}>();
-
   constructor(
-    private overlayFirestoreService:OverlayFirestoreService
+    private overlayFirestoreService:OverlayFirestoreService,
+    private customOverlayService:CustomOverlayService
   ) {
   }
-
-  get scoreSubject(){
-    return this.scoreSubject$;
-  }
-
   get score():{score1:number,score2:number}{
     return this._score;
   }
   set scoreValues(score:{score1:number,score2:number}){
     this._score = {...score};
     console.log(this._score);
-    this.scoreSubject$.next(this._score)
   }
 
   public set score1(value: number) {
@@ -34,16 +28,13 @@ export class ScoreFootballService{
   }
 
   public set score2(value: number) {
-    console.log(this._score);
-
     this._score.score2 = value;
     this.updateScore();
   }
 
   private updateScore(){
-    this.scoreSubject$.next(this._score);
     //escribir en base de datos
-    this.overlayFirestoreService.writeOverlay(this._score)
+    this.overlayFirestoreService.writeOverlay(this._score,this.customOverlayService.overlay.urlID)
 
   }
 
