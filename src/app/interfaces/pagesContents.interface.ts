@@ -11,6 +11,7 @@ export interface Header {
   logged_option1?:string,
   logged_option2?:string,
   logged_option3?:string,
+  logged_option4?:string,
   prices_title?:string,
   language?:string
 }
@@ -150,4 +151,20 @@ export interface DialogData {
   result2?:string
 }
 
+export interface User {
+  userName?: string,
+  userEmail?: string,
+  userPhoto?:string
+}
+
+export interface Profile {
+  profile_tittle?:string,
+  profile_name?:string,
+  profile_email?:string,
+  profile_actual_pss?:string,
+  profile_new_pss?:string,
+  profile_update_btt?:string,
+  profile_select_file?:string,
+
+}
 

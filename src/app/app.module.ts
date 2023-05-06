@@ -50,6 +50,7 @@ import { PaddleComponent } from './components/fullComponents/paddle/paddle.compo
 import { ButtonsPaddleComponent } from './components/buttons/buttons-paddle/buttons-paddle.component';
 
 
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -81,6 +82,7 @@ import { ButtonsPaddleComponent } from './components/buttons/buttons-paddle/butt
     FootballComponent,
     ViewComponent,
     InputsFootballComponent,
+    ProfileComponent,
     OverlayPaddle1Component,
     PaddleComponent,
     ButtonsPaddleComponent
