@@ -30,11 +30,10 @@ export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
   }
 
 
-
-  //CUANDO SE HABRA EL EDIT OVERLAY POR PRIMARA VEZ, LLAMAME A timeStampOverlay() para kenai
   ngAfterContentChecked(){
     this.customOverlayService.overlaySubject.subscribe(newOverlay => {
       console.log(newOverlay);
+      console.log("hola");
 
       this.overlay = newOverlay.overlay;
       this.overlayData = newOverlay.overlayData;

@@ -45,6 +45,9 @@ import { InputsFootballComponent } from './components/inputs/inputs-football/inp
 import { environment } from 'src/environments/environment';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { OverlayPaddle1Component } from './components/overlays/overlay-paddle1/overlay-paddle1.component';
+import { PaddleComponent } from './components/fullComponents/paddle/paddle.component';
+import { ButtonsPaddleComponent } from './components/buttons/buttons-paddle/buttons-paddle.component';
 
 
 
@@ -77,7 +80,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ButtonsFootballComponent,
     FootballComponent,
     ViewComponent,
-    InputsFootballComponent
+    InputsFootballComponent,
+    OverlayPaddle1Component,
+    PaddleComponent,
+    ButtonsPaddleComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +114,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   providers: [
     ScreenTrackingService,
     UserTrackingService,
-
   ],
   bootstrap: [AppComponent]
 })

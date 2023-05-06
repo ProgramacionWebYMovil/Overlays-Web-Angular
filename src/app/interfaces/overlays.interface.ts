@@ -33,6 +33,28 @@ export interface OverlayFootball{
     colorBoxTimer:string;
 }
 
+export interface OverlayPadel {
+    team1:string,
+    team2:string,
+    service:boolean,
+    goldPoint:boolean,
+    setActual:number,
+    sets1:Array<number>,
+    sets2:Array<number>,
+    point1:number,
+    point2:number,
+    colorTeam:string,
+    colorBoxTeam:string,
+    colorService:string,
+    colorSetsWon:string,
+    colorSetsLost:string,
+    colorSetsBox:string,
+    colorPoint:string,
+    colorPointBox:string,
+    colorGoldPoint:string,
+    font:string
+}
+
 export interface OverlayBasketball {
 
 }

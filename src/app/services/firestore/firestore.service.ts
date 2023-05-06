@@ -9,7 +9,7 @@ import { Database } from '@angular/fire/database';
 import { OverlayFootball } from 'src/app/interfaces/overlays.interface';
 import { onSnapshot } from 'firebase/firestore';
 import { Observable } from 'rxjs';
-import { FootballOverlay1Default, ID, TYPE, TennisOverlay1Default, TimerOverlat1Default } from 'src/app/components/overlays/overlays-common';
+import { FootballOverlay1Default, ID, PaddleOverlay1Default, TYPE, TennisOverlay1Default, TimerOverlat1Default } from 'src/app/components/overlays/overlays-common';
 import { Basketball1Component } from 'src/app/components/overlays/overlay-basketball/basketball1/basketball1.component';
 import { Overlay } from '@angular/cdk/overlay';
 
@@ -140,6 +140,13 @@ export class FirestoreService {
         }
         break;
 
+      case TYPE.PADDLE:
+        switch(overlay.overlayID){
+          case ID.PADDLE_1_ID:
+            document = new PaddleOverlay1Default();
+            break;
+        }
+        break;
     }
     
     await setDoc(docRefScore,{

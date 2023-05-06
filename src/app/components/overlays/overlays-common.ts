@@ -1,22 +1,25 @@
-import { OverlayBasketball, OverlayFootball, OverlayTennis, OverlayTimer } from "src/app/interfaces/overlays.interface"
+import { OverlayBasketball, OverlayFootball, OverlayPadel, OverlayTennis, OverlayTimer } from "src/app/interfaces/overlays.interface"
 
 export const ID = {
   FOOTBALL_1_ID:1,
   TENNIS_1_ID:2,
   TIMER_1_ID:3,
-  BASKETBALL_1_ID: 4,
+  PADDLE_1_ID:4,
+  BASKETBALL_1_ID: 5
 }
 
 export const TYPE = {
   FOOTBALL:"football",
   BASKETBALL:"basketball",
   TENNIS:"tennis",
-  TIMER:"timer"
+  TIMER:"timer",
+  PADDLE:"paddle"
 }
 export const IMAGE_OVERLAY = [
   "assets/images/overlays_preview/football.png",
   "assets/images/overlays_preview/tennis.png",
   "assets/images/overlays_preview/timer.png",
+  "assets/images/overlays_preview/paddle.png"
 ]
 
 export class FootballOverlay1Default implements OverlayFootball{
@@ -40,10 +43,6 @@ export class FootballOverlay1Default implements OverlayFootball{
   colorBoxTimer: string = ""
 }
 
-export class BasketballOverlay1Default implements OverlayBasketball {
-  
-}
-
 export class TennisOverlay1Default implements OverlayTennis {
 
 }
@@ -51,5 +50,34 @@ export class TennisOverlay1Default implements OverlayTennis {
 export class TimerOverlat1Default implements OverlayTimer{
   
 }
+
+export class PaddleOverlay1Default implements OverlayPadel{
+  team1: string = "Pareja1";
+  team2: string = "Pareja2";
+  service: boolean = true;
+  goldPoint: boolean = true;
+  setActual: number = 1;
+  sets1: number[] = [0,0,0];
+  sets2: number[] = [0,0,0];
+  point1: number = 0;
+  point2: number = 0;
+  colorTeam: string = "white";
+  colorBoxTeam: string = "#04006B";
+  colorService: string = "#ffbb00";
+  colorSetsWon: string = "#000000";
+  colorSetsLost: string = "gray";
+  colorSetsBox: string = "white";
+  colorPoint: string = "white";
+  colorPointBox: string = "#04006B";
+  colorGoldPoint: string = "#ffbb00";
+  font: string = "Poppins-medium";
+
+}
+
+export class BasketballOverlay1Default implements OverlayBasketball {
+  
+}
+
+
 
 

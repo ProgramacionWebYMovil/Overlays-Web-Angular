@@ -1,0 +1,41 @@
+button{
+    color: var(--colorPrincipalOscuro) !important;
+    background-color: var(--colorTerciario) !important;
+    border: none;
+    border-radius: 0.3em;
+    height: 50px;
+    font-size: 1.5em;
+    font-family: Poppins-bold;
+}
+
+div{
+    display: grid;
+    align-items: center;
+    grid-template-areas: "add1 add2" "rem1 rem2" "service service" "reset reset";
+    padding: 1em 1em 0 1em;
+    gap:1em;
+}
+
+#service{
+    grid-area: service;
+}
+
+#add1{
+    grid-area: add1;
+}
+
+#add2{
+    grid-area: add2;
+}
+
+#rem1 {
+    grid-area: rem1;
+}
+
+#rem2 {
+    grid-area: rem2;
+}
+
+#reset {
+    grid-area: reset;
+}

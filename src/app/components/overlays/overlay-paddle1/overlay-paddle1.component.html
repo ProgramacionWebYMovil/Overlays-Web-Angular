@@ -1,0 +1,50 @@
+<div id="marcador" [ngStyle]="{'font-family':datos.font}">
+    <div class="nombres">
+        <div id="pareja1" [ngStyle]="{'background-color':datos.colorBoxTeam}">
+            <div id="nombre1" [ngStyle]="{
+                'background-color':datos.colorBoxTeam,
+                'color':datos.colorTeam,
+                'font-family':datos.font
+            }">{{datos.team1}}</div>
+            <div id="servicio1" [ngStyle]="{
+                'background-color':datos.colorService,
+                'visibility':datos.service ? 'visible' : 'hidden'
+            }"></div>
+        </div>
+        <div id="pareja2" [ngStyle]="{'background-color':datos.colorBoxTeam}">
+            <div id="nombre2" [ngStyle]="{
+                'color':datos.colorTeam,
+                'font-family':datos.font
+            }">{{datos.team1}}</div>
+            <div id="servicio2" [ngStyle]="{
+                'background-color':datos.colorService,
+                'visibility':datos.service ? 'hidden' : 'visible'
+            }"></div>
+        </div>
+        
+    </div>
+    <div id="setsEnteros">
+        <div class="sets">
+            <div id="set11" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets1[0]}}</div>
+            <div id="set12" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets2[0]}}</div>
+        </div>
+    <div class="sets">
+        <div id="set21" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets1[1]}}</div>
+        <div id="set22" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets2[1]}}</div>
+    </div>
+        <div class="sets">
+            <div id="set31" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets1[2]}}</div>
+            <div id="set32" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets2[2]}}</div>
+    </div>
+</div>
+    <div class="puntos">
+        <div id="puntos1" [ngStyle]="{
+            'color':datos.colorPoint,
+            'background-color':datos.colorPointBox
+        }">{{convertNumberToPoint(datos.point1)}}</div>
+        <div id="puntos2" [ngStyle]="{
+            'color':datos.colorPoint,
+            'background-color':datos.colorPointBox
+        }">{{convertNumberToPoint(datos.point2)}}</div>
+    </div>
+</div>
