@@ -89,7 +89,7 @@ export class CardOverlayComponent {
   }
 
   openDialog(): void {
-    
+
     const dialogRef = this.dialog.open(DialogComponentComponent, {
       data:{overlay:this.overlay, dialogData:this.dialogData},
       panelClass:'dialog-custom'

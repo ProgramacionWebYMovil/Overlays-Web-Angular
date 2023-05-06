@@ -44,12 +44,17 @@ import { ViewComponent } from './pages/view/view.component';
 import { environment } from 'src/environments/environment';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { InputsOverlaysComponent } from './components/inputs/inputs-overlays/inputs-overlays.component';
+import {InputsOverlaysComponent } from './components/inputs/inputs-overlays/inputs-overlays.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { UploadImagesComponent } from './components/inputs/upload-images/upload-images.component';
+import { OverlayPaddle1Component } from './components/overlays/overlay-paddle1/overlay-paddle1.component';
+import { PaddleComponent } from './components/fullComponents/paddle/paddle.component';
+import { ButtonsPaddleComponent } from './components/buttons/buttons-paddle/buttons-paddle.component';
 
+
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -82,7 +87,10 @@ import { UploadImagesComponent } from './components/inputs/upload-images/upload-
     ViewComponent,
     InputsOverlaysComponent,
     UploadImagesComponent,
-
+    ProfileComponent,
+    OverlayPaddle1Component,
+    PaddleComponent,
+    ButtonsPaddleComponent
   ],
   imports: [
     BrowserModule,
@@ -116,7 +124,6 @@ import { UploadImagesComponent } from './components/inputs/upload-images/upload-
   providers: [
     ScreenTrackingService,
     UserTrackingService,
-
   ],
   bootstrap: [AppComponent]
 })

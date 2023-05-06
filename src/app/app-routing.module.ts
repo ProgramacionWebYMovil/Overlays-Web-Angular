@@ -9,10 +9,11 @@ import { PricesComponent } from './pages/prices/prices.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { HowtouseComponent } from './pages/howtouse/howtouse.component';
 import { CustomOverlayComponent } from './pages/custom-overlay/custom-overlay.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { ViewComponent } from './pages/view/view.component';
 
 const routes: Routes = [
-  
+
   {path:'', component: IndexComponent},
   {path:'myOverlays', component: MyOverlaysComponent},
   {path:'overlays',component:OverlaysComponent},
@@ -21,9 +22,9 @@ const routes: Routes = [
   {path:'prices',component:PricesComponent},
   {path:'payment',component:PaymentComponent},
   {path:'howToUse',component:HowtouseComponent},
-  {path:'edit',component:CustomOverlayComponent},
+  {path: 'profile', component:ProfileComponent},
   {path:'view/:uid/:urlID', component:ViewComponent},
-  
+  {path:'edit',component:CustomOverlayComponent},
 
 
   { path: '**', pathMatch: 'full',component: PageNotFoundComponent }
