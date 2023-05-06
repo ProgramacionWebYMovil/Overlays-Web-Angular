@@ -1,9 +1,14 @@
-<ng-container *ngIf="!isCharge; else images" >
-  <mat-spinner></mat-spinner>
-</ng-container>
-<ng-template #images>
-  <label id="img1" for="imgTeam1">
-  <p>Sube una imagen del escudo del equipo</p>
-  <input name="imgTeam1" type="file" accept="image/*" (change)="onFileUpload($event)">
-</label></ng-template>
+<div id="tab-input">
+  <ng-container *ngIf="!isCharge; else images" >
+    <div class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-container>
+  <ng-template #images>
+    <label id="img1" for="imgTeam1">
+    <p>Sube una imagen del escudo del equipo</p>
+    <input name="imgTeam1" type="file" accept="image/*" (change)="onFileUpload($event)">
+  </label></ng-template>
+</div>
+
 

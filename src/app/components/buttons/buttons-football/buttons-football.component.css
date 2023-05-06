@@ -4,6 +4,7 @@ div{
     grid-template-areas: "add1 add2" "rem1 rem2" "reset reset";
     padding: 1em 1em 0 1em;
     gap:1em;
+    margin: 1em 0 1em 0;
 }
 
 button{
