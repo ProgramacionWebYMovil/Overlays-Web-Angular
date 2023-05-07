@@ -20,14 +20,20 @@ export class OverlayFirestoreService {
   ) {  }
 
   async createSuscribe(userID:string,urlID:number){
-    this.datos = new Observable(observer => {
-      let datos;
-      onSnapshot(doc(this.firestore,"Users",userID,"Overlays","Overlay "+urlID,"Data","score"), (doc) => {
-        datos = doc.data();
-        observer.next(datos);
+    //Crea la suscribcion si no está creada, si ya estaba creada retorna vacio
+    if(this.datos===undefined){
+      this.datos = new Observable(observer => {
+        let datos;
+        onSnapshot(doc(this.firestore,"Users",userID,"Overlays","Overlay "+urlID,"Data","score"), (doc) => {
+          datos = doc.data();
+          observer.next(datos);
+        });
+        return datos;
       });
-      return datos;
-    });
+    }else{
+      return;
+    }
+    
   }
 
   public suscribeOverlay():Observable<any> {
@@ -49,6 +55,21 @@ export class OverlayFirestoreService {
       ...data
     });
   }
+
+  // async readOverlayData(userID:string,urlID:number){
+  //   const ref =
+  //   doc(
+  //     this.firestore,
+  //     "Users",
+  //     userID,
+  //     "Overlays",
+  //     "Overlay "+urlID,
+  //     "Data",
+  //     "score"
+  //   );
+  //   const result = await getDoc(ref);
+  //   return result.data();
+  // }
 
   async readOverlayInfo(userID:string,urlID:number){
 

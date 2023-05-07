@@ -53,3 +53,16 @@ button {
 button:hover {
   color: #007bff;
 }
+#tab-input{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.spinner{
+    display: flex;
+    justify-content: center;
+}

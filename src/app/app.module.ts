@@ -56,6 +56,7 @@ import { ButtonsPaddleComponent } from './components/buttons/buttons-paddle/butt
 
 import { ProfileComponent } from './pages/profile/profile.component';
 import {MatCardModule} from '@angular/material/card';
+import { ChangeColorsComponent } from './components/inputs/change-colors/change-colors.component';
 
 
 
@@ -91,7 +92,8 @@ import {MatCardModule} from '@angular/material/card';
     ProfileComponent,
     OverlayPaddle1Component,
     PaddleComponent,
-    ButtonsPaddleComponent
+    ButtonsPaddleComponent,
+    ChangeColorsComponent
   ],
   imports: [
     BrowserModule,

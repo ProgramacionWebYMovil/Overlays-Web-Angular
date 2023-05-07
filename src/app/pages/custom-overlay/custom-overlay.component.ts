@@ -13,12 +13,12 @@ import { OverlayFirestoreService } from 'src/app/services/firestore/overlay-fire
   templateUrl: './custom-overlay.component.html',
   styleUrls: ['./custom-overlay.component.css']
 })
-export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
+export class CustomOverlayComponent  implements AfterContentChecked{
 
 
   overlay: Overlays = this.customOverlayService.overlay;
   overlayData:any = this.customOverlayService.overlayData;
-  urlView: string = ""
+  urlView: string = domain+"/view/"+this.overlay.userID+"/"+this.overlay.urlID;
 
   constructor(
     private customOverlayService:CustomOverlayService,
@@ -32,12 +32,12 @@ export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
 
 
   ngAfterContentChecked(){
+    //ESTO TAMPOCO NUNCA SE HACE, se pilla ya desde los parametros overlay y overlayData
     this.customOverlayService.overlaySubject.subscribe(newOverlay => {
       console.log(newOverlay);
 
       this.overlay = newOverlay.overlay;
       this.overlayData = newOverlay.overlayData;
-      this.urlView = domain+"/view/"+this.overlay.userID+"/"+this.overlay.urlID;
     });
   }
 
@@ -50,9 +50,8 @@ export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
       panelClass: ['snack-custom'],
       duration:3000
     });
-  }
-
-  ngOnDestroy(){
 
   }
+
+
 }

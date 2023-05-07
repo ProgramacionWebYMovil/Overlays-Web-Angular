@@ -39,3 +39,16 @@ div{
 #reset {
     grid-area: reset;
 }
+
+@media screen and (max-width:500px) {
+    div {
+        grid-template-rows: repeat(6,auto);
+        grid-template-areas: none;
+    }
+
+    #service , #reset, #add1, #add2, #rem1, #rem2{
+        grid-area: unset;
+    }
+
+  
+}

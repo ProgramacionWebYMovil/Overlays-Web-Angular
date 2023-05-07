@@ -16,6 +16,7 @@ export class CustomOverlayService{
   private currentOverlay: Overlays;
   private _overlayData: any;
 
+
   constructor(
     private auth:AuthenticationService,
     private firestoreService:FirestoreService,
@@ -56,13 +57,14 @@ export class CustomOverlayService{
 
   set overlayUrlId(urlID:number){
     this.currentOverlay.urlID = urlID;
-    this.loadRemainingOverlay();
+    //this.loadRemainingOverlay();
   }
   restartData(data: { overlayState: Overlays; overlayDataState:any; }) {
     this._overlayData = data.overlayDataState;
     this.currentOverlay = data.overlayState;
-    this.loadRemainingOverlay();
+    //this.loadRemainingOverlay();
     this.updateData();
+
   }
 
   private loadRemainingOverlay(){
@@ -83,6 +85,7 @@ export class CustomOverlayService{
   }
 
   private updateData(){
+    console.log(this.currentOverlay);
     this.subject.next({
       overlay:this.currentOverlay,
       overlayData:this._overlayData

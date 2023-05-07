@@ -10,14 +10,11 @@ import { LoadContentService } from 'src/app/services/load-content/load-content.s
 export class FooterComponent {
 
 
-  pageContent:Footer = {
-
-  }
+  pageContent:Footer = {}
 
   constructor (private load:LoadContentService){}
 
   ngOnInit() {
-
     this.load.loadContent("footer").then(data => this.pageContent=data);
   }
 
