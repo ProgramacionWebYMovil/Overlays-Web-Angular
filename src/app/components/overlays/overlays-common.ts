@@ -41,6 +41,9 @@ export class FootballOverlay1Default implements OverlayFootball{
   timer: string = "" 
   colorTimer: string = ""
   colorBoxTimer: string = ""
+  image1Url: string = "";
+  image2Url: string = "";
+
 }
 
 export class TennisOverlay1Default implements OverlayTennis {

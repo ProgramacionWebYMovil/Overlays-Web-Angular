@@ -5,6 +5,11 @@
         'background-color':datos.colorBoxTimer
             }">{{datos.timer}}</div>
     <ul class="container-scoreboard">
+        <li *ngIf="datos.image1Url===''" class="imagesBox" [ngStyle]="{
+            'background-color':datos.colorBoxTeam1
+        }">
+            <img class="images" src="{{datos.image1Url}}"/>
+        </li>
         <li class="team_box-scoreboard" id="box-team1">
             <div class="team_name-scoreboard" id="name_team1" [ngStyle]="{
                 'color':datos.colorTeam1,
@@ -35,6 +40,11 @@
                 'font-family':datos.font,
                 'background-color':datos.colorBoxTeam2
             }">{{datos.team2}}</div>
+        </li>
+        <li *ngIf="datos.image2Url===''" class="imagesBox" [ngStyle]="{
+            'background-color':datos.colorBoxTeam2
+        }">
+            <img class="images" src="{{datos.image1Url}}"/>
         </li>
     </ul>
 </div>

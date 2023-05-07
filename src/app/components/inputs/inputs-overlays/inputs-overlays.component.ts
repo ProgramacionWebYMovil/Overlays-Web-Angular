@@ -17,8 +17,7 @@ export class InputsOverlaysComponent implements OnInit {
   form = this.formBuilder.group({
     team1:[""],
     team2:[""],
-    font:[""],
-    selectedTeam:["team1"]
+    font:[""]
   })
   constructor(
     private formBuilder:FormBuilder,

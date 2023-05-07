@@ -33,7 +33,9 @@ export class OverlayFootball1Component implements OnInit,AfterContentChecked{
       colorBoxSpace: '',
       timer: '',
       colorTimer: '',
-      colorBoxTimer: ''
+      colorBoxTimer: '',
+      image1Url:'',
+      image2Url:''
     };
   constructor(
     private db:OverlayFirestoreService,

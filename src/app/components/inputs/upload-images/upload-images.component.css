@@ -1,8 +1,8 @@
 #imagesDiv {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .matCardButtons{
@@ -51,7 +51,7 @@ button {
 }
 
 button:hover {
-  color: #007bff;
+  color: #ffbb00;
 }
 #tab-input{
     height: 500px;
@@ -60,6 +60,7 @@ button:hover {
     align-items: center;
     margin-top: 2em;
     margin-bottom: 2em;
+    flex-direction: column;
 }
 
 .spinner{
