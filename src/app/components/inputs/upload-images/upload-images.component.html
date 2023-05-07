@@ -2,8 +2,22 @@
   <mat-spinner></mat-spinner>
 </ng-container>
 <ng-template #images>
+  <div id="imagesDiv">
+    <mat-card class="image" *ngFor="let image of userImages;">
+      <mat-card-content class="matContentImage">
+        <img [src]="image">
+      </mat-card-content>
+      <mat-card-actions class="matCardButtons">
+        <button>Team1</button>
+        <button id="delete">X</button>
+        <button>Team2</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
   <label id="img1" for="imgTeam1">
   <p>Sube una imagen del escudo del equipo</p>
-  <input name="imgTeam1" type="file" accept="image/*" (change)="onFileUpload($event)">
-</label></ng-template>
+  <input name="imgTeam1" type="file" accept="image/png" (change)="onFileUpload($event)">
+  </label>
+</ng-template>
 

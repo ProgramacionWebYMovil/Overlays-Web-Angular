@@ -33,6 +33,8 @@ export class CustomOverlayComponent  implements AfterContentChecked,OnDestroy{
 
   ngAfterContentChecked(){
     this.customOverlayService.overlaySubject.subscribe(newOverlay => {
+      console.log(newOverlay);
+
       this.overlay = newOverlay.overlay;
       this.overlayData = newOverlay.overlayData;
       this.urlView = domain+"/view/"+this.overlay.userID+"/"+this.overlay.urlID;

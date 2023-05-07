@@ -1,0 +1,55 @@
+#imagesDiv {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+
+}
+
+.matCardButtons{
+  display:none;
+  background-color:rgba(0, 0, 0, 0.5);
+  justify-content:space-evenly;
+  padding:5px;
+}
+
+.image:hover .matCardButtons{
+  display: flex;
+}
+
+.image {
+  background-color:inherit;
+  position: relative;
+  overflow: hidden;
+  height: max-content;
+}
+
+.image img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.matContentImage{
+  display: flex;
+  justify-content: center;
+  min-height: 5em;
+  box-shadow: none;
+}
+
+button {
+  color: #fff;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#delete{
+  color: red;
+  font-size: x-large;
+}
+
+button:hover {
+  color: #007bff;
+}

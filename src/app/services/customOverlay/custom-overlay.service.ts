@@ -3,6 +3,7 @@ import { Overlays } from 'src/app/interfaces/overlays.interface';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { FirestoreService } from '../firestore/firestore.service';
 import { Observable, Subject, Subscriber } from 'rxjs';
+import { OverlayFirestoreService } from '../firestore/overlay-firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class CustomOverlayService{
 
   constructor(
     private auth:AuthenticationService,
-    private firestoreService:FirestoreService
+    private firestoreService:FirestoreService,
+    private overlayFirestoreService:OverlayFirestoreService
     ){
     this.currentOverlay = {
       id:0,
@@ -64,13 +66,20 @@ export class CustomOverlayService{
   }
 
   private loadRemainingOverlay(){
-    this.firestoreService.getMyOverlays(this.auth.getCurrentUid()).then(data =>{
-      if(data.length != 0){
-        const sortedOverlays = this.sortOverlays(data);
-        this.currentOverlay = sortedOverlays[this.currentOverlay.urlID-1] as Overlays;;
-        this.updateData();
-      }
+
+    this.overlayFirestoreService
+    .readOverlayInfo(this.auth.getCurrentUid(),this.overlay.urlID).then(response => {
+      this.currentOverlay = response as Overlays;
+      this.updateData();
     })
+
+    // this.firestoreService.getMyOverlays(this.auth.getCurrentUid()).then(data =>{
+    //   if(data.length != 0){
+    //     const sortedOverlays = this.sortOverlays(data);
+    //     this.currentOverlay = sortedOverlays[this.currentOverlay.urlID-1] as Overlays;;
+    //     this.updateData();
+    //   }
+    // })
   }
 
   private updateData(){

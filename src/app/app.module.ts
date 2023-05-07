@@ -55,6 +55,7 @@ import { ButtonsPaddleComponent } from './components/buttons/buttons-paddle/butt
 
 
 import { ProfileComponent } from './pages/profile/profile.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -117,7 +118,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatSnackBarModule,
     MatTabsModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
