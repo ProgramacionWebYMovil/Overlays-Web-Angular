@@ -56,6 +56,8 @@ export class CustomOverlayService{
   }
 
   set overlayUrlId(urlID:number){
+    console.log(urlID);
+
     this.currentOverlay.urlID = urlID;
     this.loadRemainingOverlay();
   }

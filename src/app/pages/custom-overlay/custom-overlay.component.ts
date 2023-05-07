@@ -32,10 +32,7 @@ export class CustomOverlayComponent  implements AfterContentChecked{
 
 
   ngAfterContentChecked(){
-    //ESTO TAMPOCO NUNCA SE HACE, se pilla ya desde los parametros overlay y overlayData
     this.customOverlayService.overlaySubject.subscribe(newOverlay => {
-      console.log(newOverlay);
-
       this.overlay = newOverlay.overlay;
       this.overlayData = newOverlay.overlayData;
     });

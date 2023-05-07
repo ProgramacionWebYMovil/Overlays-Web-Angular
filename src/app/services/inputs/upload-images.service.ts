@@ -29,7 +29,6 @@ export class UploadImagesService {
 
   async onFileUpload(file:File) {
     const imgRef = ref(this.storage,this.IMAGE_STORAGE + file.name);
-    console.log(file);
     await uploadBytes(imgRef,file)
     .then(response => console.log(response))
     .catch(error => console.log(error));
@@ -46,16 +45,11 @@ export class UploadImagesService {
 
   async getStoragedImages(): Promise<void>{
     const imgRef = ref(this.storage,this.IMAGE_STORAGE);
-    console.log("Entrando");
 
     const response = await listAll(imgRef);
-
-    console.log("Saliendo")
-    console.log(response);
     this.userImages.splice(0);
     for (let item of response.items) {
       const url = await getDownloadURL(item);
-      console.log(url);
       this.userImages.push(url);
     }
     this.imagesSubject.next(this.userImages);

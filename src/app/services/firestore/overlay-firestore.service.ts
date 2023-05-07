@@ -13,6 +13,7 @@ import { get } from 'firebase/database';
 export class OverlayFirestoreService {
 
   public datos!:Observable<any>;
+  private currentUrlID = 0;
 
   constructor(
     private firestore:Firestore,
@@ -21,7 +22,7 @@ export class OverlayFirestoreService {
 
   async createSuscribe(userID:string,urlID:number){
     //Crea la suscribcion si no está creada, si ya estaba creada retorna vacio
-    if(this.datos===undefined){
+    if(this.currentUrlID!==urlID){
       this.datos = new Observable(observer => {
         let datos;
         onSnapshot(doc(this.firestore,"Users",userID,"Overlays","Overlay "+urlID,"Data","score"), (doc) => {
@@ -33,7 +34,7 @@ export class OverlayFirestoreService {
     }else{
       return;
     }
-    
+
   }
 
   public suscribeOverlay():Observable<any> {
@@ -80,6 +81,9 @@ export class OverlayFirestoreService {
       "Overlay "+urlID
       );
     const result = await getDoc(ref);
+
+    console.log(result);
+
 
     return result.data();
   }
