@@ -55,6 +55,7 @@ import { ButtonsPaddleComponent } from './components/buttons/buttons-paddle/butt
 
 
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ChangeColorsComponent } from './components/inputs/change-colors/change-colors.component';
 
 
 
@@ -90,7 +91,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ProfileComponent,
     OverlayPaddle1Component,
     PaddleComponent,
-    ButtonsPaddleComponent
+    ButtonsPaddleComponent,
+    ChangeColorsComponent
   ],
   imports: [
     BrowserModule,

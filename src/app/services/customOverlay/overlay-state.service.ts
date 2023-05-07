@@ -46,7 +46,7 @@ export class OverlayStateService {
   setupReloadHandler() {
 
     console.log("Asignando eventos...");
-    console.log("Segunda Marca" + Date.now());
+    console.log("Segunda Marca " + Date.now());
 
     window.addEventListener('DOMContentLoaded', () => {
       console.log("CARGADO");

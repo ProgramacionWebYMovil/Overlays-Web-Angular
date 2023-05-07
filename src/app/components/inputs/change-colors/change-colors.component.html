@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+    <div id="inputs">
+        <mat-form-field *ngFor="let color of colors; index as i">
+            <mat-label>{{color[0]}}</mat-label>
+            <input matNativeControl type="color" value={{color[1]}} formControlName={{color[0]}}>
+        </mat-form-field>
+    </div>
+        <button (click)="submit()">Aceptar cambios</button>
+</form>
