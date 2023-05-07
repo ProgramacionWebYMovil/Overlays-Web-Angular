@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  gap:50px
 }
 
 .matCardButtons{
@@ -16,11 +17,16 @@
   display: flex;
 }
 
+.mdc-card__actions{
+  min-height: unset;
+}
+
 .image {
   background-color:inherit;
   position: relative;
   overflow: hidden;
   height: max-content;
+  border-width: 1px;
 }
 
 .image img {
@@ -46,7 +52,7 @@ button {
 }
 
 #delete{
-  color: red;
+  color:red;
   font-size: x-large;
 }
 
@@ -54,7 +60,6 @@ button:hover {
   color: #ffbb00;
 }
 #tab-input{
-    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,3 +72,22 @@ button:hover {
     display: flex;
     justify-content: center;
 }
+
+p{
+  color:white;
+}
+
+/* #boton-input {
+  color:transparent;
+  color: var(--colorPrincipalOscuro);
+  background-color: var(--colorTerciario);
+  border: none;
+  border-radius: 0.3em;
+  height: 50px;
+  font-size: 1.5em;
+  font-family: Poppins-bold;
+} */
+
+
+
+

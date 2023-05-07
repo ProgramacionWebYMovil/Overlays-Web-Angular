@@ -12,16 +12,23 @@
         </mat-card-content>
         <mat-card-actions class="matCardButtons">
           <button>Team1</button>
-          <button id="delete">X</button>
+          <button id="delete">
+            <i class="bi bi-x-lg"></i>
+          </button>
           <button>Team2</button>
         </mat-card-actions>
       </mat-card>
 
     </div>
-    <label id="img1" for="imgTeam1">
-    <p>Sube una imagen del escudo del equipo</p>
-    <input name="imgTeam1" type="file" accept="image/png" (change)="onFileUpload($event)">
-    </label>
+    <div class="input-wrapper">
+      <p>Sube una imagen del escudo del equipo</p>
+      <input id="inputFile" name="imgTeam1" type="file" accept="image/png" (change)="onFileUpload($event)">
+      
+    </div>
+    <!-- <label id="img1" for="imgTeam1"> -->
+    
+    
+    <!-- </label> -->
   </ng-template>
 </div>
 

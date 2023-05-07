@@ -172,7 +172,6 @@ export class FirestoreService {
 
   async deleteOverlay(userId:string, urlId:number){
     await deleteDoc(doc(this.firestore,"Users",userId,"Overlays","Overlay "+urlId));
-
   }
 
   changeOverlaysDetails(userID:string,urlID:number,data:any){
