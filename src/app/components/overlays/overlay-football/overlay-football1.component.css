@@ -17,7 +17,7 @@
 .team_name-scoreboard {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     background: #04006B;
     color: white;
     padding: 10px;
@@ -26,7 +26,7 @@
 .score-scoreboard {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     justify-self: center;
     background-color: rgba(255, 187, 0, 0.8);
     padding: 10px;
@@ -36,7 +36,7 @@
 #space {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     color: #04006B;
     padding: 10px;
     background-color: white;
@@ -44,7 +44,7 @@
 
 #title-scoreboard {
     text-align: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 /* #name_team1{
@@ -57,11 +57,24 @@
 
 .imagesBox{
   display: flex;
+  height: 100%;
+  
   align-items: center;
+}
+
+.imagesBox:first-child{
+    border-radius:0.2em 0 0 0.2em;
+}
+
+.imagesBox:last-child{
+    border-radius: 0 0.2em 0.2em 0;
 }
 
 .images{
   max-width: 2em;
   max-height: 2em;
+  padding: 0 7px 0 7px;
 }
+
+
 

@@ -5,12 +5,13 @@
         'background-color':datos.colorBoxTimer
             }">{{datos.timer}}</div>
     <ul class="container-scoreboard">
-        <li *ngIf="datos.image1Url !=''" class="imagesBox" [ngStyle]="{
-            'background-color':datos.colorBoxTeam1
-        }">
-            <img class="images" [src]="datos.image1Url"/>
-        </li>
+            
         <li class="team_box-scoreboard" id="box-team1">
+            <div *ngIf="datos.image1Url !=''" class="imagesBox" [ngStyle]="{
+                'background-color':datos.colorBoxTeam1
+            }">
+                <img class="images" [src]="datos.image1Url"/>
+            </div>
             <div class="team_name-scoreboard" id="name_team1" [ngStyle]="{
                 'color':datos.colorTeam1,
                 'font-family':datos.font,
@@ -39,12 +40,12 @@
                 'color':datos.colorTeam2,
                 'font-family':datos.font,
                 'background-color':datos.colorBoxTeam2
-            }">{{datos.team2}} <img class="images" [src]="datos.image2Url"/> </div>
-        </li>
-        <li *ngIf="datos.image2Url !=''" class="imagesBox" [ngStyle]="{
-            'background-color':datos.colorBoxTeam2
-        }">
-
+            }">{{datos.team2}}</div>
+            <div class="imagesBox" *ngIf="datos.image2Url !=''" [ngStyle]="{
+                'background-color':datos.colorBoxTeam2
+            }">
+                <img class="images" [src]="datos.image2Url"/>
+            </div>
         </li>
     </ul>
 </div>
