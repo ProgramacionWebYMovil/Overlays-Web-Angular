@@ -18,7 +18,6 @@ export class InputsOverlaysComponent implements OnInit {
     team1:[""],
     team2:[""],
     font:[""],
-    selectedTeam:["team1"]
   })
   constructor(
     private formBuilder:FormBuilder,
@@ -26,12 +25,6 @@ export class InputsOverlaysComponent implements OnInit {
     private customOverlayService:CustomOverlayService,
     private auth:AuthenticationService
   ){
-    const defaultStyle = window.getComputedStyle(document.body, null);
-    const fonts = defaultStyle.getPropertyValue('font-family');
-    console.log(fonts);
-    document.fonts
-
-
   }
   ngOnInit(): void {
 
@@ -42,7 +35,6 @@ export class InputsOverlaysComponent implements OnInit {
       let value = values[prop as keyof (typeof values)];
       if(!value || value == "") delete values[prop as keyof (typeof values)];
     }
-    console.log(values);
     this.overlayFirestoreService.writeOverlay(values,this.customOverlayService.overlay.urlID);
   }
 }

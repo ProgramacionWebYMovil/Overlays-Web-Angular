@@ -19,7 +19,6 @@ export class ScoreFootballService{
   }
   set scoreValues(score:{score1:number,score2:number}){
     this._score = {...score};
-    console.log(this._score);
   }
 
   public set score1(value: number) {

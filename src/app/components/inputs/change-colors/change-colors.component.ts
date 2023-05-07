@@ -25,13 +25,9 @@ export class ChangeColorsComponent implements OnInit{
     this.overlayFirestoreService.suscribeOverlay().subscribe(data => {
       this.overlayData = data;
       if(this.colors===undefined){
-        console.log("Hola");
         this.createForm();
       }
-      
     })
-    
-
   }
 
   createForm(){

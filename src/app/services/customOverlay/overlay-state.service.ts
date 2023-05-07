@@ -10,16 +10,10 @@ export class OverlayStateService {
   private appStateKey = 'overlayState';
 
   constructor(private customOverlayService:CustomOverlayService) {
-    window.addEventListener('load', () => {
-      console.log("CARGADO");
-
-    },false);
     this.restoreAppState();
   }
 
   private saveAppState() {
-    console.log("Guardando datos");
-
     const temp={
       overlayState: this.customOverlayService.overlay,
       overlayDataState : this.customOverlayService.overlayData
@@ -44,19 +38,7 @@ export class OverlayStateService {
   }
 
   setupReloadHandler() {
-
-    console.log("Asignando eventos...");
-    console.log("Segunda Marca " + Date.now());
-
-    window.addEventListener('DOMContentLoaded', () => {
-      console.log("CARGADO");
-
-    },false);
-
-
-
     window.addEventListener('beforeunload', () => this.saveAppState());
-
   }
 }
 
