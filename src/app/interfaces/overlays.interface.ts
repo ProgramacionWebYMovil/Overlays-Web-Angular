@@ -31,6 +31,8 @@ export interface OverlayFootball{
     timer:string;
     colorTimer:string;
     colorBoxTimer:string;
+    image1Url:string;
+    image2Url:string;
 }
 
 export interface OverlayPadel {

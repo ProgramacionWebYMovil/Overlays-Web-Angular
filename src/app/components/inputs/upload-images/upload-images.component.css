@@ -15,11 +15,10 @@
 }
 
 #imagesDiv {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #images{
@@ -72,5 +71,19 @@ button {
 }
 
 button:hover {
-  color: #007bff;
+  color: #ffbb00;
+}
+#tab-input{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    flex-direction: column;
+}
+
+.spinner{
+    display: flex;
+    justify-content: center;
 }
