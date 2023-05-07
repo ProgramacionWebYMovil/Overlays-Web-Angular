@@ -57,12 +57,12 @@ export class CustomOverlayService{
 
   set overlayUrlId(urlID:number){
     this.currentOverlay.urlID = urlID;
-    //this.loadRemainingOverlay();
+    this.loadRemainingOverlay();
   }
   restartData(data: { overlayState: Overlays; overlayDataState:any; }) {
     this._overlayData = data.overlayDataState;
     this.currentOverlay = data.overlayState;
-    //this.loadRemainingOverlay();
+    this.loadRemainingOverlay();
     this.updateData();
 
   }
@@ -71,7 +71,11 @@ export class CustomOverlayService{
 
     this.overlayFirestoreService
     .readOverlayInfo(this.auth.getCurrentUid(),this.overlay.urlID).then(response => {
+      console.log("HOLA" +response);
+
       this.currentOverlay = response as Overlays;
+      console.log(this.currentOverlay);
+
       this.updateData();
     })
 
