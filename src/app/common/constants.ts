@@ -1,4 +1,4 @@
-export const domain = "localhost:4200";
+export const domain = "streamingoverlays-3f50d.web.app";
 
 export const fontFamilies = [
   "Roboto, sans-serif",
