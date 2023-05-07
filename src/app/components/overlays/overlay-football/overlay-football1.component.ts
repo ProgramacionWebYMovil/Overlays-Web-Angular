@@ -54,9 +54,6 @@ export class OverlayFootball1Component implements OnInit,AfterContentChecked{
       // }else{
       //   this.datos = this.customOverlayService.overlayData as OverlayFootball;
       // }
-
-      console.log(this.customOverlayService.overlay);
-
       await this.db.createSuscribe(this.customOverlayService.overlay.userID,this.customOverlayService.overlay.urlID);
       this.db.suscribeOverlay().subscribe(datos => {
         console.log(datos);

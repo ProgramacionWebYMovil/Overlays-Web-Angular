@@ -1,3 +1,19 @@
+#tab-input{
+  height: 500px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  grid-template-rows: 1fr 1fr;
+}
+
+.spinner{
+  display: flex;
+  justify-content: center;
+
+}
+
 #imagesDiv {
   display: flex;
   flex-wrap: wrap;
@@ -6,6 +22,10 @@
   gap:50px
 }
 
+#images{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
 .matCardButtons{
   display:none;
   background-color:rgba(0, 0, 0, 0.5);

@@ -20,7 +20,7 @@ export class UploadImagesComponent {
     })
     this.uploadImageService.getChargeSubject().subscribe(isCharge => {
       this.isCharge = isCharge;
-      //this.uploadImageService.getChargeSubject().unsubscribe();
+      this.uploadImageService.getChargeSubject().unsubscribe();
       this.uploadImageService.getStoragedImages();
     });
 
@@ -30,5 +30,13 @@ export class UploadImagesComponent {
   onFileUpload(event:any){
     const file = event.target.files[0];
     this.uploadImageService.onFileUpload(file);
+  }
+
+  deleteImage(image:string){
+    this.uploadImageService.deleteImage(image);
+  }
+
+  addToTeam(team:1|2,image:string){
+    this.uploadImageService.setImageToTeam(team,image);
   }
 }

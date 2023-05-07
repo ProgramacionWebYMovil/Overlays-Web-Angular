@@ -81,10 +81,6 @@ export class OverlayFirestoreService {
       "Overlay "+urlID
       );
     const result = await getDoc(ref);
-
-    console.log(result);
-
-
     return result.data();
   }
 
@@ -99,6 +95,8 @@ export class OverlayFirestoreService {
         date: Timestamp.now()
       });
   }
+
+  
 
 
 

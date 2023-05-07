@@ -47,10 +47,21 @@
     margin-bottom: 20px;
 }
 
-#name_team1{
+/* #name_team1{
     border-radius:0.1em 0 0 0.1em;
 }
 
 #name_team2 {
     border-radius: 0 0.1em 0.1em 0;
+} */
+
+.imagesBox{
+  display: flex;
+  align-items: center;
 }
+
+.images{
+  max-width: 2em;
+  max-height: 2em;
+}
+
