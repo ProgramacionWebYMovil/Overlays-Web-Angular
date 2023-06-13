@@ -2,7 +2,7 @@
 #marcador{
 	display:flex;
 	justify-content: center;
-	font-size: larger;
+	font-size: 2em;
 }
 
 
@@ -62,6 +62,10 @@
 	padding: 10px 15px 10px 15px;
 	border-radius: 0px 5px 5px 0px;
 	margin-bottom: 2px;
+}
+
+.puntos {
+	text-align: center;
 }
 
 

@@ -25,26 +25,44 @@
     </div>
     <div id="setsEnteros">
         <div class="sets">
-            <div id="set11" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets1[0]}}</div>
-            <div id="set12" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets2[0]}}</div>
+            <div id="set11" [ngStyle]="{
+                'background-color':datos.colorSetsBox,
+                'color': (datos.sets1[0]<datos.sets2[0] && datos.setActual>1) ? datos.colorSetsLost : 'unset' 
+            }">{{datos.sets1[0]}}</div>
+            <div id="set12" [ngStyle]="{
+                'background-color':datos.colorSetsBox,
+                'color': (datos.sets1[0]>datos.sets2[0] && datos.setActual>1) ? datos.colorSetsLost:'unset'
+            }">{{datos.sets2[0]}}</div>
         </div>
     <div class="sets">
-        <div id="set21" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets1[1]}}</div>
-        <div id="set22" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets2[1]}}</div>
+        <div id="set21" *ngIf="datos.setActual>1" [ngStyle]="{
+            'background-color':datos.colorSetsBox,
+            'color': datos.sets1[1]<datos.sets2[1] && datos.setActual>2 ?  datos.colorSetsLost : 'unset' 
+        }">{{datos.sets1[1]}}</div>
+        <div id="set22" *ngIf="datos.setActual>1" [ngStyle]="{
+            'background-color':datos.colorSetsBox,
+            'color': datos.sets1[1]>datos.sets2[1] && datos.setActual>2 ? datos.colorSetsLost:'unset'
+        }">{{datos.sets2[1]}}</div>
     </div>
         <div class="sets">
-            <div id="set31" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets1[2]}}</div>
-            <div id="set32" [ngStyle]="{'background-color':datos.colorSetsBox}">{{datos.sets2[2]}}</div>
+            <div id="set31" *ngIf="datos.setActual>2" [ngStyle]="{
+                'background-color':datos.colorSetsBox,
+                'color': datos.sets1[2]<datos.sets2[2] && datos.setActual>3 ? datos.colorSetsLost : 'unset' 
+            }">{{datos.sets1[2]}}</div>
+            <div id="set32" *ngIf="datos.setActual>2" [ngStyle]="{
+                'background-color':datos.colorSetsBox,
+                'color': datos.sets1[2]>datos.sets2[2] && datos.setActual>3 ? datos.colorSetsLost : 'unset' 
+            }">{{datos.sets2[2]}}</div>
     </div>
 </div>
     <div class="puntos">
         <div id="puntos1" [ngStyle]="{
-            'color':datos.colorPoint,
-            'background-color':datos.colorPointBox
+            'color':datos.point1===3 && datos.point2===3 && datos.sets1[datos.setActual-1]!=6 ? datos.colorPointBox : datos.colorPoint,
+            'background-color':datos.point1===3 && datos.point2===3 && datos.sets1[datos.setActual-1]!=6 ? datos.colorGoldPoint : datos.colorPointBox
         }">{{convertNumberToPoint(datos.point1)}}</div>
         <div id="puntos2" [ngStyle]="{
-            'color':datos.colorPoint,
-            'background-color':datos.colorPointBox
+            'color':datos.point1===3 && datos.point2===3 && datos.sets2[datos.setActual-1]!=6 ? datos.colorPointBox : datos.colorPoint,
+            'background-color':datos.point1===3 && datos.point2===3 && datos.sets2[datos.setActual-1]!=6 ? datos.colorGoldPoint : datos.colorPointBox
         }">{{convertNumberToPoint(datos.point2)}}</div>
     </div>
 </div>

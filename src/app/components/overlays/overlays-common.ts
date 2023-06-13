@@ -65,15 +65,15 @@ export class PaddleOverlay1Default implements OverlayPadel{
   point1: number = 0;
   point2: number = 0;
   colorTeam: string = "white";
-  colorBoxTeam: string = "#04006B";
+  colorBoxTeam: string = "#032a88";
   colorService: string = "#ffbb00";
   colorSetsWon: string = "#000000";
   colorSetsLost: string = "gray";
   colorSetsBox: string = "white";
   colorPoint: string = "white";
-  colorPointBox: string = "#04006B";
+  colorPointBox: string = "#032a88";
   colorGoldPoint: string = "#ffbb00";
-  font: string = "Poppins-medium";
+  font: string = "sans-serif";
 
 }
 

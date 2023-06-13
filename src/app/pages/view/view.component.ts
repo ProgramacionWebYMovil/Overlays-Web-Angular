@@ -30,5 +30,7 @@ export class ViewComponent implements OnInit{
     const uid = this.route.snapshot.params['uid'];
     const urlID = this.route.snapshot.params['urlID'];
     this.overlay = await this.overlayFirestoreService.readOverlayInfo(uid,urlID) as Overlays;
+    const body = document.querySelector("body");
+    //if (body != undefined) body.style.backgroundColor = 'white';
   }
 }

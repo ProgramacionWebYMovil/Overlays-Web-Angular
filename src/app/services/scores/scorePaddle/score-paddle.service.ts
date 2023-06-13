@@ -63,7 +63,7 @@ export class ScorePaddleService {
   }
 
   addGame(player:number){
-
+    
     //RESETEO LOS PUNTOS DEL JUEGO
     this.point1 = 0;
     this.point2 = 0;
@@ -105,7 +105,7 @@ export class ScorePaddleService {
             break;
           case set2==6:
             this.sets2[this.setActual-1]++;
-            this.addSet(1);
+            this.addSet(2);
             break;
         }
         break;
